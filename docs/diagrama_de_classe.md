@@ -13,6 +13,7 @@ classDiagram
         -senha : String
         -email : String
         -id : int
+        -cuponsUsados : ArrayList<>
     }
     
     
@@ -31,6 +32,11 @@ classDiagram
         <<enumeration>>
         PORCENTAGEM
         VALORADO
+    }
+
+    GuardarCupons <|-- Posto
+    class GuardarCupons{
+        + HashMap()
     }
     
     tipoDoCupom *-- Cupom
