@@ -22,7 +22,7 @@ classDiagram
         - HashMap Postos
     }
 
-    Entidade --|> MotoristaComum
+    Entidade <|-- MotoristaComum
     class MotoristaComum{
         + CriarPostagem(idPosto)
     }
@@ -33,7 +33,7 @@ classDiagram
         VALORADO
     }
     
-    tipoDoCupom --* Cupom
+    tipoDoCupom *-- Cupom
     class Cupom{
         - idCupom : String
         - tipo : tipoDoCupom
@@ -42,17 +42,17 @@ classDiagram
         - dataFim : LocalDateTime
     }
     
-    Cupom ..> ControladorDeCupons
-    Entidade --|> Posto
-    ControladorDeCupons --|> Posto
+    Cupom <.. ControladorDeCupons
+    Entidade <|-- Posto
+    ControladorDeCupons <|-- Posto
     class Posto{
     
     }
 
-    Entidade --|> Administrador
-    ModeradorDeConteudo --|> Administrador
-    ControladorDeUsuarios --|> Administrador
-    ControladorDeCupons --|> Administrador
+    Entidade <|-- Administrador
+    ModeradorDeConteudo <|-- Administrador
+    ControladorDeUsuarios <|-- Administrador
+    ControladorDeCupons <|-- Administrador
     class Administrador{
         
     }
