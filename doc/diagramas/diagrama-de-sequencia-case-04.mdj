@@ -34,7 +34,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGauGxVjeE8Kzg="
 							},
-							"name": "Interaction1",
+							"name": "Registrar Conta",
 							"ownedElements": [
 								{
 									"_type": "UMLSequenceDiagram",
@@ -63,10 +63,10 @@
 													"font": "Arial;13;0",
 													"parentStyle": true,
 													"left": 192.72998046875,
-													"top": 37,
-													"width": 67.9326171875,
+													"top": 29,
+													"width": 91.0380859375,
 													"height": 13,
-													"text": "Interaction1"
+													"text": "Registrar Conta"
 												},
 												{
 													"_type": "LabelView",
@@ -77,7 +77,7 @@
 													"font": "Arial;13;1",
 													"parentStyle": true,
 													"left": 173,
-													"top": 37,
+													"top": 29,
 													"width": 13.72998046875,
 													"height": 13,
 													"text": "sd"
@@ -86,7 +86,7 @@
 											"font": "Arial;13;0",
 											"parentStyle": false,
 											"left": 168,
-											"top": 32,
+											"top": 24,
 											"width": 692,
 											"height": 456,
 											"nameLabel": {
@@ -152,9 +152,9 @@
 															"font": "Arial;13;0",
 															"parentStyle": true,
 															"left": -64,
-															"width": 106.20263671875,
+															"width": 129.30810546875,
 															"height": 13,
-															"text": "(from Interaction1)"
+															"text": "(from Registrar Conta)"
 														},
 														{
 															"_type": "LabelView",
@@ -407,9 +407,9 @@
 															"font": "Arial;13;0",
 															"parentStyle": true,
 															"left": -160,
-															"width": 106.20263671875,
+															"width": 129.30810546875,
 															"height": 13,
-															"text": "(from Interaction1)"
+															"text": "(from Registrar Conta)"
 														},
 														{
 															"_type": "LabelView",
