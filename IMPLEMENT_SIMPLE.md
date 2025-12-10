@@ -546,8 +546,8 @@ npm run dev
 
 ### Semana 1: Fundação
 - [x] Setup do projeto (backend + frontend)
-- [ ] Criar entidades e banco de dados
-- [ ] CRUD básico de Postos
+- [x] Criar entidades e banco de dados
+- [x] CRUD básico de Postos
 
 ### Semana 2: Funcionalidades Core
 - [ ] Ranking de preços
