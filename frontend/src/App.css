@@ -1,0 +1,225 @@
+/* Home Page */
+.home-page .hero {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.home-page .hero h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+}
+
+.home-page .stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--surface);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.stat-label {
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+.home-page .actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.posto-card {
+    background: var(--surface);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.posto-card h4 {
+    margin-bottom: 0.5rem;
+}
+
+.posto-card .endereco {
+    color: var(--text-light);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.posto-card .precos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.posto-card .preco {
+    font-size: 0.875rem;
+}
+
+.posto-card .preco.gasolina {
+    color: var(--danger-color);
+}
+
+.posto-card .preco.etanol {
+    color: var(--success-color);
+}
+
+/* Ranking Page */
+.ranking-page h2 {
+    margin-bottom: 1.5rem;
+}
+
+.filtros {
+    background: var(--surface);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.filtros select {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.posto-list table {
+    width: 100%;
+    background: var(--surface);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-collapse: collapse;
+}
+
+.posto-list th,
+.posto-list td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+.posto-list th {
+    background: #f1f5f9;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.posto-list tr:last-child td {
+    border-bottom: none;
+}
+
+.posto-list tr:hover {
+    background: #f8fafc;
+}
+
+.ranking-position {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.posto-nome {
+    font-weight: 500;
+}
+
+.posto-list .preco {
+    font-family: monospace;
+    font-size: 1rem;
+}
+
+/* Cadastro Page */
+.cadastro-page h2 {
+    margin-bottom: 1.5rem;
+}
+
+.form-cadastro {
+    background: var(--surface);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    max-width: 600px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .posto-list table {
+        font-size: 0.875rem;
+    }
+
+    .posto-list th,
+    .posto-list td {
+        padding: 0.75rem 0.5rem;
+    }
+}

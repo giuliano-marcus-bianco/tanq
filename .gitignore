@@ -1,57 +1,55 @@
-# Dependencies
+# Dependências
 node_modules/
 .pnp
 .pnp.js
 
-# Build outputs
-dist/
-build/
-.next/
-out/
-
-# Testing
+# Testes
 coverage/
 
-# Environment variables
+# Build
+dist/
+build/
+target/
+*.class
+*.jar
+.gradle/
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ambiente
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# IDE
-.idea/
-.vscode/
-*.swp
-*.swo
-
 # OS
 .DS_Store
 Thumbs.db
 
-# Logs
-logs/
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
 
-# Prisma
-prisma/migrations/*.sql
+# Spring Boot
+*.pid
 
-# Expo
-.expo/
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-*.orig.*
-web-build/
-
-# Metro
-.metro-health-check*
-
-# Temporary files
-*.tmp
-*.temp
+# Frontend
+.vite/

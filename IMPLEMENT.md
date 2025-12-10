@@ -760,7 +760,7 @@ tanq/
 ## 📅 Cronograma Sugerido (Sprint de 2 semanas)
 
 ### Sprint 1: Fundação
-- [ ] Setup do projeto (monorepo, linting, CI/CD)
+- [x] Setup do projeto (monorepo, linting, CI/CD)
 - [ ] Modelagem do banco de dados
 - [ ] CRUD de Usuários e Autenticação
 - [ ] Telas de Login/Cadastro no mobile
