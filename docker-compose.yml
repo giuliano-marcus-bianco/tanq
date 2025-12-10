@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  # PostgreSQL with PostGIS for geospatial queries
+  postgres:
+    image: postgis/postgis:16-3.4
+    container_name: tanq-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: tanq
+      POSTGRES_USER: tanq_user
+      POSTGRES_PASSWORD: tanq_pass
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U tanq_user -d tanq']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis for caching
+  redis:
+    image: redis:7-alpine
+    container_name: tanq-redis
+    restart: unless-stopped
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend API (optional - for full stack development)
+  # Uncomment when ready to run the full stack
+  # api:
+  #   build: ./backend
+  #   container_name: tanq-api
+  #   restart: unless-stopped
+  #   ports:
+  #     - '3000:3000'
+  #   environment:
+  #     NODE_ENV: development
+  #     DATABASE_URL: postgresql://tanq_user:tanq_pass@postgres:5432/tanq?schema=public
+  #     REDIS_URL: redis://redis:6379
+  #     JWT_SECRET: dev-secret-change-in-production
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+  #     redis:
+  #       condition: service_healthy
+  #   volumes:
+  #     - ./backend:/app
+  #     - /app/node_modules
+
+volumes:
+  postgres_data:
+  redis_data:

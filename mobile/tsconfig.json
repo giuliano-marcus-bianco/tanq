@@ -1,0 +1,57 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "ESNext",
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
+    "jsx": "react-native",
+    "moduleResolution": "bundler",
+    "module": "ESNext",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@services/*": [
+        "src/services/*"
+      ],
+      "@stores/*": [
+        "src/stores/*"
+      ],
+      "@types/*": [
+        "src/types/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "extends": "expo/tsconfig.base"
+}
