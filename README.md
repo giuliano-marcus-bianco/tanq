@@ -56,3 +56,75 @@ A principal dor que buscamos curar é a **falta de transparência e a grande var
 ### Nossa Motivação ✅
 
 A motivação por trás do **Tanq** é **empoderar o consumidor** 💪, colocando o controle sobre o abastecimento na palma da sua mão. Acreditamos que, com a força da comunidade e da tecnologia, podemos ajudar milhares de pessoas a economizar. Nossa visão é simples: criar uma relação onde todos saem ganhando, gerando economia para os motoristas e mais clientes para os postos que oferecem o melhor custo-benefício.
+
+---
+
+## 🛠️ Como Rodar o Projeto
+
+### Pré-requisitos
+
+- [Docker](https://www.docker.com/get-started) instalado
+- [Java 21](https://adoptium.net/) instalado
+- [Node.js 18+](https://nodejs.org/) instalado
+
+### 1. Subir o Banco de Dados (MySQL via Docker)
+
+```bash
+docker-compose up -d
+```
+
+O MySQL estará disponível em `localhost:3307` com as credenciais:
+- **Database:** tanq
+- **Usuário:** tanq
+- **Senha:** tanq123
+
+### 2. Rodar o Backend (Spring Boot)
+
+```bash
+cd backend
+.\gradlew bootRun
+```
+
+A API estará disponível em **http://localhost:8080/api**
+
+### 3. Rodar o Frontend (React + Vite)
+
+Em um **novo terminal**:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+O frontend estará disponível em **http://localhost:5173**
+
+### Modo Alternativo (sem Docker)
+
+Para rodar sem Docker, usando H2 em memória:
+
+```bash
+cd backend
+.\gradlew bootRun --args='--spring.profiles.active=h2'
+```
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
+├── backend/          # Spring Boot + Java 21
+│   ├── src/main/java/com/tanq/
+│   │   ├── controller/   # Endpoints REST
+│   │   ├── service/      # Lógica de negócio
+│   │   ├── repository/   # Acesso a dados
+│   │   └── model/        # Entidades JPA
+│   └── build.gradle
+├── frontend/         # React + Vite
+│   ├── src/
+│   │   ├── pages/        # Páginas (Home, Ranking, Cadastro)
+│   │   ├── components/   # Componentes reutilizáveis
+│   │   └── services/     # Chamadas à API
+│   └── package.json
+└── docker-compose.yml    # MySQL container
+```

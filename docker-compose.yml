@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: tanq-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tanq
+      MYSQL_USER: tanq
+      MYSQL_PASSWORD: tanq123
+    ports:
+      - "3307:3306"
+    volumes:
+      - tanq-mysql-data:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  tanq-mysql-data:
+    name: tanq-mysql-data
