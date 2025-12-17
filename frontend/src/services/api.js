@@ -56,4 +56,14 @@ export const usuarioService = {
   deletar: (id) => api.delete(`/usuarios/${id}`),
 };
 
+// Serviço de Avaliações
+export const avaliacaoService = {
+  listarTodos: () => api.get('/avaliacoes'),
+  listarPorPosto: (postoId) => api.get(`/avaliacoes/posto/${postoId}`),
+  mediaPorPosto: (postoId) => api.get(`/avaliacoes/posto/${postoId}/media`),
+  criar: (avaliacao, usuarioId) => api.post('/avaliacoes', { ...avaliacao, usuarioId }),
+  deletar: (id, usuarioId) => api.delete(`/avaliacoes/${id}?usuarioId=${usuarioId}`),
+};
+
 export default api;
+

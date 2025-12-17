@@ -791,13 +791,13 @@ npm run dev
 - [x] Implementação de todos os testes unitários core
 
 ### Semana 3: Avaliações
-- [ ] Implementação do sistema de avaliações
-- [ ] Exibição das informações de avaliações, como média, número de avaliações e comentários no frontend
-- [ ] Implementação de todos os testes unitários
+- [x] Implementação do sistema de avaliações
+- [x] Exibição das informações de avaliações, como média, número de avaliações e comentários no frontend
+- [x] Implementação de todos os testes unitários das avaliações
 
 ### Semana 4: Finalização
-- [ ] Melhorar a estilização para deixar com um design profissional
-- [ ] Testes finais
+- [ ] Melhorar a estilização para deixar com um design e uma experiência do usuário profissional
+- [ ] Implemente todos os testes da aplicação
 - [ ] Deixar tudo pronto para a documentação e apresentação
 
 ---

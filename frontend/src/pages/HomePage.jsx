@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { postoService, precoService } from '../services/api';
 import { useAuth } from '../contexts/AuthContext';
 import MapaPostos from '../components/MapaPostos';
+import PostoCard from '../components/PostoCard';
 
 // Formata o endereço para exibição
 function getEnderecoFormatado(posto) {
@@ -133,40 +134,14 @@ function HomePage() {
           <>
             <div className="posts-grid">
               {postosParaExibir.map((posto) => (
-                <div key={posto.id} className="posto-card">
-                  <div className="posto-header">
-                    <h4>{posto.nome}</h4>
-                    {podeDeletarPosto(posto) && (
-                      <button 
-                        className="btn btn-danger btn-sm"
-                        onClick={() => handleDeletePosto(posto.id)}
-                      >
-                        ✕
-                      </button>
-                    )}
-                  </div>
-                  <p className="endereco">{getEnderecoFormatado(posto)}</p>
-                  <div className="precos">
-                    {precos[posto.id]?.GASOLINA && (
-                      <span className="preco gasolina">
-                        ⛽ Gasolina: R$ {Number(precos[posto.id].GASOLINA).toFixed(2)}
-                      </span>
-                    )}
-                    {precos[posto.id]?.ETANOL && (
-                      <span className="preco etanol">
-                        🌿 Etanol: R$ {Number(precos[posto.id].ETANOL).toFixed(2)}
-                      </span>
-                    )}
-                    {precos[posto.id]?.DIESEL && (
-                      <span className="preco diesel">
-                        🛢️ Diesel: R$ {Number(precos[posto.id].DIESEL).toFixed(2)}
-                      </span>
-                    )}
-                    {!precos[posto.id] && (
-                      <span className="sem-preco">Sem preços cadastrados</span>
-                    )}
-                  </div>
-                </div>
+                <PostoCard
+                  key={posto.id}
+                  posto={posto}
+                  precos={precos[posto.id]}
+                  onDelete={() => handleDeletePosto(posto.id)}
+                  podeDeletar={podeDeletarPosto(posto)}
+                  getEnderecoFormatado={getEnderecoFormatado}
+                />
               ))}
             </div>
 
@@ -188,3 +163,4 @@ function HomePage() {
 }
 
 export default HomePage;
+
