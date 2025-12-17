@@ -1,35 +1,53 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { postoService } from '../services/api';
+import { postoService, precoService } from '../services/api';
+import { useAuth } from '../contexts/AuthContext';
 
 function CadastroPage() {
   const navigate = useNavigate();
+  const { usuario } = useAuth();
   const [loading, setLoading] = useState(false);
   const [erro, setErro] = useState('');
   const [sucesso, setSucesso] = useState('');
+  const [tabAtiva, setTabAtiva] = useState('preco'); // 'posto' ou 'preco'
+  const [postos, setPostos] = useState([]);
   
-  const [formData, setFormData] = useState({
+  // Form Posto
+  const [formPosto, setFormPosto] = useState({
     nome: '',
     endereco: '',
-    precoGasolina: '',
-    precoEtanol: '',
-    precoDiesel: '',
   });
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+  // Form Preço
+  const [formPreco, setFormPreco] = useState({
+    postoId: '',
+    tipoCombustivel: 'GASOLINA',
+    valor: '',
+  });
+
+  useEffect(() => {
+    carregarPostos();
+  }, []);
+
+  async function carregarPostos() {
+    try {
+      const response = await postoService.listarTodos();
+      setPostos(response.data);
+    } catch (err) {
+      console.error('Erro ao carregar postos:', err);
+    }
   }
 
-  async function handleSubmit(e) {
+  // Verificar permissões
+  const podeAdicionarPosto = usuario && (usuario.tipo === 'ADMINISTRADOR' || usuario.tipo === 'DONO_POSTO');
+  const podeAdicionarPreco = !!usuario; // Qualquer usuário logado pode adicionar preço
+
+  async function handleSubmitPosto(e) {
     e.preventDefault();
     setErro('');
     setSucesso('');
     
-    if (!formData.nome.trim()) {
+    if (!formPosto.nome.trim()) {
       setErro('Nome do posto é obrigatório.');
       return;
     }
@@ -37,129 +55,168 @@ function CadastroPage() {
     setLoading(true);
 
     try {
-      const posto = {
-        nome: formData.nome,
-        endereco: formData.endereco || null,
-        precoGasolina: formData.precoGasolina ? parseFloat(formData.precoGasolina) : null,
-        precoEtanol: formData.precoEtanol ? parseFloat(formData.precoEtanol) : null,
-        precoDiesel: formData.precoDiesel ? parseFloat(formData.precoDiesel) : null,
-      };
-
-      await postoService.criar(posto);
+      await postoService.criar(formPosto, usuario.id);
       setSucesso('Posto cadastrado com sucesso!');
-      
-      // Limpar formulário
-      setFormData({
-        nome: '',
-        endereco: '',
-        precoGasolina: '',
-        precoEtanol: '',
-        precoDiesel: '',
-      });
-
-      // Redirecionar após 2 segundos
-      setTimeout(() => {
-        navigate('/ranking');
-      }, 2000);
-
+      setFormPosto({ nome: '', endereco: '' });
+      carregarPostos();
+      setTimeout(() => navigate('/ranking'), 2000);
     } catch (err) {
-      console.error('Erro ao cadastrar:', err);
-      setErro('Erro ao cadastrar posto. Verifique os dados e tente novamente.');
+      setErro(err.response?.data?.erro || 'Erro ao cadastrar posto.');
     } finally {
       setLoading(false);
     }
   }
 
+  async function handleSubmitPreco(e) {
+    e.preventDefault();
+    setErro('');
+    setSucesso('');
+    
+    if (!formPreco.postoId || !formPreco.valor) {
+      setErro('Selecione um posto e informe o valor.');
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      await precoService.criar(formPreco, usuario.id);
+      setSucesso('Preço cadastrado com sucesso!');
+      setFormPreco({ postoId: '', tipoCombustivel: 'GASOLINA', valor: '' });
+      setTimeout(() => navigate('/ranking'), 2000);
+    } catch (err) {
+      setErro(err.response?.data?.erro || 'Erro ao cadastrar preço.');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  if (!usuario) {
+    return (
+      <div className="cadastro-page">
+        <h2>📝 Cadastro</h2>
+        <div className="mensagem erro">
+          Você precisa estar logado para cadastrar postos ou preços.
+        </div>
+        <button className="btn btn-primary" onClick={() => navigate('/login')}>
+          Fazer Login
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="cadastro-page">
-      <h2>📝 Cadastrar Novo Posto</h2>
+      <h2>📝 Cadastrar</h2>
+
+      <div className="tabs">
+        <button 
+          className={`tab ${tabAtiva === 'preco' ? 'active' : ''}`}
+          onClick={() => setTabAtiva('preco')}
+        >
+          ⛽ Novo Preço
+        </button>
+        {podeAdicionarPosto && (
+          <button 
+            className={`tab ${tabAtiva === 'posto' ? 'active' : ''}`}
+            onClick={() => setTabAtiva('posto')}
+          >
+            🏪 Novo Posto
+          </button>
+        )}
+      </div>
 
       {erro && <div className="mensagem erro">{erro}</div>}
       {sucesso && <div className="mensagem sucesso">{sucesso}</div>}
 
-      <form onSubmit={handleSubmit} className="form-cadastro">
-        <div className="form-group">
-          <label htmlFor="nome">Nome do Posto *</label>
-          <input
-            type="text"
-            id="nome"
-            name="nome"
-            value={formData.nome}
-            onChange={handleChange}
-            placeholder="Ex: Posto Shell Centro"
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="endereco">Endereço</label>
-          <input
-            type="text"
-            id="endereco"
-            name="endereco"
-            value={formData.endereco}
-            onChange={handleChange}
-            placeholder="Ex: Rua Principal, 100"
-          />
-        </div>
-
-        <div className="form-row">
+      {tabAtiva === 'preco' && (
+        <form onSubmit={handleSubmitPreco} className="form-cadastro">
+          <h3>Cadastrar Preço de Combustível</h3>
+          
           <div className="form-group">
-            <label htmlFor="precoGasolina">Gasolina (R$)</label>
+            <label htmlFor="postoId">Posto *</label>
+            <select
+              id="postoId"
+              value={formPreco.postoId}
+              onChange={(e) => setFormPreco({...formPreco, postoId: e.target.value})}
+              required
+            >
+              <option value="">Selecione um posto</option>
+              {postos.map(posto => (
+                <option key={posto.id} value={posto.id}>{posto.nome}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="tipoCombustivel">Tipo de Combustível *</label>
+            <select
+              id="tipoCombustivel"
+              value={formPreco.tipoCombustivel}
+              onChange={(e) => setFormPreco({...formPreco, tipoCombustivel: e.target.value})}
+            >
+              <option value="GASOLINA">Gasolina</option>
+              <option value="ETANOL">Etanol</option>
+              <option value="DIESEL">Diesel</option>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="valor">Preço (R$) *</label>
             <input
               type="number"
-              id="precoGasolina"
-              name="precoGasolina"
-              value={formData.precoGasolina}
-              onChange={handleChange}
+              id="valor"
+              value={formPreco.valor}
+              onChange={(e) => setFormPreco({...formPreco, valor: e.target.value})}
               placeholder="5.89"
               step="0.01"
               min="0"
+              required
+            />
+          </div>
+
+          <div className="form-actions">
+            <button type="submit" className="btn btn-primary" disabled={loading}>
+              {loading ? 'Cadastrando...' : 'Cadastrar Preço'}
+            </button>
+          </div>
+        </form>
+      )}
+
+      {tabAtiva === 'posto' && podeAdicionarPosto && (
+        <form onSubmit={handleSubmitPosto} className="form-cadastro">
+          <h3>Cadastrar Novo Posto</h3>
+          
+          <div className="form-group">
+            <label htmlFor="nome">Nome do Posto *</label>
+            <input
+              type="text"
+              id="nome"
+              value={formPosto.nome}
+              onChange={(e) => setFormPosto({...formPosto, nome: e.target.value})}
+              placeholder="Ex: Posto Shell Centro"
+              required
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="precoEtanol">Etanol (R$)</label>
+            <label htmlFor="endereco">Endereço</label>
             <input
-              type="number"
-              id="precoEtanol"
-              name="precoEtanol"
-              value={formData.precoEtanol}
-              onChange={handleChange}
-              placeholder="3.99"
-              step="0.01"
-              min="0"
+              type="text"
+              id="endereco"
+              value={formPosto.endereco}
+              onChange={(e) => setFormPosto({...formPosto, endereco: e.target.value})}
+              placeholder="Ex: Rua Principal, 100"
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="precoDiesel">Diesel (R$)</label>
-            <input
-              type="number"
-              id="precoDiesel"
-              name="precoDiesel"
-              value={formData.precoDiesel}
-              onChange={handleChange}
-              placeholder="5.49"
-              step="0.01"
-              min="0"
-            />
+          <div className="form-actions">
+            <button type="submit" className="btn btn-primary" disabled={loading}>
+              {loading ? 'Cadastrando...' : 'Cadastrar Posto'}
+            </button>
           </div>
-        </div>
-
-        <div className="form-actions">
-          <button type="submit" className="btn btn-primary" disabled={loading}>
-            {loading ? 'Cadastrando...' : 'Cadastrar Posto'}
-          </button>
-          <button 
-            type="button" 
-            className="btn btn-secondary"
-            onClick={() => navigate('/ranking')}
-          >
-            Cancelar
-          </button>
-        </div>
-      </form>
+        </form>
+      )}
     </div>
   );
 }

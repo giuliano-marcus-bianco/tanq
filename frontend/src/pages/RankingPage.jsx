@@ -1,24 +1,34 @@
 import { useState, useEffect } from 'react';
-import { postoService } from '../services/api';
-import PostoList from '../components/PostoList';
+import { precoService, postoService } from '../services/api';
+import { useAuth } from '../contexts/AuthContext';
 
 function RankingPage() {
-  const [postos, setPostos] = useState([]);
+  const [precos, setPrecos] = useState([]);
+  const [postos, setPostos] = useState({});
   const [loading, setLoading] = useState(true);
-  const [tipoRanking, setTipoRanking] = useState('gasolina');
+  const [tipoCombustivel, setTipoCombustivel] = useState('GASOLINA');
   const [error, setError] = useState(null);
+  const { usuario } = useAuth();
 
   useEffect(() => {
     carregarRanking();
-  }, [tipoRanking]);
+  }, [tipoCombustivel]);
 
   async function carregarRanking() {
     setLoading(true);
     try {
-      const response = tipoRanking === 'gasolina' 
-        ? await postoService.ranking()
-        : await postoService.rankingEtanol();
-      setPostos(response.data);
+      // Carregar ranking de preços
+      const precosResponse = await precoService.ranking(tipoCombustivel);
+      setPrecos(precosResponse.data);
+      
+      // Carregar postos para mostrar nomes
+      const postosResponse = await postoService.listarTodos();
+      const postosMap = {};
+      postosResponse.data.forEach(p => {
+        postosMap[p.id] = p;
+      });
+      setPostos(postosMap);
+      
       setError(null);
     } catch (err) {
       console.error('Erro ao carregar ranking:', err);
@@ -28,16 +38,27 @@ function RankingPage() {
     }
   }
 
-  async function handleDelete(id) {
-    if (window.confirm('Tem certeza que deseja excluir este posto?')) {
+  async function handleDelete(precoId) {
+    if (!usuario) {
+      alert('Você precisa estar logado para deletar preços.');
+      return;
+    }
+
+    if (window.confirm('Tem certeza que deseja excluir este preço?')) {
       try {
-        await postoService.deletar(id);
+        await precoService.deletar(precoId, usuario.id);
         carregarRanking();
       } catch (err) {
         console.error('Erro ao deletar:', err);
-        alert('Erro ao deletar posto.');
+        alert(err.response?.data?.erro || 'Erro ao deletar preço.');
       }
     }
+  }
+
+  function podeDeletar(preco) {
+    if (!usuario) return false;
+    if (usuario.tipo === 'ADMINISTRADOR') return true;
+    return preco.usuarioId === usuario.id;
   }
 
   return (
@@ -45,13 +66,14 @@ function RankingPage() {
       <h2>🏆 Ranking de Preços</h2>
       
       <div className="filtros">
-        <label>Ordenar por:</label>
+        <label>Tipo de combustível:</label>
         <select 
-          value={tipoRanking} 
-          onChange={(e) => setTipoRanking(e.target.value)}
+          value={tipoCombustivel} 
+          onChange={(e) => setTipoCombustivel(e.target.value)}
         >
-          <option value="gasolina">Menor preço de Gasolina</option>
-          <option value="etanol">Menor preço de Etanol</option>
+          <option value="GASOLINA">Gasolina</option>
+          <option value="ETANOL">Etanol</option>
+          <option value="DIESEL">Diesel</option>
         </select>
       </div>
 
@@ -60,7 +82,48 @@ function RankingPage() {
       {loading ? (
         <div className="loading">Carregando ranking...</div>
       ) : (
-        <PostoList postos={postos} onDelete={handleDelete} />
+        <div className="posto-list">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Posto</th>
+                <th>Preço</th>
+                <th>Endereço</th>
+                {usuario && <th>Ações</th>}
+              </tr>
+            </thead>
+            <tbody>
+              {precos.map((preco, index) => (
+                <tr key={preco.id}>
+                  <td className="ranking-position">{index + 1}º</td>
+                  <td className="posto-nome">{postos[preco.postoId]?.nome || 'Posto não encontrado'}</td>
+                  <td className="preco">R$ {preco.valor?.toFixed(2)}</td>
+                  <td>{postos[preco.postoId]?.endereco || '-'}</td>
+                  {usuario && (
+                    <td>
+                      {podeDeletar(preco) && (
+                        <button 
+                          className="btn btn-danger btn-sm"
+                          onClick={() => handleDelete(preco.id)}
+                        >
+                          Excluir
+                        </button>
+                      )}
+                    </td>
+                  )}
+                </tr>
+              ))}
+              {precos.length === 0 && (
+                <tr>
+                  <td colSpan={usuario ? 5 : 4} style={{ textAlign: 'center' }}>
+                    Nenhum preço cadastrado para este combustível.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );

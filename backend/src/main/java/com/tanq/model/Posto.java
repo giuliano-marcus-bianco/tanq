@@ -2,7 +2,6 @@ package com.tanq.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -23,25 +22,21 @@ public class Posto {
 
     private Double longitude;
 
-    @Column(name = "preco_gasolina", precision = 10, scale = 3)
-    private BigDecimal precoGasolina;
+    @Column(name = "dono_id")
+    private Long donoId;
 
-    @Column(name = "preco_etanol", precision = 10, scale = 3)
-    private BigDecimal precoEtanol;
-
-    @Column(name = "preco_diesel", precision = 10, scale = 3)
-    private BigDecimal precoDiesel;
-
-    @Column(name = "atualizado_em")
-    private LocalDateTime atualizadoEm;
+    @Column(name = "criado_em")
+    private LocalDateTime criadoEm;
 
     // Construtores
     public Posto() {
+        this.criadoEm = LocalDateTime.now();
     }
 
     public Posto(String nome, String endereco) {
         this.nome = nome;
         this.endereco = endereco;
+        this.criadoEm = LocalDateTime.now();
     }
 
     // Getters e Setters
@@ -85,35 +80,19 @@ public class Posto {
         this.longitude = longitude;
     }
 
-    public BigDecimal getPrecoGasolina() {
-        return precoGasolina;
+    public Long getDonoId() {
+        return donoId;
     }
 
-    public void setPrecoGasolina(BigDecimal precoGasolina) {
-        this.precoGasolina = precoGasolina;
+    public void setDonoId(Long donoId) {
+        this.donoId = donoId;
     }
 
-    public BigDecimal getPrecoEtanol() {
-        return precoEtanol;
+    public LocalDateTime getCriadoEm() {
+        return criadoEm;
     }
 
-    public void setPrecoEtanol(BigDecimal precoEtanol) {
-        this.precoEtanol = precoEtanol;
-    }
-
-    public BigDecimal getPrecoDiesel() {
-        return precoDiesel;
-    }
-
-    public void setPrecoDiesel(BigDecimal precoDiesel) {
-        this.precoDiesel = precoDiesel;
-    }
-
-    public LocalDateTime getAtualizadoEm() {
-        return atualizadoEm;
-    }
-
-    public void setAtualizadoEm(LocalDateTime atualizadoEm) {
-        this.atualizadoEm = atualizadoEm;
+    public void setCriadoEm(LocalDateTime criadoEm) {
+        this.criadoEm = criadoEm;
     }
 }

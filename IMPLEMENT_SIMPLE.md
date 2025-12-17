@@ -303,7 +303,239 @@ class PostoServiceTest {
 
 ---
 
-## 📱 Frontend (React + Vite)
+## � Usuários e Autenticação
+
+### Entidade Usuario (`Usuario.java`)
+
+```java
+@Entity
+@Table(name = "usuarios")
+public class Usuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(nullable = false, unique = true)
+    private String email;
+    
+    @Column(nullable = false)
+    private String senha;
+    
+    @Column(nullable = false)
+    private String nome;
+    
+    @Enumerated(EnumType.STRING)
+    private TipoUsuario tipo = TipoUsuario.MOTORISTA;
+    
+    private LocalDateTime criadoEm;
+    
+    // Getters e Setters
+}
+
+public enum TipoUsuario {
+    MOTORISTA, DONO_POSTO, ADMINISTRADOR
+}
+```
+
+### Controller de Autenticação (`AuthController.java`)
+
+```java
+@RestController
+@RequestMapping("/api/auth")
+@CrossOrigin(origins = "http://localhost:5173")
+public class AuthController {
+    
+    @Autowired
+    private UsuarioService usuarioService;
+    
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
+        String email = credentials.get("email");
+        String senha = credentials.get("senha");
+        
+        Optional<Usuario> usuario = usuarioService.autenticar(email, senha);
+        
+        if (usuario.isPresent()) {
+            return ResponseEntity.ok(Map.of(
+                "id", usuario.get().getId(),
+                "nome", usuario.get().getNome(),
+                "email", usuario.get().getEmail()
+            ));
+        }
+        return ResponseEntity.status(401).body(Map.of("erro", "Credenciais inválidas"));
+    }
+    
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@RequestBody Usuario usuario) {
+        try {
+            Usuario novo = usuarioService.registrar(usuario);
+            return ResponseEntity.status(201).body(Map.of(
+                "id", novo.getId(),
+                "nome", novo.getNome()
+            ));
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(Map.of("erro", e.getMessage()));
+        }
+    }
+}
+```
+
+### Frontend: Contexto de Autenticação (`AuthContext.jsx`)
+
+```jsx
+import { createContext, useContext, useState, useEffect } from 'react';
+import { authService } from '../services/api';
+
+const AuthContext = createContext(null);
+
+export function AuthProvider({ children }) {
+  const [usuario, setUsuario] = useState(null);
+
+  useEffect(() => {
+    const usuarioSalvo = authService.obterUsuario();
+    if (usuarioSalvo) setUsuario(usuarioSalvo);
+  }, []);
+
+  const login = async (email, senha) => {
+    const response = await authService.login(email, senha);
+    authService.salvarUsuario(response.data);
+    setUsuario(response.data);
+  };
+
+  const logout = () => {
+    authService.logout();
+    setUsuario(null);
+  };
+
+  return (
+    <AuthContext.Provider value={{ usuario, login, logout, estaLogado: !!usuario }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+
+export const useAuth = () => useContext(AuthContext);
+```
+
+### Página de Login (`LoginPage.jsx`)
+
+```jsx
+function LoginPage() {
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [erro, setErro] = useState('');
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      await login(email, senha);
+      navigate('/');
+    } catch (error) {
+      setErro('Email ou senha inválidos');
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
+      <input type="password" value={senha} onChange={e => setSenha(e.target.value)} />
+      {erro && <p className="erro">{erro}</p>}
+      <button type="submit">Entrar</button>
+    </form>
+  );
+}
+```
+
+### Usuários de Demonstração
+
+| Email | Senha | Tipo |
+|-------|-------|------|
+| admin@tanq.com | admin123 | Administrador |
+| joao@email.com | 123456 | Motorista |
+| maria@posto.com | 123456 | Dono de Posto |
+
+---
+
+## 🔐 Sistema de Permissões por Tipo de Usuário
+
+O sistema implementa controle de acesso baseado no tipo de usuário:
+
+### Regras de Acesso
+
+| Tipo | Postos | Preços |
+|------|--------|--------|
+| **Administrador** | Criar/Deletar qualquer | Criar/Deletar qualquer |
+| **Dono de Posto** | Criar/Deletar próprios | Criar/Deletar preços dos seus postos |
+| **Motorista** | Não pode | Criar/Deletar próprios preços |
+
+### Modelo de Dados Atualizado
+
+A entidade `Preco` foi separada de `Posto` para rastrear quem cadastrou cada preço:
+
+```java
+@Entity
+@Table(name = "precos")
+public class Preco {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    private Long postoId;
+    
+    @Enumerated(EnumType.STRING)
+    private TipoCombustivel tipoCombustivel; // GASOLINA, ETANOL, DIESEL
+    
+    private BigDecimal valor;
+    
+    private Long usuarioId; // Quem cadastrou o preço
+    
+    private LocalDateTime criadoEm;
+}
+```
+
+A entidade `Posto` agora tem `donoId`:
+
+```java
+@Entity
+@Table(name = "postos")
+public class Posto {
+    private Long id;
+    private String nome;
+    private String endereco;
+    private Double latitude;
+    private Double longitude;
+    private Long donoId; // Quem criou o posto
+    private LocalDateTime criadoEm;
+}
+```
+
+### Verificação de Permissão no Service
+
+```java
+public void deletar(Long id, Long usuarioId, TipoUsuario tipoUsuario) {
+    Posto posto = postoRepository.findById(id).orElseThrow();
+    
+    // Administrador pode deletar qualquer posto
+    if (tipoUsuario == TipoUsuario.ADMINISTRADOR) {
+        postoRepository.deleteById(id);
+        return;
+    }
+    
+    // Dono só pode deletar posto que criou
+    if (tipoUsuario == TipoUsuario.DONO_POSTO && posto.getDonoId().equals(usuarioId)) {
+        postoRepository.deleteById(id);
+        return;
+    }
+    
+    throw new RuntimeException("Permissão negada");
+}
+```
+
+---
+
+## �📱 Frontend (React + Vite)
 
 ### Criar Projeto
 
@@ -548,11 +780,16 @@ npm run dev
 - [x] Setup do projeto (backend + frontend)
 - [x] Criar entidades e banco de dados
 - [x] CRUD básico de Postos
+- [x] CRUD de Usuários e Autenticação
+- [x] Telas de Login/Cadastro no frontend
 
 ### Semana 2: Funcionalidades Core
 - [ ] Ranking de preços
 - [ ] Listar postos no frontend
 - [ ] Formulário de cadastro
+- [ ] Integração com Maps
+- [ ] Mapa interativo no mobile
+- [ ] Testes unitários core
 
 ### Semana 3: Avaliações
 - [ ] Sistema de avaliações
@@ -560,9 +797,9 @@ npm run dev
 - [ ] Testes unitários
 
 ### Semana 4: Finalização
-- [ ] Estilização CSS
+- [ ] Melhorar a estilização para deixar com um design profissional
 - [ ] Testes finais
-- [ ] Documentação e apresentação
+- [ ] Deixar a documentação e apresentação
 
 ---
 
@@ -579,7 +816,295 @@ npm run dev
 
 ---
 
-## 💡 Dicas para a Apresentação
+## �️ Mapa Interativo com Exibição de Postos
+
+O mapa interativo é uma funcionalidade central do Tanq, permitindo que usuários visualizem postos de combustível ao seu redor com preços e avaliações.
+
+### Objetivos
+
+- Visualizar postos de combustível no mapa com marcadores
+- Exibir informações de preço e avaliação ao clicar no marcador
+- Centralizar o mapa na localização do usuário
+- Permitir navegação e zoom no mapa
+
+### Biblioteca Recomendada
+
+Para o **frontend web (React + Vite)**, usamos a biblioteca **Leaflet**:
+
+```bash
+npm install leaflet react-leaflet
+```
+
+| Biblioteca | Função |
+|------------|--------|
+| `leaflet` | Mapas interativos open-source |
+| `react-leaflet` | Componentes React para Leaflet |
+
+### Estrutura de Arquivos
+
+```
+frontend/src/
+├── components/
+│   └── MapaPostos.jsx       # Componente do mapa
+├── pages/
+│   └── MapaPage.jsx         # Página do mapa
+└── services/
+    └── api.js               # Já existente (endpoint /postos)
+```
+
+---
+
+### Backend: Endpoint para Postos com Coordenadas
+
+O backend já possui o modelo `Posto` com campos `latitude` e `longitude`. Certifique-se que os dados incluem coordenadas:
+
+```sql
+-- Atualizar postos com coordenadas de exemplo (Florianópolis/SC)
+UPDATE postos SET latitude = -27.5954, longitude = -48.5480 WHERE id = 1;
+UPDATE postos SET latitude = -27.5969, longitude = -48.5495 WHERE id = 2;
+UPDATE postos SET latitude = -27.6000, longitude = -48.5520 WHERE id = 3;
+```
+
+---
+
+### Frontend: Componente do Mapa (`MapaPostos.jsx`)
+
+```jsx
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { useEffect, useState } from 'react';
+import { postoService } from '../services/api';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+
+// Corrigir ícones do Leaflet (problema conhecido com bundlers)
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+});
+
+// Componente para centralizar no usuário
+function LocalizacaoUsuario({ posicao }) {
+  const map = useMap();
+  useEffect(() => {
+    if (posicao) {
+      map.setView(posicao, 14);
+    }
+  }, [posicao, map]);
+  return null;
+}
+
+function MapaPostos() {
+  const [postos, setPostos] = useState([]);
+  const [posicaoUsuario, setPosicaoUsuario] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // Posição padrão (Florianópolis)
+  const posicaoPadrao = [-27.5969, -48.5480];
+
+  useEffect(() => {
+    // Carregar postos do backend
+    async function carregarPostos() {
+      try {
+        const response = await postoService.listarTodos();
+        setPostos(response.data);
+      } catch (error) {
+        console.error('Erro ao carregar postos:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    // Obter localização do usuário
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setPosicaoUsuario([position.coords.latitude, position.coords.longitude]);
+        },
+        (error) => {
+          console.warn('Erro ao obter localização:', error);
+        }
+      );
+    }
+
+    carregarPostos();
+  }, []);
+
+  if (loading) return <p>Carregando mapa...</p>;
+
+  return (
+    <div style={{ height: '500px', width: '100%' }}>
+      <MapContainer
+        center={posicaoUsuario || posicaoPadrao}
+        zoom={13}
+        style={{ height: '100%', width: '100%' }}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        
+        <LocalizacaoUsuario posicao={posicaoUsuario} />
+
+        {postos.map((posto) => (
+          posto.latitude && posto.longitude && (
+            <Marker key={posto.id} position={[posto.latitude, posto.longitude]}>
+              <Popup>
+                <strong>{posto.nome}</strong><br />
+                <span>Gasolina: R$ {posto.precoGasolina?.toFixed(2)}</span><br />
+                <span>Etanol: R$ {posto.precoEtanol?.toFixed(2)}</span><br />
+                <small>{posto.endereco}</small>
+              </Popup>
+            </Marker>
+          )
+        ))}
+      </MapContainer>
+    </div>
+  );
+}
+
+export default MapaPostos;
+```
+
+---
+
+### Página do Mapa (`MapaPage.jsx`)
+
+```jsx
+import MapaPostos from '../components/MapaPostos';
+import './MapaPage.css';
+
+function MapaPage() {
+  return (
+    <div className="mapa-page">
+      <h1>🗺️ Mapa de Postos</h1>
+      <p>Encontre postos próximos a você e compare preços</p>
+      <MapaPostos />
+    </div>
+  );
+}
+
+export default MapaPage;
+```
+
+---
+
+### Estilo CSS (`MapaPage.css`)
+
+```css
+.mapa-page {
+  padding: 20px;
+}
+
+.mapa-page h1 {
+  margin-bottom: 10px;
+}
+
+.mapa-page p {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+/* Importante: garantir que o container do mapa tenha altura */
+.leaflet-container {
+  height: 500px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+```
+
+---
+
+### Adicionar Rota no App.jsx
+
+```jsx
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import RankingPage from './pages/RankingPage';
+import CadastroPage from './pages/CadastroPage';
+import MapaPage from './pages/MapaPage';  // Nova importação
+
+function App() {
+  return (
+    <BrowserRouter>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/mapa">Mapa</Link>  {/* Novo link */}
+        <Link to="/ranking">Ranking</Link>
+        <Link to="/cadastro">Cadastro</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/mapa" element={<MapaPage />} />  {/* Nova rota */}
+        <Route path="/ranking" element={<RankingPage />} />
+        <Route path="/cadastro" element={<CadastroPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
+```
+
+---
+
+### Teste do Componente (`MapaPostos.test.jsx`)
+
+```jsx
+import { describe, it, expect, vi } from 'vitest';
+import { render, screen, waitFor } from '@testing-library/react';
+import MapaPostos from './MapaPostos';
+import { postoService } from '../services/api';
+
+// Mock do serviço
+vi.mock('../services/api', () => ({
+  postoService: {
+    listarTodos: vi.fn(),
+  },
+}));
+
+describe('MapaPostos', () => {
+  it('deve exibir loading inicialmente', () => {
+    postoService.listarTodos.mockReturnValue(new Promise(() => {}));
+    
+    render(<MapaPostos />);
+    
+    expect(screen.getByText('Carregando mapa...')).toBeInTheDocument();
+  });
+
+  it('deve renderizar o mapa após carregar postos', async () => {
+    postoService.listarTodos.mockResolvedValue({
+      data: [
+        { id: 1, nome: 'Posto Shell', latitude: -27.5954, longitude: -48.5480, precoGasolina: 5.89 },
+      ],
+    });
+
+    render(<MapaPostos />);
+
+    await waitFor(() => {
+      expect(screen.queryByText('Carregando mapa...')).not.toBeInTheDocument();
+    });
+  });
+});
+```
+
+---
+
+### Checklist de Implementação do Mapa
+
+- [ ] Instalar dependências: `npm install leaflet react-leaflet`
+- [ ] Criar componente `MapaPostos.jsx`
+- [ ] Criar página `MapaPage.jsx` e CSS
+- [ ] Adicionar rota `/mapa` no `App.jsx`
+- [ ] Atualizar postos no banco com coordenadas reais
+- [ ] Testar geolocalização do navegador
+- [ ] Adicionar testes unitários
+
+---
+
+## �💡 Dicas para a Apresentação
 
 1. **Demonstre o fluxo completo**: Cadastro → Listagem → Ranking → Avaliação
 2. **Mostre os testes executando**: Tanto JUnit quanto Vitest
