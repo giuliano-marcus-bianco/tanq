@@ -784,17 +784,16 @@ npm run dev
 - [x] Telas de Login/Cadastro no frontend
 
 ### Semana 2: Funcionalidades Core
-- [ ] Ranking de preços
-- [ ] Listar postos no frontend
-- [ ] Formulário de cadastro
-- [ ] Integração com Maps
-- [ ] Mapa interativo no mobile
-- [ ] Testes unitários core
+- [x] Ranking de preços
+- [x] Listar postos no frontend
+- [x] Formulário de cadastro
+- [x] Implementação do mapa com leaflet
+- [ ] Implementação de todos os testes unitários core
 
 ### Semana 3: Avaliações
 - [ ] Sistema de avaliações
 - [ ] Exibir média de avaliações
-- [ ] Testes unitários
+- [ ] Implementação de todos os testes unitários
 
 ### Semana 4: Finalização
 - [ ] Melhorar a estilização para deixar com um design profissional

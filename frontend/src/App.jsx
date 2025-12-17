@@ -5,6 +5,7 @@ import RankingPage from './pages/RankingPage';
 import CadastroPage from './pages/CadastroPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import MapaPage from './pages/MapaPage';
 import './App.css';
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
         <nav>
           <Link to="/">Início</Link>
           <Link to="/ranking">Ranking</Link>
-          <Link to="/cadastro">Cadastrar Posto</Link>
+          <Link to="/mapa">Mapa</Link>
+          <Link to="/cadastro">Cadastrar</Link>
           {estaLogado ? (
             <>
               <span className="user-info">Olá, {usuario?.nome}</span>
@@ -33,6 +35,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/ranking" element={<RankingPage />} />
+          <Route path="/mapa" element={<MapaPage />} />
           <Route path="/cadastro" element={<CadastroPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/cadastro-usuario" element={<RegisterPage />} />

@@ -15,6 +15,6 @@ public interface PostoRepository extends JpaRepository<Posto, Long> {
     // Buscar postos por nome (busca parcial, ignorando maiúsculas/minúsculas)
     List<Posto> findByNomeContainingIgnoreCase(String nome);
 
-    // Buscar postos por endereço
-    List<Posto> findByEnderecoContainingIgnoreCase(String endereco);
+    // Buscar postos por cidade
+    List<Posto> findByCidadeContainingIgnoreCase(String cidade);
 }

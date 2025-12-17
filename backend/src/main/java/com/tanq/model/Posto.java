@@ -16,10 +16,29 @@ public class Posto {
     @Column(nullable = false)
     private String nome;
 
-    private String endereco;
+    // Campos de endereço obrigatórios
+    @NotBlank(message = "Rua é obrigatória")
+    @Column(nullable = false)
+    private String rua;
 
+    private String numero;
+
+    private String complemento;
+
+    private String bairro;
+
+    @NotBlank(message = "Cidade é obrigatória")
+    @Column(nullable = false)
+    private String cidade;
+
+    @NotBlank(message = "Estado é obrigatório")
+    @Column(nullable = false, length = 2)
+    private String estado;
+
+    @Column(nullable = false)
     private Double latitude;
 
+    @Column(nullable = false)
     private Double longitude;
 
     @Column(name = "dono_id")
@@ -33,10 +52,25 @@ public class Posto {
         this.criadoEm = LocalDateTime.now();
     }
 
-    public Posto(String nome, String endereco) {
-        this.nome = nome;
-        this.endereco = endereco;
-        this.criadoEm = LocalDateTime.now();
+    // Método para obter endereço formatado
+    public String getEnderecoFormatado() {
+        StringBuilder sb = new StringBuilder();
+        if (rua != null && !rua.isEmpty()) {
+            sb.append(rua);
+            if (numero != null && !numero.isEmpty()) {
+                sb.append(", ").append(numero);
+            }
+        }
+        if (bairro != null && !bairro.isEmpty()) {
+            sb.append(" - ").append(bairro);
+        }
+        if (cidade != null && !cidade.isEmpty()) {
+            sb.append(", ").append(cidade);
+        }
+        if (estado != null && !estado.isEmpty()) {
+            sb.append(" - ").append(estado);
+        }
+        return sb.toString();
     }
 
     // Getters e Setters
@@ -56,12 +90,52 @@ public class Posto {
         this.nome = nome;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getRua() {
+        return rua;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public Double getLatitude() {

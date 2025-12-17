@@ -349,3 +349,291 @@
     margin-bottom: 1.5rem;
     color: var(--text);
 }
+
+/* Postos Section */
+.postos-section {
+    margin-top: 2rem;
+}
+
+.postos-section h3 {
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.posto-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.posto-header h4 {
+    margin: 0;
+}
+
+.posto-card .precos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+}
+
+.posto-card .precos .preco {
+    font-size: 0.875rem;
+}
+
+.posto-card .sem-preco {
+    color: var(--text-light);
+    font-size: 0.875rem;
+    font-style: italic;
+}
+
+.empty-message {
+    color: var(--text-light);
+    text-align: center;
+    padding: 2rem;
+}
+
+.ver-mais {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Mapa Page */
+.mapa-page h2 {
+    margin-bottom: 0.5rem;
+}
+
+.mapa-descricao {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.mapa-container {
+    margin-top: 1rem;
+}
+
+.mapa-aviso {
+    margin-top: 1rem;
+    color: var(--text-light);
+    text-align: center;
+    font-style: italic;
+}
+
+/* Popup do Leaflet */
+.popup-content h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text);
+}
+
+.popup-endereco {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.popup-precos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.popup-preco {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.popup-sem-preco {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* Mapa Section na Home */
+.mapa-section {
+    margin-top: 2rem;
+}
+
+.mapa-section h3 {
+    margin-bottom: 1rem;
+}
+
+/* Seletor de Localização */
+.seletor-localizacao {
+    margin-top: 0.5rem;
+}
+
+.busca-endereco {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex: 1;
+    min-width: 250px;
+}
+
+.input-endereco {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 8px 0 0 8px;
+    font-size: 1rem;
+}
+
+.btn-buscar {
+    padding: 0.75rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-buscar:hover {
+    background: var(--primary-hover);
+}
+
+.btn-localizacao {
+    padding: 0.75rem 1rem;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.btn-localizacao:hover {
+    opacity: 0.9;
+}
+
+.erro-localizacao {
+    color: var(--danger-color);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.instrucao-mapa {
+    color: var(--text-light);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.coordenadas-selecionadas {
+    margin-top: 0.5rem;
+    color: var(--success-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+:root {
+    --success-color: #16a34a;
+}
+
+/* Form rows para campos lado a lado */
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-row .form-group {
+    margin-bottom: 1rem;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+.flex-3 {
+    flex: 3;
+}
+
+.form-section-title {
+    font-weight: 600;
+    color: var(--text);
+    margin: 1rem 0 0.75rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+}
+
+/* Botão buscar no mapa */
+.btn-buscar-mapa {
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-buscar-mapa:hover {
+    background: var(--primary-hover);
+}
+
+.mensagem-localizacao {
+    color: var(--success-color);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .busca-endereco {
+        flex-direction: column;
+    }
+}
+
+/* Botão de localização no mapa */
+.btn-minha-localizacao {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    z-index: 1000;
+    width: 34px;
+    height: 34px;
+    background: white;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: background 0.2s;
+}
+
+.btn-minha-localizacao:hover {
+    background: #f4f4f4;
+}

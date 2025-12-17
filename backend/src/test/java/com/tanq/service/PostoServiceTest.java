@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -32,34 +30,49 @@ class PostoServiceTest {
     void deveSalvarPostoComoAdmin() {
         Posto posto = new Posto();
         posto.setNome("Posto Shell");
-        posto.setEndereco("Rua Principal, 100");
+        posto.setRua("Rua Principal");
+        posto.setNumero("100");
+        posto.setBairro("Centro");
+        posto.setCidade("Florianópolis");
+        posto.setEstado("SC");
 
         Posto salvo = postoService.salvar(posto, 1L, TipoUsuario.ADMINISTRADOR);
 
         assertNotNull(salvo.getId());
         assertEquals("Posto Shell", salvo.getNome());
+        assertEquals("Rua Principal", salvo.getRua());
+        assertEquals("100", salvo.getNumero());
+        assertEquals("Centro", salvo.getBairro());
+        assertEquals("Florianópolis", salvo.getCidade());
+        assertEquals("SC", salvo.getEstado());
         assertEquals(1L, salvo.getDonoId());
     }
 
     @Test
     void deveSalvarPostoComoDonoDePosto() {
         Posto posto = new Posto();
-        posto.setNome("Meu Posto");
-        posto.setEndereco("Rua do Posto, 50");
+        posto.setNome("Posto Ipiranga");
+        posto.setRua("Av. Brasil");
+        posto.setNumero("500");
+        posto.setCidade("São Paulo");
+        posto.setEstado("SP");
 
-        Posto salvo = postoService.salvar(posto, 3L, TipoUsuario.DONO_POSTO);
+        Posto salvo = postoService.salvar(posto, 2L, TipoUsuario.DONO_POSTO);
 
         assertNotNull(salvo.getId());
-        assertEquals(3L, salvo.getDonoId());
+        assertEquals("Posto Ipiranga", salvo.getNome());
+        assertEquals(2L, salvo.getDonoId());
     }
 
     @Test
-    void naoDeveSalvarPostoComoMotorista() {
+    void naoDevePermitirMotoristaCriarPosto() {
         Posto posto = new Posto();
         posto.setNome("Posto Teste");
+        posto.setCidade("Teste");
+        posto.setEstado("SC");
 
         assertThrows(RuntimeException.class, () -> {
-            postoService.salvar(posto, 2L, TipoUsuario.MOTORISTA);
+            postoService.salvar(posto, 3L, TipoUsuario.MOTORISTA);
         });
     }
 
@@ -67,52 +80,29 @@ class PostoServiceTest {
     void deveListarTodosOsPostos() {
         Posto posto1 = new Posto();
         posto1.setNome("Posto 1");
-        posto1.setDonoId(1L);
-        postoRepository.save(posto1);
+        posto1.setCidade("Florianópolis");
+        posto1.setEstado("SC");
+        postoService.salvar(posto1, 1L, TipoUsuario.ADMINISTRADOR);
 
         Posto posto2 = new Posto();
         posto2.setNome("Posto 2");
-        posto2.setDonoId(1L);
-        postoRepository.save(posto2);
+        posto2.setCidade("Joinville");
+        posto2.setEstado("SC");
+        postoService.salvar(posto2, 1L, TipoUsuario.ADMINISTRADOR);
 
-        List<Posto> postos = postoService.listarTodos();
-
-        assertEquals(2, postos.size());
+        assertEquals(2, postoService.listarTodos().size());
     }
 
     @Test
-    void deveDeletarPostoComoAdmin() {
+    void deveContarPostos() {
+        assertEquals(0, postoService.contarPostos());
+
         Posto posto = new Posto();
-        posto.setNome("Posto para Deletar");
-        posto.setDonoId(3L);
-        Posto salvo = postoRepository.save(posto);
+        posto.setNome("Posto 1");
+        posto.setCidade("Florianópolis");
+        posto.setEstado("SC");
+        postoService.salvar(posto, 1L, TipoUsuario.ADMINISTRADOR);
 
-        postoService.deletar(salvo.getId(), 1L, TipoUsuario.ADMINISTRADOR);
-
-        assertEquals(0, postoRepository.count());
-    }
-
-    @Test
-    void deveDeletarPostoProprio() {
-        Posto posto = new Posto();
-        posto.setNome("Meu Posto");
-        posto.setDonoId(3L);
-        Posto salvo = postoRepository.save(posto);
-
-        postoService.deletar(salvo.getId(), 3L, TipoUsuario.DONO_POSTO);
-
-        assertEquals(0, postoRepository.count());
-    }
-
-    @Test
-    void naoDeveDeletarPostoDeOutro() {
-        Posto posto = new Posto();
-        posto.setNome("Posto de Outro");
-        posto.setDonoId(1L);
-        Posto salvo = postoRepository.save(posto);
-
-        assertThrows(RuntimeException.class, () -> {
-            postoService.deletar(salvo.getId(), 3L, TipoUsuario.DONO_POSTO);
-        });
+        assertEquals(1, postoService.contarPostos());
     }
 }

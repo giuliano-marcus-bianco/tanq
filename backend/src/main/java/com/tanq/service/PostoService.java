@@ -42,6 +42,20 @@ public class PostoService {
             throw new RuntimeException("Apenas Administradores ou Donos de Posto podem criar postos");
         }
 
+        // Validar campos obrigatórios de endereço
+        if (posto.getRua() == null || posto.getRua().trim().isEmpty()) {
+            throw new RuntimeException("Rua é obrigatória");
+        }
+        if (posto.getCidade() == null || posto.getCidade().trim().isEmpty()) {
+            throw new RuntimeException("Cidade é obrigatória");
+        }
+        if (posto.getEstado() == null || posto.getEstado().trim().isEmpty()) {
+            throw new RuntimeException("Estado é obrigatório");
+        }
+        if (posto.getLatitude() == null || posto.getLongitude() == null) {
+            throw new RuntimeException("Localização (latitude/longitude) é obrigatória");
+        }
+
         posto.setDonoId(usuarioId);
         posto.setCriadoEm(LocalDateTime.now());
         return postoRepository.save(posto);
@@ -56,7 +70,12 @@ public class PostoService {
                     }
 
                     posto.setNome(postoAtualizado.getNome());
-                    posto.setEndereco(postoAtualizado.getEndereco());
+                    posto.setRua(postoAtualizado.getRua());
+                    posto.setNumero(postoAtualizado.getNumero());
+                    posto.setComplemento(postoAtualizado.getComplemento());
+                    posto.setBairro(postoAtualizado.getBairro());
+                    posto.setCidade(postoAtualizado.getCidade());
+                    posto.setEstado(postoAtualizado.getEstado());
                     posto.setLatitude(postoAtualizado.getLatitude());
                     posto.setLongitude(postoAtualizado.getLongitude());
                     return postoRepository.save(posto);

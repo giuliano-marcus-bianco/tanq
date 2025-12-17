@@ -58,8 +58,25 @@ public class PostoController {
 
             Posto posto = new Posto();
             posto.setNome(request.get("nome").toString());
-            if (request.get("endereco") != null) {
-                posto.setEndereco(request.get("endereco").toString());
+
+            // Campos de endereço separados
+            if (request.get("rua") != null) {
+                posto.setRua(request.get("rua").toString());
+            }
+            if (request.get("numero") != null) {
+                posto.setNumero(request.get("numero").toString());
+            }
+            if (request.get("complemento") != null) {
+                posto.setComplemento(request.get("complemento").toString());
+            }
+            if (request.get("bairro") != null) {
+                posto.setBairro(request.get("bairro").toString());
+            }
+            if (request.get("cidade") != null) {
+                posto.setCidade(request.get("cidade").toString());
+            }
+            if (request.get("estado") != null) {
+                posto.setEstado(request.get("estado").toString());
             }
             if (request.get("latitude") != null) {
                 posto.setLatitude(Double.valueOf(request.get("latitude").toString()));
@@ -87,8 +104,25 @@ public class PostoController {
 
             Posto postoAtualizado = new Posto();
             postoAtualizado.setNome(request.get("nome").toString());
-            if (request.get("endereco") != null) {
-                postoAtualizado.setEndereco(request.get("endereco").toString());
+
+            // Campos de endereço separados
+            if (request.get("rua") != null) {
+                postoAtualizado.setRua(request.get("rua").toString());
+            }
+            if (request.get("numero") != null) {
+                postoAtualizado.setNumero(request.get("numero").toString());
+            }
+            if (request.get("complemento") != null) {
+                postoAtualizado.setComplemento(request.get("complemento").toString());
+            }
+            if (request.get("bairro") != null) {
+                postoAtualizado.setBairro(request.get("bairro").toString());
+            }
+            if (request.get("cidade") != null) {
+                postoAtualizado.setCidade(request.get("cidade").toString());
+            }
+            if (request.get("estado") != null) {
+                postoAtualizado.setEstado(request.get("estado").toString());
             }
             if (request.get("latitude") != null) {
                 postoAtualizado.setLatitude(Double.valueOf(request.get("latitude").toString()));
