@@ -788,17 +788,17 @@ npm run dev
 - [x] Listar postos no frontend
 - [x] Formulário de cadastro
 - [x] Implementação do mapa com leaflet
-- [ ] Implementação de todos os testes unitários core
+- [x] Implementação de todos os testes unitários core
 
 ### Semana 3: Avaliações
-- [ ] Sistema de avaliações
-- [ ] Exibir média de avaliações
+- [ ] Implementação do sistema de avaliações
+- [ ] Exibição das informações de avaliações, como média, número de avaliações e comentários no frontend
 - [ ] Implementação de todos os testes unitários
 
 ### Semana 4: Finalização
 - [ ] Melhorar a estilização para deixar com um design profissional
 - [ ] Testes finais
-- [ ] Deixar a documentação e apresentação
+- [ ] Deixar tudo pronto para a documentação e apresentação
 
 ---
 
