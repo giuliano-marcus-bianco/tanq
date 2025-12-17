@@ -1,61 +1,102 @@
 # Tanq ⛽✨
 
----
+> **Sistema Colaborativo de Comparação de Preços de Combustível**
 
-## 🚀 Equipe do Projeto
-
-* [Giuliano Marcus Bianco]
-* [Nicolas Pitz]
-
-
----
-
-## 📝 Descrição Geral do Projeto
-
-O **Tanq** é uma plataforma móvel colaborativa 🤝 projetada para transformar a sua experiência de abastecimento. Utilizando o poder da comunidade e da **Inteligência Artificial**, o aplicativo permite que os usuários compartilhem e visualizem os preços dos combustíveis em tempo real 🚗💨, ajudando toda a comunidade a encontrar as opções mais econômicas e vantajosas na região.
-
-Além da atualização de preços, o **Tanq** integra um sistema de avaliação e comentários 🌟, permitindo que os motoristas compartilhem suas experiências. Para completar, o app oferece um canal direto para que postos parceiros disponibilizem cupons de desconto 🎟️ e promoções exclusivas, criando um ecossistema completo de vantagens para motoristas e estabelecimentos.
+[![Java](https://img.shields.io/badge/Java-21+-orange.svg)](https://adoptium.net/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen.svg)](https://spring.io/projects/spring-boot)
+[![React](https://img.shields.io/badge/React-18+-blue.svg)](https://react.dev)
+[![Vite](https://img.shields.io/badge/Vite-5+-purple.svg)](https://vitejs.dev)
 
 ---
 
-## ✨ Funcionalidades Principais
+## 📋 Índice
 
-O Tanq foi pensado para ser simples, poderoso e inteligente.
-
-* **Mapa Interativo 🗺️:** Visualize todos os postos de combustível ao seu redor, com preços e avaliações de forma clara e intuitiva.
-* **Ranking de Preços 📉:** Listas atualizadas constantemente com os combustíveis mais baratos na sua área.
-* **Avaliações da Comunidade ⭐:** Deixe sua opinião e leia os comentários de outros motoristas sobre a qualidade do combustível, atendimento e limpeza dos postos.
-* **Cupons Exclusivos 🎟️:** Receba e utilize ofertas especiais de postos parceiros diretamente pelo aplicativo.
-
-### Inteligência Artificial a seu favor 🧠
-
-* **Assistente Inteligente (Chatbot) 💬:** Converse com nosso chatbot para descobrir as melhores opções de abastecimento. Ele não apenas mostra os postos mais baratos, mas também **explica o *porquê*** da recomendação, considerando a combinação ideal de preço, distância e as melhores avaliações dos usuários.
-
-* **Atualização Mágica por Foto 📸:** Chega de digitar! Para colaborar, basta tirar uma foto da placa de preços do posto. Nossa IA, usando **leitura de imagem (OCR) e LLM**, identifica os valores automaticamente. Com o **georreferenciamento** do seu celular, o app já sabe em qual posto você está, tornando a colaboração instantânea e muito mais fácil!
+- [Descrição](#-descrição-geral)
+- [Funcionalidades](#-funcionalidades)
+- [Arquitetura](#-arquitetura)
+- [Como Rodar](#-como-rodar-o-projeto)
+- [API Documentation](#-api-documentation)
+- [Testes](#-testes)
+- [Equipe](#-equipe)
 
 ---
 
-## 🎯 Público-Alvo e Stakeholders
+## 📝 Descrição Geral
 
-O projeto envolve diferentes grupos, cada um com um papel fundamental no nosso ecossistema:
+O **Tanq** é uma plataforma web colaborativa que permite aos usuários compartilhar e encontrar os melhores preços de combustíveis em sua região. Motoristas podem comparar preços, avaliar postos e contribuir com a comunidade cadastrando preços atualizados.
 
-* **Motoristas e Condutores de Veículos** 👩‍ lái 👨‍✈️: O coração do nosso app! São os usuários que buscam economizar tempo e dinheiro 💰, encontrando os melhores preços de combustível e postos de confiança.
+### Tipos de Usuário
 
-* **Proprietários e Gerentes de Postos de Combustível** ⛽📈: Nossos parceiros comerciais. Eles utilizam a plataforma como uma ferramenta de marketing para atrair e fidelizar clientes.
-
-* **Administradores da Plataforma** 💻🛠️: A equipe por trás das cortinas, responsável pela manutenção e evolução do **Tanq**.
+| Tipo | Descrição | Permissões |
+|------|-----------|------------|
+| **Motorista** | Usuário comum | Cadastrar preços, avaliar postos |
+| **Dono de Posto** | Proprietário | Gerenciar próprio posto e preços |
+| **Administrador** | Admin do sistema | Acesso total a todos os recursos |
 
 ---
 
-## 🤔 Problema e Motivação
+## ✨ Funcionalidades
 
-### O Problema a Ser Resolvido 💸
+### Core
+- 🔐 **Autenticação** - Login e cadastro de usuários
+- ⛽ **CRUD de Postos** - Cadastro completo de postos de combustível
+- 💰 **Gestão de Preços** - Cadastro de preços por tipo de combustível (Gasolina, Etanol, Diesel)
+- 🏆 **Ranking** - Ordenação de postos por menor preço
 
-A principal dor que buscamos curar é a **falta de transparência e a grande variação de preços dos combustíveis**. Atualmente, para comparar valores, os motoristas precisam dirigir de posto em posto ou contar com a sorte. Essa falta de informação centralizada e confiável quase sempre resulta em abastecer mais caro.
+### Avançadas
+- ⭐ **Avaliações** - Sistema de notas (1-5 estrelas) com comentários
+- 🗺️ **Mapa Interativo** - Visualização de postos com Leaflet e geolocalização
+- 📱 **Design Responsivo** - Interface adaptativa para mobile e desktop
 
-### Nossa Motivação ✅
+---
 
-A motivação por trás do **Tanq** é **empoderar o consumidor** 💪, colocando o controle sobre o abastecimento na palma da sua mão. Acreditamos que, com a força da comunidade e da tecnologia, podemos ajudar milhares de pessoas a economizar. Nossa visão é simples: criar uma relação onde todos saem ganhando, gerando economia para os motoristas e mais clientes para os postos que oferecem o melhor custo-benefício.
+## 🏗️ Arquitetura
+
+```
+┌─────────────────────────────────────────┐
+│           FRONTEND (React + Vite)       │
+│         http://localhost:5173           │
+│   pages/ → components/ → services/api   │
+└────────────────────┬────────────────────┘
+                     │ REST API (JSON)
+                     ▼
+┌─────────────────────────────────────────┐
+│        BACKEND (Spring Boot)            │
+│         http://localhost:8080           │
+│  Controller → Service → Repository      │
+└────────────────────┬────────────────────┘
+                     │ JPA/Hibernate
+                     ▼
+┌─────────────────────────────────────────┐
+│              MySQL 8.0                  │
+│           localhost:3307                │
+└─────────────────────────────────────────┘
+```
+
+### Estrutura de Pastas
+
+```
+tanq/
+├── backend/                # Spring Boot + Java 21
+│   ├── src/main/java/com/tanq/
+│   │   ├── controller/     # Endpoints REST
+│   │   ├── service/        # Lógica de negócio
+│   │   ├── repository/     # Acesso a dados
+│   │   └── model/          # Entidades JPA
+│   └── src/test/           # Testes JUnit
+│
+├── frontend/               # React + Vite
+│   ├── src/
+│   │   ├── pages/          # Páginas da aplicação
+│   │   ├── components/     # Componentes reutilizáveis
+│   │   ├── services/       # Chamadas à API
+│   │   └── contexts/       # Estado global (Auth)
+│   └── package.json
+│
+├── APRESENTACAO.md         # Documentação de apresentação
+├── IMPLEMENT_SIMPLE.md     # Guia de implementação
+└── docker-compose.yml      # MySQL container
+```
 
 ---
 
@@ -73,7 +114,7 @@ A motivação por trás do **Tanq** é **empoderar o consumidor** 💪, colocand
 docker-compose up -d
 ```
 
-O MySQL estará disponível em `localhost:3307` com as credenciais:
+O MySQL estará disponível em `localhost:3307`:
 - **Database:** tanq
 - **Usuário:** tanq
 - **Senha:** tanq123
@@ -101,7 +142,7 @@ O frontend estará disponível em **http://localhost:5173**
 
 ### Modo Alternativo (sem Docker)
 
-Para rodar sem Docker, usando H2 em memória:
+Para rodar com banco H2 em memória:
 
 ```bash
 cd backend
@@ -110,21 +151,105 @@ cd backend
 
 ---
 
-## 📁 Estrutura do Projeto
+## 📚 API Documentation
 
+### Autenticação (`/api/auth`)
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| POST | `/login` | Login de usuário |
+| POST | `/register` | Cadastro de usuário |
+
+### Postos (`/api/postos`)
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| GET | `/` | Listar todos os postos |
+| GET | `/{id}` | Buscar posto por ID |
+| GET | `/buscar?nome=` | Buscar por nome |
+| GET | `/meus?usuarioId=` | Meus postos (Dono) |
+| POST | `/` | Criar novo posto |
+| PUT | `/{id}` | Atualizar posto |
+| DELETE | `/{id}?usuarioId=` | Deletar posto |
+
+### Preços (`/api/precos`)
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| GET | `/` | Listar todos os preços |
+| GET | `/posto/{postoId}` | Preços de um posto |
+| GET | `/ranking/{tipo}` | Ranking por combustível |
+| POST | `/` | Criar novo preço |
+| DELETE | `/{id}?usuarioId=` | Deletar preço |
+
+### Avaliações (`/api/avaliacoes`)
+
+| Método | Endpoint | Descrição |
+|--------|----------|-----------|
+| GET | `/posto/{postoId}` | Avaliações de um posto |
+| GET | `/posto/{postoId}/media` | Média e total |
+| POST | `/` | Criar avaliação |
+| DELETE | `/{id}?usuarioId=` | Deletar avaliação |
+
+---
+
+## 🧪 Testes
+
+### Backend (JUnit 5)
+
+```bash
+cd backend
+.\gradlew test
 ```
-├── backend/          # Spring Boot + Java 21
-│   ├── src/main/java/com/tanq/
-│   │   ├── controller/   # Endpoints REST
-│   │   ├── service/      # Lógica de negócio
-│   │   ├── repository/   # Acesso a dados
-│   │   └── model/        # Entidades JPA
-│   └── build.gradle
-├── frontend/         # React + Vite
-│   ├── src/
-│   │   ├── pages/        # Páginas (Home, Ranking, Cadastro)
-│   │   ├── components/   # Componentes reutilizáveis
-│   │   └── services/     # Chamadas à API
-│   └── package.json
-└── docker-compose.yml    # MySQL container
+
+**Arquivos de teste:**
+- `UsuarioServiceTest.java` - Autenticação
+- `PostoServiceTest.java` - CRUD de postos
+- `PrecoServiceTest.java` - Gestão de preços
+- `AvaliacaoServiceTest.java` - Avaliações
+
+### Frontend (Vitest)
+
+```bash
+cd frontend
+npm test
 ```
+
+**Arquivos de teste:**
+- `PostoList.test.jsx` - Lista de postos
+- `AvaliacaoForm.test.jsx` - Formulário de avaliação
+- `AvaliacaoList.test.jsx` - Lista de avaliações
+- `PostoCard.test.jsx` - Card de posto
+- `HomePage.test.jsx` - Página inicial
+- `RankingPage.test.jsx` - Ranking
+
+**Total: 45+ testes automatizados**
+
+---
+
+## 👤 Usuários de Demonstração
+
+| Email | Senha | Tipo |
+|-------|-------|------|
+| admin@tanq.com | admin123 | Administrador |
+| joao@email.com | 123456 | Motorista |
+| maria@posto.com | 123456 | Dono de Posto |
+
+---
+
+## 🚀 Equipe do Projeto
+
+* **Giuliano Marcus Bianco**
+* **Nicolas Pitz**
+
+---
+
+## 📄 Licença
+
+Este projeto é desenvolvido para fins acadêmicos como parte da disciplina de Engenharia de Software - IFSC.
+
+---
+
+<p align="center">
+  <b>Tanq © 2024 - Projeto Acadêmico IFSC</b>
+</p>

@@ -796,9 +796,9 @@ npm run dev
 - [x] Implementação de todos os testes unitários das avaliações
 
 ### Semana 4: Finalização
-- [ ] Melhorar a estilização para deixar com um design e uma experiência do usuário profissional
-- [ ] Implemente todos os testes da aplicação
-- [ ] Deixar tudo pronto para a documentação e apresentação
+- [x] Melhorar a estilização para deixar com um design e uma experiência do usuário profissional
+- [x] Implemente todos os testes da aplicação
+- [x] Deixar tudo pronto para a documentação e apresentação
 
 ---
 
