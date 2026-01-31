@@ -1,0 +1,51 @@
+[2m> [22mnpx vitest run
+
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mC:/GitHub/Projetos/tanq/apps/web-tanq[39m
+
+[90mstderr[2m | src/pages/HomePage.test.jsx[2m > [22m[2mHomePage[2m > [22m[2mdeve exibir loading inicialmente
+[22m[39m⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition.
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath.
+
+[90mstderr[2m | src/pages/HomePage.test.jsx[2m > [22m[2mHomePage[2m > [22m[2mdeve exibir erro quando API falha
+[22m[39mErro ao carregar dados: Error: API Error
+    at [90mC:\GitHub\Projetos\tanq\apps\web-tanq\[39msrc\pages\HomePage.test.jsx:66:48
+    at file:///C:/GitHub/Projetos/tanq/node_modules/[4m@vitest/runner[24m/dist/index.js:146:14
+    at file:///C:/GitHub/Projetos/tanq/node_modules/[4m@vitest/runner[24m/dist/index.js:533:11
+    at runWithTimeout (file:///C:/GitHub/Projetos/tanq/node_modules/[4m@vitest/runner[24m/dist/index.js:39:7)
+    at runTest (file:///C:/GitHub/Projetos/tanq/node_modules/[4m@vitest/runner[24m/dist/index.js:1056:17)
+[90m    at processTicksAndRejections (node:internal/process/task_queues:103:5)[39m
+    at runSuite (file:///C:/GitHub/Projetos/tanq/node_modules/[4m@vitest/runner[24m/dist/index.js:1205:15)
+    at runSuite (file:///C:/GitHub/Projetos/tanq/node_modules/[4m@vitest/runner[24m/dist/index.js:1205:15)
+    at runFiles (file:///C:/GitHub/Projetos/tanq/node_modules/[4m@vitest/runner[24m/dist/index.js:1262:5)
+    at startTests (file:///C:/GitHub/Projetos/tanq/node_modules/[4m@vitest/runner[24m/dist/index.js:1271:3)
+
+ [32m✓[39m src/components/PostoList.test.jsx [2m([22m[2m4 tests[22m[2m)[22m[90m 46[2mms[22m[39m
+ [32m✓[39m src/components/AvaliacaoForm.test.jsx [2m([22m[2m7 tests[22m[2m)[22m[90m 76[2mms[22m[39m
+ [32m✓[39m src/components/AvaliacaoList.test.jsx [2m([22m[2m7 tests[22m[2m)[22m[90m 111[2mms[22m[39m
+ [32m✓[39m src/pages/HomePage.test.jsx [2m([22m[2m9 tests[22m[2m)[22m[90m 135[2mms[22m[39m
+[90mstderr[2m | src/components/PostoCard.test.jsx[2m > [22m[2mPostoCard[2m > [22m[2mdeve ter toggle para ver/ocultar avaliações
+[22m[39mErro ao carregar avaliações: TypeError: Cannot read properties of undefined (reading 'data')
+    at carregarAvaliacoes [90m(C:\GitHub\Projetos\tanq\apps\web-tanq\[39msrc\components\AvaliacaoList.jsx:18:30[90m)[39m
+
+ [32m✓[39m src/components/PostoCard.test.jsx [2m([22m[2m8 tests[22m[2m)[22m[90m 160[2mms[22m[39m
+[90mstderr[2m | src/pages/RankingPage.test.jsx[2m > [22m[2mRankingPage[2m > [22m[2mdeve exibir erro quando API falha
+[22m[39mErro ao carregar ranking: Error: API Error
+    at [90mC:\GitHub\Projetos\tanq\apps\web-tanq\[39msrc\pages\RankingPage.test.jsx:178:44
+    at file:///C:/GitHub/Projetos/tanq/node_modules/[4m@vitest/runner[24m/dist/index.js:146:14
+    at file:///C:/GitHub/Projetos/tanq/node_modules/[4m@vitest/runner[24m/dist/index.js:533:11
+    at runWithTimeout (file:///C:/GitHub/Projetos/tanq/node_modules/[4m@vitest/runner[24m/dist/index.js:39:7)
+    at runTest (file:///C:/GitHub/Projetos/tanq/node_modules/[4m@vitest/runner[24m/dist/index.js:1056:17)
+    at runSuite (file:///C:/GitHub/Projetos/tanq/node_modules/[4m@vitest/runner[24m/dist/index.js:1205:15)
+    at runSuite (file:///C:/GitHub/Projetos/tanq/node_modules/[4m@vitest/runner[24m/dist/index.js:1205:15)
+    at runFiles (file:///C:/GitHub/Projetos/tanq/node_modules/[4m@vitest/runner[24m/dist/index.js:1262:5)
+    at startTests (file:///C:/GitHub/Projetos/tanq/node_modules/[4m@vitest/runner[24m/dist/index.js:1271:3)
+    at file:///C:/GitHub/Projetos/tanq/node_modules/[4mvitest[24m/dist/chunks/runBaseTests.3qpJUEJM.js:126:11
+
+ [32m✓[39m src/pages/RankingPage.test.jsx [2m([22m[2m10 tests[22m[2m)[22m[90m 185[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m6 passed[39m[22m[90m (6)[39m
+[2m      Tests [22m [1m[32m45 passed[39m[22m[90m (45)[39m
+[2m   Start at [22m 20:22:26
+[2m   Duration [22m 1.44s[2m (transform 354ms, setup 437ms, collect 1.61s, tests 713ms, environment 3.43s, prepare 634ms)[22m
+

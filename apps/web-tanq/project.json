@@ -1,0 +1,40 @@
+{
+    "name": "@tanq/web-tanq",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "application",
+    "sourceRoot": "apps/web-tanq/src",
+    "tags": [
+        "type:app",
+        "scope:web"
+    ],
+    "targets": {
+        "serve": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "npx vite",
+                "cwd": "apps/web-tanq"
+            }
+        },
+        "build": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "npx vite build",
+                "cwd": "apps/web-tanq"
+            }
+        },
+        "test": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "npx vitest run",
+                "cwd": "apps/web-tanq"
+            }
+        },
+        "lint": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "npx eslint .",
+                "cwd": "apps/web-tanq"
+            }
+        }
+    }
+}

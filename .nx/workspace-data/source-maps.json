@@ -1,0 +1,478 @@
+{
+  "apps/mobile-tanq": {
+    "root": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/mobile-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:private": [
+      "apps/mobile-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "apps/mobile-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts": [
+      "apps/mobile-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.0": [
+      "apps/mobile-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "apps/mobile-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "apps/mobile-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "apps/mobile-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "apps/mobile-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "apps/mobile-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web": [
+      "apps/mobile-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web.executor": [
+      "apps/mobile-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web.options": [
+      "apps/mobile-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web.metadata": [
+      "apps/mobile-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web.options.script": [
+      "apps/mobile-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web.metadata.scriptContent": [
+      "apps/mobile-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.web.metadata.runCommand": [
+      "apps/mobile-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:app": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:mobile": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.start": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.start.executor": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.start.options": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.start.options.command": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.start.options.cwd": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.android": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.android.executor": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.android.options": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.android.options.command": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.android.options.cwd": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.ios": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.ios.executor": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.ios.options": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.ios.options.command": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.ios.options.cwd": [
+      "apps/mobile-tanq/project.json",
+      "nx/core/project-json"
+    ]
+  },
+  "apps/web-tanq": {
+    "root": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:private": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.0": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.1": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.2": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups.NPM Scripts.3": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.executor": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.options.script": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.scriptContent": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.dev.metadata.runCommand": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.executor": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.options": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.metadata": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.options.script": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.metadata.scriptContent": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.preview.metadata.runCommand": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch.executor": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch.options": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch.metadata": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch.options.script": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch.metadata.scriptContent": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:watch.metadata.runCommand": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:coverage": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:coverage.executor": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:coverage.options": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:coverage.metadata": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:coverage.options.script": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:coverage.metadata.scriptContent": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "targets.test:coverage.metadata.runCommand": [
+      "apps/web-tanq/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:app": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:web": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.command": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.cwd": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.command": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.cwd": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.command": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.cwd": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.command": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.cwd": [
+      "apps/web-tanq/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.serve.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.dependsOn": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  }
+}

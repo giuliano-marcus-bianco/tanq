@@ -1,0 +1,13 @@
+
+[0m[7m[1m[31m NX [39m[22m[27m[0m  [31mUnable to find target web-tanq for project @tanq/web-tanq[39m
+
+Error: Unable to find target web-tanq for project @tanq/web-tanq
+    at readTargetOptions (C:\GitHub\Projetos\tanq\node_modules\@nx\devkit\src\executors\read-target-options.js:18:15)
+    at getNxTargetOptions (C:\GitHub\Projetos\tanq\node_modules\@nx\vite\src\utils\options-utils.js:97:42)
+    at viteDevServerExecutor (C:\GitHub\Projetos\tanq\node_modules\@nx\vite\src\executors\dev-server\dev-server.impl.js:30:69)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async getLastValueFromAsyncIterableIterator (C:\GitHub\Projetos\tanq\node_modules\nx\src\utils\async-iterator.js:15:19)
+    at async iteratorToProcessStatusCode (C:\GitHub\Projetos\tanq\node_modules\nx\src\command-line\run\run.js:39:25)
+    at async handleErrors (C:\GitHub\Projetos\tanq\node_modules\nx\src\utils\handle-errors.js:8:24)
+    at async process.<anonymous> (C:\GitHub\Projetos\tanq\node_modules\nx\bin\run-executor.js:59:28)
+

@@ -1,0 +1,710 @@
+{
+  "9188624502698317frontend/vite.config.js": {
+    "targets": {
+      "test": {
+        "command": "vitest",
+        "options": {
+          "cwd": "frontend"
+        },
+        "cache": true,
+        "inputs": [
+          "default",
+          "^production",
+          {
+            "externalDependencies": [
+              "vitest"
+            ]
+          },
+          {
+            "env": "CI"
+          }
+        ],
+        "outputs": [
+          "{workspaceRoot}/coverage/{projectRoot}"
+        ],
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Run Vite tests",
+          "help": {
+            "command": "npx vitest --help",
+            "example": {
+              "options": {
+                "bail": 1,
+                "coverage": true
+              }
+            }
+          }
+        }
+      },
+      "build": {
+        "command": "vite build",
+        "options": {
+          "cwd": "frontend"
+        },
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "production",
+          "^production",
+          {
+            "externalDependencies": [
+              "vite"
+            ]
+          }
+        ],
+        "outputs": [
+          "{projectRoot}\\dist"
+        ],
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Run Vite build",
+          "help": {
+            "command": "npx vite build --help",
+            "example": {
+              "options": {
+                "sourcemap": true,
+                "manifest": "manifest.json"
+              }
+            }
+          }
+        }
+      },
+      "serve": {
+        "command": "vite",
+        "options": {
+          "cwd": "frontend"
+        },
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Starts Vite dev server",
+          "help": {
+            "command": "npx vite --help",
+            "example": {
+              "options": {
+                "port": 3000
+              }
+            }
+          },
+          "deprecated": "Use devTargetName instead. This option will be removed in Nx 22."
+        }
+      },
+      "dev": {
+        "command": "vite",
+        "options": {
+          "cwd": "frontend"
+        },
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Starts Vite dev server",
+          "help": {
+            "command": "npx vite --help",
+            "example": {
+              "options": {
+                "port": 3000
+              }
+            }
+          }
+        }
+      },
+      "preview": {
+        "command": "vite preview",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "cwd": "frontend"
+        },
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Locally preview Vite production build",
+          "help": {
+            "command": "npx vite preview --help",
+            "example": {
+              "options": {
+                "port": 3000
+              }
+            }
+          }
+        }
+      },
+      "serve-static": {
+        "executor": "@nx/web:file-server",
+        "options": {
+          "buildTarget": "build",
+          "spa": true
+        }
+      },
+      "build-deps": {
+        "dependsOn": [
+          "^build"
+        ]
+      },
+      "watch-deps": {
+        "dependsOn": [
+          "build-deps"
+        ],
+        "command": "npx nx watch --projects tanq-frontend --includeDependentProjects -- npx nx build-deps tanq-frontend"
+      }
+    },
+    "metadata": {},
+    "projectType": "application"
+  },
+  "4384705622401486365apps/web-tanq/vite.config.js": {
+    "targets": {
+      "test": {
+        "command": "vitest",
+        "options": {
+          "cwd": "apps/web-tanq"
+        },
+        "cache": true,
+        "inputs": [
+          "default",
+          "^production",
+          {
+            "externalDependencies": [
+              "vitest"
+            ]
+          },
+          {
+            "env": "CI"
+          }
+        ],
+        "outputs": [
+          "{workspaceRoot}/coverage/{projectRoot}"
+        ],
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Run Vite tests",
+          "help": {
+            "command": "npx vitest --help",
+            "example": {
+              "options": {
+                "bail": 1,
+                "coverage": true
+              }
+            }
+          }
+        }
+      },
+      "build": {
+        "command": "vite build",
+        "options": {
+          "cwd": "apps/web-tanq"
+        },
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "production",
+          "^production",
+          {
+            "externalDependencies": [
+              "vite"
+            ]
+          }
+        ],
+        "outputs": [
+          "{workspaceRoot}/apps\\web-tanq\\dist"
+        ],
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Run Vite build",
+          "help": {
+            "command": "npx vite build --help",
+            "example": {
+              "options": {
+                "sourcemap": true,
+                "manifest": "manifest.json"
+              }
+            }
+          }
+        }
+      },
+      "serve": {
+        "command": "vite",
+        "options": {
+          "cwd": "apps/web-tanq"
+        },
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Starts Vite dev server",
+          "help": {
+            "command": "npx vite --help",
+            "example": {
+              "options": {
+                "port": 3000
+              }
+            }
+          },
+          "deprecated": "Use devTargetName instead. This option will be removed in Nx 22."
+        }
+      },
+      "dev": {
+        "command": "vite",
+        "options": {
+          "cwd": "apps/web-tanq"
+        },
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Starts Vite dev server",
+          "help": {
+            "command": "npx vite --help",
+            "example": {
+              "options": {
+                "port": 3000
+              }
+            }
+          }
+        }
+      },
+      "preview": {
+        "command": "vite preview",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "cwd": "apps/web-tanq"
+        },
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Locally preview Vite production build",
+          "help": {
+            "command": "npx vite preview --help",
+            "example": {
+              "options": {
+                "port": 3000
+              }
+            }
+          }
+        }
+      },
+      "serve-static": {
+        "executor": "@nx/web:file-server",
+        "options": {
+          "buildTarget": "build",
+          "spa": true
+        }
+      },
+      "typecheck": {
+        "cache": true,
+        "inputs": [
+          "production",
+          "^production",
+          {
+            "externalDependencies": [
+              "typescript"
+            ]
+          }
+        ],
+        "command": "tsc --noEmit -p tsconfig.json",
+        "options": {
+          "cwd": "apps/web-tanq"
+        },
+        "metadata": {
+          "description": "Runs type-checking for the project.",
+          "technologies": [
+            "typescript"
+          ],
+          "help": {
+            "command": "npx tsc -p tsconfig.json --help",
+            "example": {
+              "options": {
+                "noEmit": true
+              }
+            }
+          }
+        }
+      },
+      "build-deps": {
+        "dependsOn": [
+          "^build"
+        ]
+      },
+      "watch-deps": {
+        "dependsOn": [
+          "build-deps"
+        ],
+        "command": "npx nx watch --projects @tanq/web-tanq --includeDependentProjects -- npx nx build-deps @tanq/web-tanq"
+      }
+    },
+    "metadata": {},
+    "projectType": "application"
+  },
+  "1870749219232284392frontend/vite.config.js": {
+    "targets": {
+      "test": {
+        "command": "vitest",
+        "options": {
+          "cwd": "frontend"
+        },
+        "cache": true,
+        "inputs": [
+          "default",
+          "^production",
+          {
+            "externalDependencies": [
+              "vitest"
+            ]
+          },
+          {
+            "env": "CI"
+          }
+        ],
+        "outputs": [
+          "{workspaceRoot}/coverage/{projectRoot}"
+        ],
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Run Vite tests",
+          "help": {
+            "command": "npx vitest --help",
+            "example": {
+              "options": {
+                "bail": 1,
+                "coverage": true
+              }
+            }
+          }
+        }
+      },
+      "build": {
+        "command": "vite build",
+        "options": {
+          "cwd": "frontend"
+        },
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "production",
+          "^production",
+          {
+            "externalDependencies": [
+              "vite"
+            ]
+          }
+        ],
+        "outputs": [
+          "{projectRoot}\\dist"
+        ],
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Run Vite build",
+          "help": {
+            "command": "npx vite build --help",
+            "example": {
+              "options": {
+                "sourcemap": true,
+                "manifest": "manifest.json"
+              }
+            }
+          }
+        }
+      },
+      "serve": {
+        "command": "vite",
+        "options": {
+          "cwd": "frontend"
+        },
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Starts Vite dev server",
+          "help": {
+            "command": "npx vite --help",
+            "example": {
+              "options": {
+                "port": 3000
+              }
+            }
+          },
+          "deprecated": "Use devTargetName instead. This option will be removed in Nx 22."
+        }
+      },
+      "dev": {
+        "command": "vite",
+        "options": {
+          "cwd": "frontend"
+        },
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Starts Vite dev server",
+          "help": {
+            "command": "npx vite --help",
+            "example": {
+              "options": {
+                "port": 3000
+              }
+            }
+          }
+        }
+      },
+      "preview": {
+        "command": "vite preview",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "cwd": "frontend"
+        },
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Locally preview Vite production build",
+          "help": {
+            "command": "npx vite preview --help",
+            "example": {
+              "options": {
+                "port": 3000
+              }
+            }
+          }
+        }
+      },
+      "serve-static": {
+        "executor": "@nx/web:file-server",
+        "options": {
+          "buildTarget": "build",
+          "spa": true
+        }
+      },
+      "build-deps": {
+        "dependsOn": [
+          "^build"
+        ]
+      },
+      "watch-deps": {
+        "dependsOn": [
+          "build-deps"
+        ],
+        "command": "npx nx watch --projects tanq-frontend --includeDependentProjects -- npx nx build-deps tanq-frontend"
+      }
+    },
+    "metadata": {},
+    "projectType": "application"
+  },
+  "16232732520338786050apps/web-tanq/vite.config.js": {
+    "targets": {
+      "test": {
+        "command": "vitest",
+        "options": {
+          "cwd": "apps/web-tanq"
+        },
+        "cache": true,
+        "inputs": [
+          "default",
+          "^production",
+          {
+            "externalDependencies": [
+              "vitest"
+            ]
+          },
+          {
+            "env": "CI"
+          }
+        ],
+        "outputs": [
+          "{workspaceRoot}/coverage/{projectRoot}"
+        ],
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Run Vite tests",
+          "help": {
+            "command": "npx vitest --help",
+            "example": {
+              "options": {
+                "bail": 1,
+                "coverage": true
+              }
+            }
+          }
+        }
+      },
+      "build": {
+        "command": "vite build",
+        "options": {
+          "cwd": "apps/web-tanq"
+        },
+        "cache": true,
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "production",
+          "^production",
+          {
+            "externalDependencies": [
+              "vite"
+            ]
+          }
+        ],
+        "outputs": [
+          "{workspaceRoot}/apps\\web-tanq\\dist"
+        ],
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Run Vite build",
+          "help": {
+            "command": "npx vite build --help",
+            "example": {
+              "options": {
+                "sourcemap": true,
+                "manifest": "manifest.json"
+              }
+            }
+          }
+        }
+      },
+      "serve": {
+        "command": "vite",
+        "options": {
+          "cwd": "apps/web-tanq"
+        },
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Starts Vite dev server",
+          "help": {
+            "command": "npx vite --help",
+            "example": {
+              "options": {
+                "port": 3000
+              }
+            }
+          },
+          "deprecated": "Use devTargetName instead. This option will be removed in Nx 22."
+        }
+      },
+      "dev": {
+        "command": "vite",
+        "options": {
+          "cwd": "apps/web-tanq"
+        },
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Starts Vite dev server",
+          "help": {
+            "command": "npx vite --help",
+            "example": {
+              "options": {
+                "port": 3000
+              }
+            }
+          }
+        }
+      },
+      "preview": {
+        "command": "vite preview",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "cwd": "apps/web-tanq"
+        },
+        "metadata": {
+          "technologies": [
+            "vite"
+          ],
+          "description": "Locally preview Vite production build",
+          "help": {
+            "command": "npx vite preview --help",
+            "example": {
+              "options": {
+                "port": 3000
+              }
+            }
+          }
+        }
+      },
+      "serve-static": {
+        "executor": "@nx/web:file-server",
+        "options": {
+          "buildTarget": "build",
+          "spa": true
+        }
+      },
+      "typecheck": {
+        "cache": true,
+        "inputs": [
+          "production",
+          "^production",
+          {
+            "externalDependencies": [
+              "typescript"
+            ]
+          }
+        ],
+        "command": "tsc --noEmit -p tsconfig.json",
+        "options": {
+          "cwd": "apps/web-tanq"
+        },
+        "metadata": {
+          "description": "Runs type-checking for the project.",
+          "technologies": [
+            "typescript"
+          ],
+          "help": {
+            "command": "npx tsc -p tsconfig.json --help",
+            "example": {
+              "options": {
+                "noEmit": true
+              }
+            }
+          }
+        }
+      },
+      "build-deps": {
+        "dependsOn": [
+          "^build"
+        ]
+      },
+      "watch-deps": {
+        "dependsOn": [
+          "build-deps"
+        ],
+        "command": "npx nx watch --projects @tanq/web-tanq --includeDependentProjects -- npx nx build-deps @tanq/web-tanq"
+      }
+    },
+    "metadata": {},
+    "projectType": "application"
+  }
+}
