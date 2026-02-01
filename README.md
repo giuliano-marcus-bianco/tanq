@@ -126,19 +126,40 @@ cd backend
 .\gradlew bootRun
 ```
 
-A API estará disponível em **http://localhost:8080/api**
+A API estará disponível em **http://localhost:8083/api**
 
-### 3. Rodar o Frontend (React + Vite)
+### 3. Rodar o Frontend Web (React + Vite)
 
 Em um **novo terminal**:
 
 ```bash
-cd frontend
-npm install
-npm run dev
+npx nx serve web-tanq
 ```
 
-O frontend estará disponível em **http://localhost:5173**
+O frontend web estará disponível em **http://localhost:5173**
+
+### 4. Rodar o App Mobile (Expo + React Native)
+
+Em um **novo terminal**:
+
+```bash
+npx nx start mobile-tanq
+```
+
+> [!IMPORTANT]
+> Para o mobile se conectar ao backend, edite o arquivo `libs/core-logic/src/services/api.ts` e configure o IP local da sua máquina no campo `android`.
+
+**Exemplo:**
+```typescript
+const API_URL = {
+  android: 'http://192.168.1.100:8083/api', // Seu IP local
+  ios: 'http://localhost:8083/api',
+};
+```
+
+Para descobrir seu IP local:
+- **Windows:** `ipconfig` no terminal (procure por IPv4)
+- **Mac/Linux:** `ifconfig` ou `ip addr`
 
 ### Modo Alternativo (sem Docker)
 

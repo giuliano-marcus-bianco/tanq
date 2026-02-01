@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { View, StyleSheet, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import { useState, useRef, useEffect } from 'react';
+import { View, StyleSheet, KeyboardAvoidingView, Platform, ScrollView, Animated, ActivityIndicator } from 'react-native';
 import { TextInput, Button, Text, Card, HelperText } from 'react-native-paper';
 import { router } from 'expo-router';
 import * as Haptics from 'expo-haptics';
@@ -13,6 +13,25 @@ export default function LoginScreen() {
   const [loading, setLoading] = useState(false);
   const [erro, setErro] = useState('');
   const [senhaVisivel, setSenhaVisivel] = useState(false);
+
+  // Animações nativas
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const slideAnim = useRef(new Animated.Value(50)).current;
+
+  useEffect(() => {
+    Animated.parallel([
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 800,
+        useNativeDriver: true,
+      }),
+      Animated.spring(slideAnim, {
+        toValue: 0,
+        friction: 8,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  }, []);
 
   const handleLogin = async () => {
     // Feedback tátil ao pressionar
@@ -36,6 +55,9 @@ export default function LoginScreen() {
       // Navegar para home após login bem-sucedido
       router.replace('/(tabs)');
     } catch (error: any) {
+      // Feedback tátil de erro
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+      
       console.error('Erro no login:', error);
       if (error.response?.data?.mensagem) {
         setErro(error.response.data.mensagem);
@@ -60,11 +82,19 @@ export default function LoginScreen() {
         contentContainerStyle={styles.scrollContent}
         keyboardShouldPersistTaps="handled"
       >
-        <View style={styles.header}>
+        <Animated.View 
+          style={[
+            styles.header, 
+            { 
+              opacity: fadeAnim, 
+              transform: [{ translateY: slideAnim }] 
+            }
+          ]}
+        >
           <Text style={styles.logo}>⛽</Text>
           <Text style={styles.title}>Tanq</Text>
           <Text style={styles.subtitle}>Encontre os melhores preços</Text>
-        </View>
+        </Animated.View>
 
         <Card style={styles.card}>
           <Card.Content>
@@ -107,12 +137,11 @@ export default function LoginScreen() {
             <Button
               mode="contained"
               onPress={handleLogin}
-              loading={loading}
               disabled={loading}
               style={styles.button}
               contentStyle={styles.buttonContent}
             >
-              {loading ? 'Entrando...' : 'Entrar'}
+              {loading ? <ActivityIndicator color="#fff" size="small" /> : 'Entrar'}
             </Button>
 
             <View style={styles.divider}>
