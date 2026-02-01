@@ -22,9 +22,9 @@ function detectPlatform(): Platform {
 
 // Configurações padrão por plataforma
 const platformConfigs: Record<Platform, string> = {
-  web: 'http://localhost:8080/api',
-  android: 'http://10.0.2.2:8080/api', // IP especial do Android Emulator
-  ios: 'http://localhost:8080/api',    // iOS Simulator usa localhost
+  web: 'http://localhost:8083/api',
+  android: 'http://192.168.3.37:8083/api', // IP local da máquina
+  ios: 'http://localhost:8083/api',    // iOS Simulator usa localhost
 };
 
 // Configuração atual (pode ser sobrescrita)
