@@ -13072,17 +13072,32 @@
       },
       {
         "source": "@tanq/mobile-tanq",
-        "target": "npm:expo-status-bar",
-        "type": "static"
-      },
-      {
-        "source": "@tanq/mobile-tanq",
         "target": "npm:react-native",
         "type": "static"
       },
       {
         "source": "@tanq/mobile-tanq",
         "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "@tanq/mobile-tanq",
+        "target": "@tanq/core-logic",
+        "type": "static"
+      },
+      {
+        "source": "@tanq/mobile-tanq",
+        "target": "npm:expo-status-bar",
+        "type": "static"
+      },
+      {
+        "source": "@tanq/mobile-tanq",
+        "target": "npm:react-native-safe-area-context",
+        "type": "static"
+      },
+      {
+        "source": "@tanq/mobile-tanq",
+        "target": "npm:expo",
         "type": "static"
       },
       {
@@ -13097,22 +13112,12 @@
       },
       {
         "source": "@tanq/mobile-tanq",
-        "target": "npm:expo",
-        "type": "static"
-      },
-      {
-        "source": "@tanq/mobile-tanq",
         "target": "npm:expo-linking",
         "type": "static"
       },
       {
         "source": "@tanq/mobile-tanq",
         "target": "npm:expo-constants",
-        "type": "static"
-      },
-      {
-        "source": "@tanq/mobile-tanq",
-        "target": "npm:react-native-safe-area-context",
         "type": "static"
       },
       {
@@ -31409,5 +31414,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1769903811045
+  "computedAt": 1769904608641
 }

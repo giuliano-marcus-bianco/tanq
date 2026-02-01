@@ -1,131 +1,206 @@
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { useState } from 'react';
-import { Link, router } from 'expo-router';
+import { View, StyleSheet, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import { TextInput, Button, Text, Card, HelperText, Snackbar } from 'react-native-paper';
+import { router } from 'expo-router';
+import { useAuth } from '@tanq/core-logic';
+import { tanqColors } from '../theme';
 
 export default function LoginScreen() {
+  const { login } = useAuth();
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [senha, setSenha] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [erro, setErro] = useState('');
+  const [senhaVisivel, setSenhaVisivel] = useState(false);
 
-  const handleLogin = () => {
-    // TODO: Conectar com @tanq/core-logic na FASE 2
-    console.log('Login:', { email, password });
+  const handleLogin = async () => {
+    // Validação básica
+    if (!email.trim()) {
+      setErro('Por favor, informe seu e-mail');
+      return;
+    }
+    if (!senha) {
+      setErro('Por favor, informe sua senha');
+      return;
+    }
+
+    setLoading(true);
+    setErro('');
+
+    try {
+      await login(email.trim(), senha);
+      // Navegar para home após login bem-sucedido
+      router.replace('/(tabs)');
+    } catch (error: any) {
+      console.error('Erro no login:', error);
+      if (error.response?.data?.mensagem) {
+        setErro(error.response.data.mensagem);
+      } else if (error.response?.status === 401) {
+        setErro('E-mail ou senha incorretos');
+      } else if (error.message?.includes('Network')) {
+        setErro('Erro de conexão. Verifique sua internet.');
+      } else {
+        setErro('Erro ao fazer login. Tente novamente.');
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Entrar</Text>
-        <Text style={styles.subtitle}>Acesse sua conta Tanq</Text>
-      </View>
-
-      <View style={styles.form}>
-        <View style={styles.inputGroup}>
-          <Text style={styles.label}>E-mail</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="seu@email.com"
-            placeholderTextColor="#6b7280"
-            value={email}
-            onChangeText={setEmail}
-            keyboardType="email-address"
-            autoCapitalize="none"
-          />
+    <KeyboardAvoidingView 
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.container}
+    >
+      <ScrollView 
+        contentContainerStyle={styles.scrollContent}
+        keyboardShouldPersistTaps="handled"
+      >
+        <View style={styles.header}>
+          <Text style={styles.logo}>⛽</Text>
+          <Text style={styles.title}>Tanq</Text>
+          <Text style={styles.subtitle}>Encontre os melhores preços</Text>
         </View>
 
-        <View style={styles.inputGroup}>
-          <Text style={styles.label}>Senha</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="••••••••"
-            placeholderTextColor="#6b7280"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-          />
-        </View>
+        <Card style={styles.card}>
+          <Card.Content>
+            <TextInput
+              label="E-mail"
+              value={email}
+              onChangeText={setEmail}
+              mode="outlined"
+              keyboardType="email-address"
+              autoCapitalize="none"
+              autoComplete="email"
+              left={<TextInput.Icon icon="email" />}
+              style={styles.input}
+              disabled={loading}
+            />
 
-        <TouchableOpacity style={styles.primaryButton} onPress={handleLogin}>
-          <Text style={styles.primaryButtonText}>Entrar</Text>
-        </TouchableOpacity>
-      </View>
+            <TextInput
+              label="Senha"
+              value={senha}
+              onChangeText={setSenha}
+              mode="outlined"
+              secureTextEntry={!senhaVisivel}
+              left={<TextInput.Icon icon="lock" />}
+              right={
+                <TextInput.Icon 
+                  icon={senhaVisivel ? 'eye-off' : 'eye'} 
+                  onPress={() => setSenhaVisivel(!senhaVisivel)}
+                />
+              }
+              style={styles.input}
+              disabled={loading}
+            />
 
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>Não tem uma conta? </Text>
-        <Link href="/register" asChild>
-          <TouchableOpacity>
-            <Text style={styles.linkText}>Cadastre-se</Text>
-          </TouchableOpacity>
-        </Link>
-      </View>
-    </View>
+            {erro ? (
+              <HelperText type="error" visible={!!erro}>
+                {erro}
+              </HelperText>
+            ) : null}
+
+            <Button
+              mode="contained"
+              onPress={handleLogin}
+              loading={loading}
+              disabled={loading}
+              style={styles.button}
+              contentStyle={styles.buttonContent}
+            >
+              {loading ? 'Entrando...' : 'Entrar'}
+            </Button>
+
+            <View style={styles.divider}>
+              <View style={styles.dividerLine} />
+              <Text style={styles.dividerText}>ou</Text>
+              <View style={styles.dividerLine} />
+            </View>
+
+            <Button
+              mode="outlined"
+              onPress={() => router.push('/register')}
+              style={styles.buttonSecondary}
+              disabled={loading}
+            >
+              Criar uma conta
+            </Button>
+          </Card.Content>
+        </Card>
+
+        <Button
+          mode="text"
+          onPress={() => router.back()}
+          style={styles.backButton}
+        >
+          Voltar
+        </Button>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0f0f23',
-    padding: 24,
+    backgroundColor: tanqColors.background,
+  },
+  scrollContent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    padding: 20,
   },
   header: {
-    marginTop: 40,
-    marginBottom: 40,
+    alignItems: 'center',
+    marginBottom: 32,
+  },
+  logo: {
+    fontSize: 64,
+    marginBottom: 8,
   },
   title: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: tanqColors.primary,
   },
   subtitle: {
     fontSize: 16,
-    color: '#a1a1aa',
-    marginTop: 8,
+    color: '#666',
+    marginTop: 4,
   },
-  form: {
-    gap: 20,
-  },
-  inputGroup: {
-    gap: 8,
-  },
-  label: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: '#ffffff',
+  card: {
+    elevation: 4,
+    borderRadius: 16,
   },
   input: {
-    backgroundColor: '#1a1a2e',
-    borderRadius: 12,
-    paddingHorizontal: 16,
-    paddingVertical: 14,
-    fontSize: 16,
-    color: '#ffffff',
-    borderWidth: 1,
-    borderColor: '#2d2d44',
+    marginBottom: 12,
   },
-  primaryButton: {
-    backgroundColor: '#4ade80',
-    paddingVertical: 16,
-    borderRadius: 12,
-    alignItems: 'center',
-    marginTop: 12,
+  button: {
+    marginTop: 16,
+    borderRadius: 8,
   },
-  primaryButtonText: {
-    color: '#0f0f23',
-    fontSize: 18,
-    fontWeight: '600',
+  buttonContent: {
+    paddingVertical: 8,
   },
-  footer: {
+  buttonSecondary: {
+    borderRadius: 8,
+    borderColor: tanqColors.primary,
+  },
+  divider: {
     flexDirection: 'row',
-    justifyContent: 'center',
-    marginTop: 24,
+    alignItems: 'center',
+    marginVertical: 20,
   },
-  footerText: {
-    color: '#a1a1aa',
-    fontSize: 14,
+  dividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#E0E0E0',
   },
-  linkText: {
-    color: '#4ade80',
-    fontSize: 14,
-    fontWeight: '600',
+  dividerText: {
+    marginHorizontal: 16,
+    color: '#666',
+  },
+  backButton: {
+    marginTop: 16,
   },
 });

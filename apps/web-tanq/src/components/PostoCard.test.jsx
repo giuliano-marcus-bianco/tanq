@@ -1,10 +1,9 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import PostoCard from './PostoCard';
-import { avaliacaoService } from '@tanq/core-logic';
-import { useAuth } from '@tanq/core-logic';
+import { avaliacaoService, usuarioService, useAuth } from '@tanq/core-logic';
 
-// Mock dos serviços
+// Mock consolidado do módulo @tanq/core-logic
 vi.mock('@tanq/core-logic', () => ({
   avaliacaoService: {
     mediaPorPosto: vi.fn(),
@@ -15,10 +14,6 @@ vi.mock('@tanq/core-logic', () => ({
   usuarioService: {
     buscarPorId: vi.fn(),
   },
-}));
-
-// Mock do hook useAuth
-vi.mock('@tanq/core-logic', () => ({
   useAuth: vi.fn(),
 }));
 

@@ -1,35 +1,104 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { Link } from 'expo-router';
+import { useEffect } from 'react';
+import { View, StyleSheet, Image } from 'react-native';
+import { Text, Button, ActivityIndicator } from 'react-native-paper';
+import { router } from 'expo-router';
+import { useAuth } from '@tanq/core-logic';
+import { tanqColors } from '../theme';
 
-export default function HomeScreen() {
+export default function WelcomeScreen() {
+  const { estaLogado, loading } = useAuth();
+
+  useEffect(() => {
+    // Se já está logado, redireciona para a home
+    if (!loading && estaLogado) {
+      router.replace('/(tabs)');
+    }
+  }, [loading, estaLogado]);
+
+  if (loading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <Text style={styles.logo}>⛽</Text>
+        <ActivityIndicator size="large" color={tanqColors.primary} />
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.logo}>🌿 Tanq</Text>
-        <Text style={styles.subtitle}>Sua rede de postos de combustível</Text>
-      </View>
-
-      <View style={styles.content}>
-        <Text style={styles.welcomeText}>
-          Bem-vindo ao Tanq Mobile!
-        </Text>
-        <Text style={styles.description}>
-          Encontre os melhores postos de combustível perto de você.
+        <Text style={styles.logo}>⛽</Text>
+        <Text style={styles.title}>Tanq</Text>
+        <Text style={styles.subtitle}>
+          Encontre os melhores preços de combustível na sua região
         </Text>
       </View>
 
-      <View style={styles.buttonContainer}>
-        <Link href="/login" asChild>
-          <TouchableOpacity style={styles.primaryButton}>
-            <Text style={styles.primaryButtonText}>Entrar</Text>
-          </TouchableOpacity>
-        </Link>
+      <View style={styles.features}>
+        <FeatureItem 
+          emoji="🔍" 
+          title="Busque postos" 
+          description="Encontre postos próximos a você"
+        />
+        <FeatureItem 
+          emoji="💰" 
+          title="Compare preços" 
+          description="Veja rankings de preços por tipo de combustível"
+        />
+        <FeatureItem 
+          emoji="🗺️" 
+          title="Navegue no mapa" 
+          description="Visualize todos os postos no mapa"
+        />
+        <FeatureItem 
+          emoji="⭐" 
+          title="Avalie postos" 
+          description="Compartilhe sua experiência com outros motoristas"
+        />
+      </View>
 
-        <Link href="/register" asChild>
-          <TouchableOpacity style={styles.secondaryButton}>
-            <Text style={styles.secondaryButtonText}>Criar Conta</Text>
-          </TouchableOpacity>
-        </Link>
+      <View style={styles.actions}>
+        <Button
+          mode="contained"
+          onPress={() => router.push('/login')}
+          style={styles.button}
+          contentStyle={styles.buttonContent}
+        >
+          Entrar
+        </Button>
+
+        <Button
+          mode="outlined"
+          onPress={() => router.push('/register')}
+          style={styles.buttonSecondary}
+          contentStyle={styles.buttonContent}
+        >
+          Criar conta
+        </Button>
+
+        <Button
+          mode="text"
+          onPress={() => router.push('/(tabs)')}
+          style={styles.skipButton}
+        >
+          Explorar sem conta →
+        </Button>
+      </View>
+    </View>
+  );
+}
+
+function FeatureItem({ emoji, title, description }: { 
+  emoji: string; 
+  title: string; 
+  description: string;
+}) {
+  return (
+    <View style={styles.featureItem}>
+      <Text style={styles.featureEmoji}>{emoji}</Text>
+      <View style={styles.featureText}>
+        <Text style={styles.featureTitle}>{title}</Text>
+        <Text style={styles.featureDescription}>{description}</Text>
       </View>
     </View>
   );
@@ -38,66 +107,80 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0f0f23',
+    backgroundColor: '#FFFFFF',
     padding: 24,
-    justifyContent: 'space-between',
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
   },
   header: {
     alignItems: 'center',
-    marginTop: 60,
+    marginTop: 40,
+    marginBottom: 40,
   },
   logo: {
-    fontSize: 48,
+    fontSize: 72,
+    marginBottom: 8,
+  },
+  title: {
+    fontSize: 40,
     fontWeight: 'bold',
-    color: '#4ade80',
+    color: tanqColors.primary,
   },
   subtitle: {
     fontSize: 16,
-    color: '#a1a1aa',
+    color: '#666',
+    textAlign: 'center',
     marginTop: 8,
-  },
-  content: {
-    alignItems: 'center',
-  },
-  welcomeText: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: '#ffffff',
-    textAlign: 'center',
-  },
-  description: {
-    fontSize: 16,
-    color: '#a1a1aa',
-    textAlign: 'center',
-    marginTop: 12,
     paddingHorizontal: 20,
   },
-  buttonContainer: {
+  features: {
+    flex: 1,
+    justifyContent: 'center',
+    gap: 16,
+  },
+  featureItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: tanqColors.background,
+    padding: 16,
+    borderRadius: 12,
+  },
+  featureEmoji: {
+    fontSize: 32,
+    marginRight: 16,
+  },
+  featureText: {
+    flex: 1,
+  },
+  featureTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
+  },
+  featureDescription: {
+    fontSize: 14,
+    color: '#666',
+    marginTop: 2,
+  },
+  actions: {
     gap: 12,
-    marginBottom: 40,
+    marginBottom: 20,
   },
-  primaryButton: {
-    backgroundColor: '#4ade80',
-    paddingVertical: 16,
-    borderRadius: 12,
-    alignItems: 'center',
+  button: {
+    borderRadius: 8,
   },
-  primaryButtonText: {
-    color: '#0f0f23',
-    fontSize: 18,
-    fontWeight: '600',
+  buttonContent: {
+    paddingVertical: 8,
   },
-  secondaryButton: {
-    backgroundColor: 'transparent',
-    paddingVertical: 16,
-    borderRadius: 12,
-    alignItems: 'center',
-    borderWidth: 2,
-    borderColor: '#4ade80',
+  buttonSecondary: {
+    borderRadius: 8,
+    borderColor: tanqColors.primary,
   },
-  secondaryButtonText: {
-    color: '#4ade80',
-    fontSize: 18,
-    fontWeight: '600',
+  skipButton: {
+    marginTop: 8,
   },
 });

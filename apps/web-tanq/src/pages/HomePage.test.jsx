@@ -2,10 +2,9 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import HomePage from './HomePage';
-import { postoService, precoService } from '@tanq/core-logic';
-import { useAuth } from '@tanq/core-logic';
+import { postoService, precoService, avaliacaoService, usuarioService, useAuth } from '@tanq/core-logic';
 
-// Mock dos serviços
+// Mock consolidado do módulo @tanq/core-logic
 vi.mock('@tanq/core-logic', () => ({
   postoService: {
     listarTodos: vi.fn(),
@@ -21,10 +20,6 @@ vi.mock('@tanq/core-logic', () => ({
   usuarioService: {
     buscarPorId: vi.fn(),
   },
-}));
-
-// Mock do hook useAuth
-vi.mock('@tanq/core-logic', () => ({
   useAuth: vi.fn(),
 }));
 

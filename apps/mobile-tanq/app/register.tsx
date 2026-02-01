@@ -1,159 +1,263 @@
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { useState } from 'react';
-import { Link } from 'expo-router';
+import { View, StyleSheet, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import { TextInput, Button, Text, Card, HelperText, SegmentedButtons } from 'react-native-paper';
+import { router } from 'expo-router';
+import { useAuth } from '@tanq/core-logic';
+import { tanqColors } from '../theme';
+
+type TipoUsuario = 'MOTORISTA' | 'DONO_POSTO';
 
 export default function RegisterScreen() {
-  const [name, setName] = useState('');
+  const { register } = useAuth();
+  const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [senha, setSenha] = useState('');
+  const [confirmarSenha, setConfirmarSenha] = useState('');
+  const [tipo, setTipo] = useState<TipoUsuario>('MOTORISTA');
+  const [loading, setLoading] = useState(false);
+  const [erro, setErro] = useState('');
+  const [senhaVisivel, setSenhaVisivel] = useState(false);
 
-  const handleRegister = () => {
-    // TODO: Conectar com @tanq/core-logic na FASE 2
-    console.log('Register:', { name, email, password });
+  const handleRegister = async () => {
+    // Validações
+    if (!nome.trim()) {
+      setErro('Por favor, informe seu nome');
+      return;
+    }
+    if (!email.trim()) {
+      setErro('Por favor, informe seu e-mail');
+      return;
+    }
+    if (!email.includes('@')) {
+      setErro('E-mail inválido');
+      return;
+    }
+    if (!senha) {
+      setErro('Por favor, informe uma senha');
+      return;
+    }
+    if (senha.length < 6) {
+      setErro('A senha deve ter pelo menos 6 caracteres');
+      return;
+    }
+    if (senha !== confirmarSenha) {
+      setErro('As senhas não conferem');
+      return;
+    }
+
+    setLoading(true);
+    setErro('');
+
+    try {
+      await register({
+        nome: nome.trim(),
+        email: email.trim(),
+        senha,
+        tipo,
+      });
+      // Navegar para home após registro bem-sucedido
+      router.replace('/(tabs)');
+    } catch (error: any) {
+      console.error('Erro no registro:', error);
+      if (error.response?.data?.mensagem) {
+        setErro(error.response.data.mensagem);
+      } else if (error.response?.status === 409) {
+        setErro('Este e-mail já está em uso');
+      } else if (error.message?.includes('Network')) {
+        setErro('Erro de conexão. Verifique sua internet.');
+      } else {
+        setErro('Erro ao criar conta. Tente novamente.');
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.content}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Criar Conta</Text>
-        <Text style={styles.subtitle}>Junte-se à comunidade Tanq</Text>
-      </View>
-
-      <View style={styles.form}>
-        <View style={styles.inputGroup}>
-          <Text style={styles.label}>Nome</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="Seu nome"
-            placeholderTextColor="#6b7280"
-            value={name}
-            onChangeText={setName}
-          />
+    <KeyboardAvoidingView 
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.container}
+    >
+      <ScrollView 
+        contentContainerStyle={styles.scrollContent}
+        keyboardShouldPersistTaps="handled"
+      >
+        <View style={styles.header}>
+          <Text style={styles.title}>Criar Conta</Text>
+          <Text style={styles.subtitle}>Junte-se ao Tanq</Text>
         </View>
 
-        <View style={styles.inputGroup}>
-          <Text style={styles.label}>E-mail</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="seu@email.com"
-            placeholderTextColor="#6b7280"
-            value={email}
-            onChangeText={setEmail}
-            keyboardType="email-address"
-            autoCapitalize="none"
-          />
-        </View>
+        <Card style={styles.card}>
+          <Card.Content>
+            <TextInput
+              label="Nome completo"
+              value={nome}
+              onChangeText={setNome}
+              mode="outlined"
+              autoCapitalize="words"
+              left={<TextInput.Icon icon="account" />}
+              style={styles.input}
+              disabled={loading}
+            />
 
-        <View style={styles.inputGroup}>
-          <Text style={styles.label}>Senha</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="••••••••"
-            placeholderTextColor="#6b7280"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry
-          />
-        </View>
+            <TextInput
+              label="E-mail"
+              value={email}
+              onChangeText={setEmail}
+              mode="outlined"
+              keyboardType="email-address"
+              autoCapitalize="none"
+              autoComplete="email"
+              left={<TextInput.Icon icon="email" />}
+              style={styles.input}
+              disabled={loading}
+            />
 
-        <View style={styles.inputGroup}>
-          <Text style={styles.label}>Confirmar Senha</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="••••••••"
-            placeholderTextColor="#6b7280"
-            value={confirmPassword}
-            onChangeText={setConfirmPassword}
-            secureTextEntry
-          />
-        </View>
+            <TextInput
+              label="Senha"
+              value={senha}
+              onChangeText={setSenha}
+              mode="outlined"
+              secureTextEntry={!senhaVisivel}
+              left={<TextInput.Icon icon="lock" />}
+              right={
+                <TextInput.Icon 
+                  icon={senhaVisivel ? 'eye-off' : 'eye'} 
+                  onPress={() => setSenhaVisivel(!senhaVisivel)}
+                />
+              }
+              style={styles.input}
+              disabled={loading}
+            />
 
-        <TouchableOpacity style={styles.primaryButton} onPress={handleRegister}>
-          <Text style={styles.primaryButtonText}>Criar Conta</Text>
-        </TouchableOpacity>
-      </View>
+            <TextInput
+              label="Confirmar senha"
+              value={confirmarSenha}
+              onChangeText={setConfirmarSenha}
+              mode="outlined"
+              secureTextEntry={!senhaVisivel}
+              left={<TextInput.Icon icon="lock-check" />}
+              style={styles.input}
+              disabled={loading}
+            />
 
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>Já tem uma conta? </Text>
-        <Link href="/login" asChild>
-          <TouchableOpacity>
-            <Text style={styles.linkText}>Entrar</Text>
-          </TouchableOpacity>
-        </Link>
-      </View>
-    </ScrollView>
+            <Text style={styles.tipoLabel}>Tipo de conta:</Text>
+            <SegmentedButtons
+              value={tipo}
+              onValueChange={(value) => setTipo(value as TipoUsuario)}
+              buttons={[
+                {
+                  value: 'MOTORISTA',
+                  label: '🚗 Motorista',
+                },
+                {
+                  value: 'DONO_POSTO',
+                  label: '⛽ Dono de Posto',
+                },
+              ]}
+              style={styles.segmented}
+            />
+
+            {erro ? (
+              <HelperText type="error" visible={!!erro}>
+                {erro}
+              </HelperText>
+            ) : null}
+
+            <Button
+              mode="contained"
+              onPress={handleRegister}
+              loading={loading}
+              disabled={loading}
+              style={styles.button}
+              contentStyle={styles.buttonContent}
+            >
+              {loading ? 'Criando conta...' : 'Criar conta'}
+            </Button>
+
+            <View style={styles.loginContainer}>
+              <Text style={styles.loginText}>Já tem uma conta? </Text>
+              <Button
+                mode="text"
+                onPress={() => router.push('/login')}
+                compact
+                disabled={loading}
+              >
+                Entrar
+              </Button>
+            </View>
+          </Card.Content>
+        </Card>
+
+        <Button
+          mode="text"
+          onPress={() => router.back()}
+          style={styles.backButton}
+        >
+          Voltar
+        </Button>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0f0f23',
+    backgroundColor: tanqColors.background,
   },
-  content: {
-    padding: 24,
-    paddingBottom: 40,
+  scrollContent: {
+    flexGrow: 1,
+    padding: 20,
+    paddingTop: 40,
   },
   header: {
-    marginTop: 20,
-    marginBottom: 32,
+    alignItems: 'center',
+    marginBottom: 24,
   },
   title: {
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: tanqColors.primary,
   },
   subtitle: {
     fontSize: 16,
-    color: '#a1a1aa',
-    marginTop: 8,
+    color: '#666',
+    marginTop: 4,
   },
-  form: {
-    gap: 20,
-  },
-  inputGroup: {
-    gap: 8,
-  },
-  label: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: '#ffffff',
+  card: {
+    elevation: 4,
+    borderRadius: 16,
   },
   input: {
-    backgroundColor: '#1a1a2e',
-    borderRadius: 12,
-    paddingHorizontal: 16,
-    paddingVertical: 14,
-    fontSize: 16,
-    color: '#ffffff',
-    borderWidth: 1,
-    borderColor: '#2d2d44',
+    marginBottom: 12,
   },
-  primaryButton: {
-    backgroundColor: '#4ade80',
-    paddingVertical: 16,
-    borderRadius: 12,
-    alignItems: 'center',
-    marginTop: 12,
+  tipoLabel: {
+    fontSize: 14,
+    color: '#666',
+    marginBottom: 8,
+    marginTop: 4,
   },
-  primaryButtonText: {
-    color: '#0f0f23',
-    fontSize: 18,
-    fontWeight: '600',
+  segmented: {
+    marginBottom: 16,
   },
-  footer: {
+  button: {
+    marginTop: 16,
+    borderRadius: 8,
+  },
+  buttonContent: {
+    paddingVertical: 8,
+  },
+  loginContainer: {
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 24,
+    marginTop: 20,
   },
-  footerText: {
-    color: '#a1a1aa',
-    fontSize: 14,
+  loginText: {
+    color: '#666',
   },
-  linkText: {
-    color: '#4ade80',
-    fontSize: 14,
-    fontWeight: '600',
+  backButton: {
+    marginTop: 16,
   },
 });
