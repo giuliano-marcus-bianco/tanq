@@ -1,0 +1,263 @@
+[2m> [22mnpx vitest run
+
+
+[1m[7m[36m RUN [39m[27m[22m [36mv2.1.9 [39m[90mC:/GitHub/Projetos/tanq/apps/web-tanq[39m
+
+ [32m✓[39m src/components/PostoList.test.jsx [2m([22m[2m4 tests[22m[2m)[22m[90m 47[2mms[22m[39m
+ [31m❯[39m src/components/AvaliacaoList.test.jsx [2m([22m[2m7 tests[22m[2m | [22m[31m7 failed[39m[2m)[22m[90m 5[2mms[22m[39m
+[31m   [31m×[31m AvaliacaoList[2m > [22mdeve exibir loading inicialmente[90m 3[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m AvaliacaoList[2m > [22mdeve exibir mensagem quando não há avaliações[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m AvaliacaoList[2m > [22mdeve exibir lista de avaliações[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m AvaliacaoList[2m > [22mdeve exibir estrelas corretamente[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m AvaliacaoList[2m > [22mdeve mostrar botão de deletar para ADMINISTRADOR[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m AvaliacaoList[2m > [22mdeve mostrar botão de deletar para próprio MOTORISTA[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m AvaliacaoList[2m > [22mnão deve mostrar botão de deletar para outro MOTORISTA[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+ [31m❯[39m src/components/AvaliacaoForm.test.jsx [2m([22m[2m7 tests[22m[2m | [22m[31m7 failed[39m[2m)[22m[90m 7[2mms[22m[39m
+[31m   [31m×[31m AvaliacaoForm[2m > [22mnão deve renderizar quando usuário não está logado[90m 5[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m AvaliacaoForm[2m > [22mnão deve renderizar para DONO_POSTO[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m AvaliacaoForm[2m > [22mdeve renderizar formulário para MOTORISTA[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m AvaliacaoForm[2m > [22mdeve exibir 5 estrelas para seleção[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m AvaliacaoForm[2m > [22mdeve exibir erro quando nota não é selecionada[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m AvaliacaoForm[2m > [22mdeve submeter avaliação com sucesso[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m AvaliacaoForm[2m > [22mdeve exibir erro quando API falha[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+ [31m❯[39m src/pages/RankingPage.test.jsx [2m([22m[2m10 tests[22m[2m | [22m[31m10 failed[39m[2m)[22m[90m 7[2mms[22m[39m
+[31m   [31m×[31m RankingPage[2m > [22mdeve exibir loading inicialmente[90m 4[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m RankingPage[2m > [22mdeve exibir título da página[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m RankingPage[2m > [22mdeve exibir filtro de combustível[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m RankingPage[2m > [22mdeve exibir ranking de preços[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m RankingPage[2m > [22mdeve exibir mensagem quando não há preços[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m RankingPage[2m > [22mdeve alterar ranking ao mudar tipo de combustível[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m RankingPage[2m > [22mdeve exibir botão de excluir para ADMINISTRADOR[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m RankingPage[2m > [22mdeve exibir botão de excluir para próprio usuário[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m RankingPage[2m > [22mnão deve exibir botão de excluir para outro usuário[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m RankingPage[2m > [22mdeve exibir erro quando API falha[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+ [31m❯[39m src/pages/HomePage.test.jsx [2m([22m[2m9 tests[22m[2m | [22m[31m9 failed[39m[2m)[22m[90m 6[2mms[22m[39m
+[31m   [31m×[31m HomePage[2m > [22mdeve exibir loading inicialmente[90m 3[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m HomePage[2m > [22mdeve exibir erro quando API falha[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m HomePage[2m > [22mdeve exibir hero section[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m HomePage[2m > [22mdeve exibir contagem de postos[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m HomePage[2m > [22mdeve exibir lista de postos[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m HomePage[2m > [22mdeve exibir mensagem quando não há postos[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m HomePage[2m > [22mdeve ter links para ranking e cadastro[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m HomePage[2m > [22mdeve exibir mapa de postos[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m HomePage[2m > [22mdeve exibir botão ver mais quando há mais de 6 postos[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+ [31m❯[39m src/components/PostoCard.test.jsx [2m([22m[2m8 tests[22m[2m | [22m[31m8 failed[39m[2m)[22m[90m 7[2mms[22m[39m
+[31m   [31m×[31m PostoCard[2m > [22mdeve renderizar informações do posto[90m 5[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m PostoCard[2m > [22mdeve renderizar preços de combustíveis[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m PostoCard[2m > [22mdeve renderizar mensagem quando não há preços[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m PostoCard[2m > [22mdeve exibir estatísticas de avaliação[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m PostoCard[2m > [22mdeve exibir singular para 1 avaliação[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m PostoCard[2m > [22mdeve mostrar botão de deletar quando podeDeletar é true[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m PostoCard[2m > [22mnão deve mostrar botão de deletar quando podeDeletar é false[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+[31m   [31m×[31m PostoCard[2m > [22mdeve ter toggle para ver/ocultar avaliações[90m 0[2mms[22m[31m[39m
+[31m     → useAuth.mockReturnValue is not a function[39m
+
+[31m⎯⎯⎯⎯⎯⎯[1m[7m Failed Tests 41 [27m[22m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[31m[1m[7m FAIL [27m[22m[39m src/components/AvaliacaoForm.test.jsx[2m > [22mAvaliacaoForm[2m > [22mnão deve renderizar quando usuário não está logado
+[31m[1mTypeError[22m: useAuth.mockReturnValue is not a function[39m
+[36m [2m❯[22m src/components/AvaliacaoForm.test.jsx:[2m27:13[22m[39m
+    [90m 25| [39m
+    [90m 26| [39m  [34mit[39m([32m'não deve renderizar quando usuário não está logado'[39m[33m,[39m () [33m=>[39m {
+    [90m 27| [39m    useAuth[33m.[39m[34mmockReturnValue[39m({ usuario[33m:[39m [35mnull[39m })[33m;[39m
+    [90m   | [39m            [31m^[39m
+    [90m 28| [39m
+    [90m 29| [39m    [35mconst[39m { container } [33m=[39m [34mrender[39m(
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/41]⎯[22m[39m
+
+[31m[1m[7m FAIL [27m[22m[39m src/components/AvaliacaoForm.test.jsx[2m > [22mAvaliacaoForm[2m > [22mnão deve renderizar para DONO_POSTO
+[31m[1mTypeError[22m: useAuth.mockReturnValue is not a function[39m
+[36m [2m❯[22m src/components/AvaliacaoForm.test.jsx:[2m37:13[22m[39m
+    [90m 35| [39m
+    [90m 36| [39m  [34mit[39m([32m'não deve renderizar para DONO_POSTO'[39m[33m,[39m () [33m=>[39m {
+    [90m 37| [39m    useAuth[33m.[39m[34mmockReturnValue[39m({
+    [90m   | [39m            [31m^[39m
+    [90m 38| [39m      usuario[33m:[39m { id[33m:[39m [34m1[39m[33m,[39m nome[33m:[39m [32m'Dono'[39m[33m,[39m tipo[33m:[39m [32m'DONO_POSTO'[39m }
+    [90m 39| [39m    })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/41]⎯[22m[39m
+
+[31m[1m[7m FAIL [27m[22m[39m src/components/AvaliacaoForm.test.jsx[2m > [22mAvaliacaoForm[2m > [22mdeve renderizar formulário para MOTORISTA
+[31m[1mTypeError[22m: useAuth.mockReturnValue is not a function[39m
+[36m [2m❯[22m src/components/AvaliacaoForm.test.jsx:[2m49:13[22m[39m
+    [90m 47| [39m
+    [90m 48| [39m  [34mit[39m([32m'deve renderizar formulário para MOTORISTA'[39m[33m,[39m () [33m=>[39m {
+    [90m 49| [39m    useAuth[33m.[39m[34mmockReturnValue[39m({
+    [90m   | [39m            [31m^[39m
+    [90m 50| [39m      usuario[33m:[39m { id[33m:[39m [34m2[39m[33m,[39m nome[33m:[39m [32m'João'[39m[33m,[39m tipo[33m:[39m [32m'MOTORISTA'[39m }
+    [90m 51| [39m    })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/41]⎯[22m[39m
+
+[31m[1m[7m FAIL [27m[22m[39m src/components/AvaliacaoForm.test.jsx[2m > [22mAvaliacaoForm[2m > [22mdeve exibir 5 estrelas para seleção
+[31m[1mTypeError[22m: useAuth.mockReturnValue is not a function[39m
+[36m [2m❯[22m src/components/AvaliacaoForm.test.jsx:[2m60:13[22m[39m
+    [90m 58| [39m
+    [90m 59| [39m  [34mit[39m([32m'deve exibir 5 estrelas para seleção'[39m[33m,[39m () [33m=>[39m {
+    [90m 60| [39m    useAuth[33m.[39m[34mmockReturnValue[39m({
+    [90m   | [39m            [31m^[39m
+    [90m 61| [39m      usuario[33m:[39m { id[33m:[39m [34m2[39m[33m,[39m nome[33m:[39m [32m'João'[39m[33m,[39m tipo[33m:[39m [32m'MOTORISTA'[39m }
+    [90m 62| [39m    })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/41]⎯[22m[39m
+
+[31m[1m[7m FAIL [27m[22m[39m src/components/AvaliacaoForm.test.jsx[2m > [22mAvaliacaoForm[2m > [22mdeve exibir erro quando nota não é selecionada
+[31m[1mTypeError[22m: useAuth.mockReturnValue is not a function[39m
+[36m [2m❯[22m src/components/AvaliacaoForm.test.jsx:[2m71:13[22m[39m
+    [90m 69| [39m
+    [90m 70| [39m  [34mit[39m([32m'deve exibir erro quando nota não é selecionada'[39m[33m,[39m [35masync[39m () [33m=>[39m {
+    [90m 71| [39m    useAuth[33m.[39m[34mmockReturnValue[39m({
+    [90m   | [39m            [31m^[39m
+    [90m 72| [39m      usuario[33m:[39m { id[33m:[39m [34m2[39m[33m,[39m nome[33m:[39m [32m'João'[39m[33m,[39m tipo[33m:[39m [32m'MOTORISTA'[39m }
+    [90m 73| [39m    })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/41]⎯[22m[39m
+
+[31m[1m[7m FAIL [27m[22m[39m src/components/AvaliacaoForm.test.jsx[2m > [22mAvaliacaoForm[2m > [22mdeve submeter avaliação com sucesso
+[31m[1mTypeError[22m: useAuth.mockReturnValue is not a function[39m
+[36m [2m❯[22m src/components/AvaliacaoForm.test.jsx:[2m86:13[22m[39m
+    [90m 84| [39m
+    [90m 85| [39m  [34mit[39m([32m'deve submeter avaliação com sucesso'[39m[33m,[39m [35masync[39m () [33m=>[39m {
+    [90m 86| [39m    useAuth[33m.[39m[34mmockReturnValue[39m({
+    [90m   | [39m            [31m^[39m
+    [90m 87| [39m      usuario[33m:[39m { id[33m:[39m [34m2[39m[33m,[39m nome[33m:[39m [32m'João'[39m[33m,[39m tipo[33m:[39m [32m'MOTORISTA'[39m }
+    [90m 88| [39m    })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/41]⎯[22m[39m
+
+[31m[1m[7m FAIL [27m[22m[39m src/components/AvaliacaoForm.test.jsx[2m > [22mAvaliacaoForm[2m > [22mdeve exibir erro quando API falha
+[31m[1mTypeError[22m: useAuth.mockReturnValue is not a function[39m
+[36m [2m❯[22m src/components/AvaliacaoForm.test.jsx:[2m115:13[22m[39m
+    [90m113| [39m
+    [90m114| [39m  [34mit[39m([32m'deve exibir erro quando API falha'[39m[33m,[39m [35masync[39m () [33m=>[39m {
+    [90m115| [39m    useAuth[33m.[39m[34mmockReturnValue[39m({
+    [90m   | [39m            [31m^[39m
+    [90m116| [39m      usuario[33m:[39m { id[33m:[39m [34m2[39m[33m,[39m nome[33m:[39m [32m'João'[39m[33m,[39m tipo[33m:[39m [32m'MOTORISTA'[39m }
+    [90m117| [39m    })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/41]⎯[22m[39m
+
+[31m[1m[7m FAIL [27m[22m[39m src/components/AvaliacaoList.test.jsx[2m > [22mAvaliacaoList[2m > [22mdeve exibir loading inicialmente
+[31m[1m[7m FAIL [27m[22m[39m src/components/AvaliacaoList.test.jsx[2m > [22mAvaliacaoList[2m > [22mdeve exibir mensagem quando não há avaliações
+[31m[1m[7m FAIL [27m[22m[39m src/components/AvaliacaoList.test.jsx[2m > [22mAvaliacaoList[2m > [22mdeve exibir lista de avaliações
+[31m[1m[7m FAIL [27m[22m[39m src/components/AvaliacaoList.test.jsx[2m > [22mAvaliacaoList[2m > [22mdeve exibir estrelas corretamente
+[31m[1m[7m FAIL [27m[22m[39m src/components/AvaliacaoList.test.jsx[2m > [22mAvaliacaoList[2m > [22mdeve mostrar botão de deletar para ADMINISTRADOR
+[31m[1m[7m FAIL [27m[22m[39m src/components/AvaliacaoList.test.jsx[2m > [22mAvaliacaoList[2m > [22mdeve mostrar botão de deletar para próprio MOTORISTA
+[31m[1m[7m FAIL [27m[22m[39m src/components/AvaliacaoList.test.jsx[2m > [22mAvaliacaoList[2m > [22mnão deve mostrar botão de deletar para outro MOTORISTA
+[31m[1mTypeError[22m: useAuth.mockReturnValue is not a function[39m
+[36m [2m❯[22m src/components/AvaliacaoList.test.jsx:[2m28:13[22m[39m
+    [90m 26| [39m  [34mbeforeEach[39m(() [33m=>[39m {
+    [90m 27| [39m    vi[33m.[39m[34mclearAllMocks[39m()[33m;[39m
+    [90m 28| [39m    useAuth[33m.[39m[34mmockReturnValue[39m({ usuario[33m:[39m [35mnull[39m })[33m;[39m
+    [90m   | [39m            [31m^[39m
+    [90m 29| [39m  })[33m;[39m
+    [90m 30| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/41]⎯[22m[39m
+
+[31m[1m[7m FAIL [27m[22m[39m src/components/PostoCard.test.jsx[2m > [22mPostoCard[2m > [22mdeve renderizar informações do posto
+[31m[1m[7m FAIL [27m[22m[39m src/components/PostoCard.test.jsx[2m > [22mPostoCard[2m > [22mdeve renderizar preços de combustíveis
+[31m[1m[7m FAIL [27m[22m[39m src/components/PostoCard.test.jsx[2m > [22mPostoCard[2m > [22mdeve renderizar mensagem quando não há preços
+[31m[1m[7m FAIL [27m[22m[39m src/components/PostoCard.test.jsx[2m > [22mPostoCard[2m > [22mdeve exibir estatísticas de avaliação
+[31m[1m[7m FAIL [27m[22m[39m src/components/PostoCard.test.jsx[2m > [22mPostoCard[2m > [22mdeve exibir singular para 1 avaliação
+[31m[1m[7m FAIL [27m[22m[39m src/components/PostoCard.test.jsx[2m > [22mPostoCard[2m > [22mdeve mostrar botão de deletar quando podeDeletar é true
+[31m[1m[7m FAIL [27m[22m[39m src/components/PostoCard.test.jsx[2m > [22mPostoCard[2m > [22mnão deve mostrar botão de deletar quando podeDeletar é false
+[31m[1m[7m FAIL [27m[22m[39m src/components/PostoCard.test.jsx[2m > [22mPostoCard[2m > [22mdeve ter toggle para ver/ocultar avaliações
+[31m[1mTypeError[22m: useAuth.mockReturnValue is not a function[39m
+[36m [2m❯[22m src/components/PostoCard.test.jsx:[2m57:13[22m[39m
+    [90m 55| [39m  [34mbeforeEach[39m(() [33m=>[39m {
+    [90m 56| [39m    vi[33m.[39m[34mclearAllMocks[39m()[33m;[39m
+    [90m 57| [39m    useAuth[33m.[39m[34mmockReturnValue[39m({ usuario[33m:[39m [35mnull[39m })[33m;[39m
+    [90m   | [39m            [31m^[39m
+    [90m 58| [39m    avaliacaoService[33m.[39mmediaPorPosto[33m.[39m[34mmockResolvedValue[39m({ data[33m:[39m { media[33m:[39m …
+    [90m 59| [39m  })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/41]⎯[22m[39m
+
+[31m[1m[7m FAIL [27m[22m[39m src/pages/HomePage.test.jsx[2m > [22mHomePage[2m > [22mdeve exibir loading inicialmente
+[31m[1m[7m FAIL [27m[22m[39m src/pages/HomePage.test.jsx[2m > [22mHomePage[2m > [22mdeve exibir erro quando API falha
+[31m[1m[7m FAIL [27m[22m[39m src/pages/HomePage.test.jsx[2m > [22mHomePage[2m > [22mdeve exibir hero section
+[31m[1m[7m FAIL [27m[22m[39m src/pages/HomePage.test.jsx[2m > [22mHomePage[2m > [22mdeve exibir contagem de postos
+[31m[1m[7m FAIL [27m[22m[39m src/pages/HomePage.test.jsx[2m > [22mHomePage[2m > [22mdeve exibir lista de postos
+[31m[1m[7m FAIL [27m[22m[39m src/pages/HomePage.test.jsx[2m > [22mHomePage[2m > [22mdeve exibir mensagem quando não há postos
+[31m[1m[7m FAIL [27m[22m[39m src/pages/HomePage.test.jsx[2m > [22mHomePage[2m > [22mdeve ter links para ranking e cadastro
+[31m[1m[7m FAIL [27m[22m[39m src/pages/HomePage.test.jsx[2m > [22mHomePage[2m > [22mdeve exibir mapa de postos
+[31m[1m[7m FAIL [27m[22m[39m src/pages/HomePage.test.jsx[2m > [22mHomePage[2m > [22mdeve exibir botão ver mais quando há mais de 6 postos
+[31m[1mTypeError[22m: useAuth.mockReturnValue is not a function[39m
+[36m [2m❯[22m src/pages/HomePage.test.jsx:[2m49:13[22m[39m
+    [90m 47| [39m  [34mbeforeEach[39m(() [33m=>[39m {
+    [90m 48| [39m    vi[33m.[39m[34mclearAllMocks[39m()[33m;[39m
+    [90m 49| [39m    useAuth[33m.[39m[34mmockReturnValue[39m({ usuario[33m:[39m [35mnull[39m })[33m;[39m
+    [90m   | [39m            [31m^[39m
+    [90m 50| [39m  })[33m;[39m
+    [90m 51| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/41]⎯[22m[39m
+
+[31m[1m[7m FAIL [27m[22m[39m src/pages/RankingPage.test.jsx[2m > [22mRankingPage[2m > [22mdeve exibir loading inicialmente
+[31m[1m[7m FAIL [27m[22m[39m src/pages/RankingPage.test.jsx[2m > [22mRankingPage[2m > [22mdeve exibir título da página
+[31m[1m[7m FAIL [27m[22m[39m src/pages/RankingPage.test.jsx[2m > [22mRankingPage[2m > [22mdeve exibir filtro de combustível
+[31m[1m[7m FAIL [27m[22m[39m src/pages/RankingPage.test.jsx[2m > [22mRankingPage[2m > [22mdeve exibir ranking de preços
+[31m[1m[7m FAIL [27m[22m[39m src/pages/RankingPage.test.jsx[2m > [22mRankingPage[2m > [22mdeve exibir mensagem quando não há preços
+[31m[1m[7m FAIL [27m[22m[39m src/pages/RankingPage.test.jsx[2m > [22mRankingPage[2m > [22mdeve alterar ranking ao mudar tipo de combustível
+[31m[1m[7m FAIL [27m[22m[39m src/pages/RankingPage.test.jsx[2m > [22mRankingPage[2m > [22mdeve exibir botão de excluir para ADMINISTRADOR
+[31m[1m[7m FAIL [27m[22m[39m src/pages/RankingPage.test.jsx[2m > [22mRankingPage[2m > [22mdeve exibir botão de excluir para próprio usuário
+[31m[1m[7m FAIL [27m[22m[39m src/pages/RankingPage.test.jsx[2m > [22mRankingPage[2m > [22mnão deve exibir botão de excluir para outro usuário
+[31m[1m[7m FAIL [27m[22m[39m src/pages/RankingPage.test.jsx[2m > [22mRankingPage[2m > [22mdeve exibir erro quando API falha
+[31m[1mTypeError[22m: useAuth.mockReturnValue is not a function[39m
+[36m [2m❯[22m src/pages/RankingPage.test.jsx:[2m26:13[22m[39m
+    [90m 24| [39m  [34mbeforeEach[39m(() [33m=>[39m {
+    [90m 25| [39m    vi[33m.[39m[34mclearAllMocks[39m()[33m;[39m
+    [90m 26| [39m    useAuth[33m.[39m[34mmockReturnValue[39m({ usuario[33m:[39m [35mnull[39m })[33m;[39m
+    [90m   | [39m            [31m^[39m
+    [90m 27| [39m  })[33m;[39m
+    [90m 28| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/41]⎯[22m[39m
+
+[2m Test Files [22m [1m[31m5 failed[39m[22m[2m | [22m[1m[32m1 passed[39m[22m[90m (6)[39m
+[2m      Tests [22m [1m[31m41 failed[39m[22m[2m | [22m[1m[32m4 passed[39m[22m[90m (45)[39m
+[2m   Start at [22m 20:53:20
+[2m   Duration [22m 1.47s[2m (transform 447ms, setup 457ms, collect 2.29s, tests 80ms, environment 3.67s, prepare 625ms)[22m
+

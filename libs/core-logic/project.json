@@ -1,0 +1,26 @@
+{
+    "name": "@tanq/core-logic",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "library",
+    "sourceRoot": "libs/core-logic/src",
+    "tags": [
+        "type:lib",
+        "scope:shared"
+    ],
+    "targets": {
+        "build": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "npx tsc -p tsconfig.json",
+                "cwd": "libs/core-logic"
+            }
+        },
+        "lint": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "npx eslint src",
+                "cwd": "libs/core-logic"
+            }
+        }
+    }
+}

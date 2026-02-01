@@ -474,5 +474,135 @@
       "nx.json",
       "nx/target-defaults"
     ]
+  },
+  "libs/core-logic": {
+    "root": [
+      "libs/core-logic/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "libs/core-logic/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/core-logic/package.json",
+      "nx/core/package-json"
+    ],
+    "tags.npm:private": [
+      "libs/core-logic/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.targetGroups": [
+      "libs/core-logic/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js": [
+      "libs/core-logic/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageName": [
+      "libs/core-logic/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.packageMain": [
+      "libs/core-logic/package.json",
+      "nx/core/package-json"
+    ],
+    "metadata.js.isInPackageManagerWorkspaces": [
+      "libs/core-logic/package.json",
+      "nx/core/package-json"
+    ],
+    "targets": [
+      "libs/core-logic/package.json",
+      "nx/core/package-json"
+    ],
+    "$schema": [
+      "libs/core-logic/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/core-logic/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/core-logic/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.type:lib": [
+      "libs/core-logic/project.json",
+      "nx/core/project-json"
+    ],
+    "tags.scope:shared": [
+      "libs/core-logic/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "libs/core-logic/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "libs/core-logic/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "libs/core-logic/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.command": [
+      "libs/core-logic/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.cwd": [
+      "libs/core-logic/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "libs/core-logic/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "libs/core-logic/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options": [
+      "libs/core-logic/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.command": [
+      "libs/core-logic/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.options.cwd": [
+      "libs/core-logic/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.dependsOn": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
   }
 }

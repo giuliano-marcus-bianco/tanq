@@ -13,672 +13,517 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "backend/src/main/resources/data.sql",
-        "hash": "125225115520438813"
-      },
-      {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-13.png",
-        "hash": "17581767173834492504"
-      },
-      {
-        "file": "backend/src/main/java/com/tanq/controller/AvaliacaoController.java",
-        "hash": "11170978864287812927"
-      },
-      {
-        "file": "doc/diagramas/diagrama-atividade-case03.mdj",
-        "hash": "947335740795509643"
-      },
-      {
-        "file": "doc/casos-de-uso/user-case-12-gerenciar_contas_de_parceiros.md",
-        "hash": "5185850717288950810"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "10621758773690326421"
-      },
-      {
-        "file": "backend/src/test/java/com/tanq/service/AvaliacaoServiceTest.java",
-        "hash": "16643509287764895012"
-      },
-      {
-        "file": "backend/src/main/resources/application.properties",
-        "hash": "14343456842512894544"
-      },
-      {
-        "file": "backend/settings.gradle",
-        "hash": "9637719708156466409"
-      },
-      {
-        "file": "doc/casos-de-uso/user-case-15-obter_recomendacao_via_chatbo.md",
-        "hash": "7753639138665722296"
-      },
-      {
-        "file": "backend/src/main/java/com/tanq/repository/PostoRepository.java",
-        "hash": "9893737818749768764"
-      },
-      {
-        "file": "projeto-final-fase4.pdf",
-        "hash": "4732733658530929835"
-      },
-      {
-        "file": "doc/casos-de-uso/diagrama.mdj",
-        "hash": "4842671524081450656"
-      },
-      {
-        "file": "doc/casos-de-uso/user-case-13-moderar_conteudo.md",
-        "hash": "14212510940219854940"
-      },
-      {
-        "file": "backend/src/main/java/com/tanq/controller/HomeController.java",
-        "hash": "13471205284578682288"
-      },
-      {
-        "file": "backend/gradlew",
-        "hash": "7421580774012574051"
+        "file": "ROADMAP_MIGRACAO.md",
+        "hash": "6395295411736653860"
       },
       {
         "file": "doc/casos-de-uso/user-case-11-avaliar_posto_de_combustivel.md",
         "hash": "72697395887017490"
       },
       {
-        "file": "doc/casos-de-uso/user-case-10-resgatar_cupom_de_desconto.md",
-        "hash": "3574107796873141688"
-      },
-      {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-14.mdj",
-        "hash": "7680980639082001613"
-      },
-      {
-        "file": "backend/src/main/java/com/tanq/service/PostoService.java",
-        "hash": "14289077615473591291"
-      },
-      {
-        "file": "backend/src/main/java/com/tanq/service/AvaliacaoService.java",
-        "hash": "17762945593566519109"
-      },
-      {
-        "file": "doc/casos-de-uso/user-case-16-atualizar_preco_com_foto.md",
-        "hash": "11399196450146937705"
-      },
-      {
-        "file": "backend/src/main/java/com/tanq/controller/AuthController.java",
-        "hash": "148799400815561920"
-      },
-      {
-        "file": "backend/src/main/resources/application-h2.properties",
-        "hash": "14265807397550880000"
-      },
-      {
-        "file": ".github/workflows/ci.yml",
-        "hash": "2171530306563693259"
-      },
-      {
-        "file": "doc/diagramas/diagrama-de-atividade-case-06.png",
-        "hash": "14120315534058260516"
-      },
-      {
-        "file": "doc/casos-de-uso/user-case-14-gerenciar_cupons_e_promocoes.md",
-        "hash": "5748060839751412852"
-      },
-      {
-        "file": "APRESENTACAO.md",
-        "hash": "15103547532957318010"
-      },
-      {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-15.png",
-        "hash": "3366727227398424576"
-      },
-      {
-        "file": "doc/casos-de-uso/user-case-09-visualizar_postos_no_mapa.md",
-        "hash": "2363279882053691331"
-      },
-      {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-08.mdj",
-        "hash": "10059912981768352397"
-      },
-      {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-16.mdj",
-        "hash": "17370190884460446893"
-      },
-      {
-        "file": "doc/casos-de-uso/user-case-08-consultar_detalhes_e_avaliacoes_de_um_posto.md",
-        "hash": "230980998297091856"
-      },
-      {
-        "file": "backend/src/main/java/com/tanq/model/TipoCombustivel.java",
-        "hash": "9108285616453461040"
-      },
-      {
-        "file": "backend/src/main/java/com/tanq/model/Preco.java",
-        "hash": "18443849365789041141"
-      },
-      {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-09.png",
-        "hash": "8495734023799178659"
-      },
-      {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-09.mdj",
-        "hash": "12007581140970982144"
-      },
-      {
-        "file": "backend/src/main/java/com/tanq/controller/UsuarioController.java",
-        "hash": "12797915595933616838"
-      },
-      {
-        "file": "backend/src/main/java/com/tanq/config/CorsConfig.java",
-        "hash": "15486014602589166336"
-      },
-      {
-        "file": "doc/casos-de-uso/user-case-06-consultar_ranking_de_precos.md",
-        "hash": "14682802515351398556"
-      },
-      {
-        "file": "backend/src/test/java/com/tanq/service/UsuarioServiceTest.java",
-        "hash": "3288812583444320308"
-      },
-      {
-        "file": "doc/casos-de-uso/user-case-07-acompanhar-avaliacoes.md",
-        "hash": "9941742244733830421"
-      },
-      {
-        "file": "projeto-final-fase1.pdf",
-        "hash": "13045915204917335610"
-      },
-      {
-        "file": "docker-compose.yml",
-        "hash": "13461250005819063211"
-      },
-      {
-        "file": "backend/src/test/resources/application-test.properties",
-        "hash": "3020849952239312361"
-      },
-      {
-        "file": "IMPLEMENT.md",
-        "hash": "7181869218741428983"
-      },
-      {
-        "file": "nx.json",
-        "hash": "13262451822676662121"
-      },
-      {
-        "file": "doc/diagramas/diagrama-atividade-case05.mdj",
-        "hash": "2905733266013653368"
-      },
-      {
-        "file": "backend/build.gradle",
-        "hash": "2024491671937769384"
-      },
-      {
-        "file": "projeto-final-fase2.pdf",
-        "hash": "7783809729310959173"
-      },
-      {
-        "file": "backend/src/main/java/com/tanq/model/Avaliacao.java",
-        "hash": "6606377282274913758"
-      },
-      {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-01.png",
-        "hash": "16984072372543937692"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "5038080265044912244"
-      },
-      {
-        "file": "doc/casos-de-uso/user-case-02-realizar_login.md",
-        "hash": "6127796543821152732"
-      },
-      {
-        "file": "doc/arquitetura.md",
-        "hash": "13505245762695660123"
-      },
-      {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-04.mdj",
-        "hash": "14117140857436785241"
-      },
-      {
-        "file": "backend/src/main/java/com/tanq/model/TipoUsuario.java",
-        "hash": "11376193973879986996"
-      },
-      {
-        "file": "backend/src/test/java/com/tanq/service/PrecoServiceTest.java",
-        "hash": "8305031125130223145"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "10471787413440510551"
-      },
-      {
-        "file": "backend/src/main/java/com/tanq/service/PrecoService.java",
-        "hash": "11966315161293083107"
-      },
-      {
-        "file": "doc/diagramas/diagrama_arquitetura.png",
-        "hash": "15899171134690049511"
-      },
-      {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-02.mdj",
-        "hash": "15373932364231453675"
-      },
-      {
-        "file": "doc/diagramas/diagrama-atividade-case06.mdj",
-        "hash": "9795688943814020716"
-      },
-      {
-        "file": "doc/casos-de-uso/user-case-04-criar_conta_de_motorista.md",
-        "hash": "15074308073107152205"
-      },
-      {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-13.mdj",
-        "hash": "4724665595470523280"
-      },
-      {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-04.png",
-        "hash": "663651445574112269"
-      },
-      {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-15.mdj",
-        "hash": "3076578114524180695"
-      },
-      {
-        "file": "backend/.mvn/wrapper/maven-wrapper.properties",
-        "hash": "8323933083354530602"
-      },
-      {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-07.mdj",
-        "hash": "9859032202693605228"
-      },
-      {
-        "file": "backend/src/main/java/com/tanq/service/UsuarioService.java",
-        "hash": "13089071919555097668"
-      },
-      {
-        "file": "doc/diagramas/UseCaseDiagram.png",
-        "hash": "9796363373017998435"
-      },
-      {
-        "file": "doc/casos-de-uso/user-case-01-realizar_logout.md",
-        "hash": "7600658278822287483"
-      },
-      {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-01.mdj",
-        "hash": "11729647355586885167"
-      },
-      {
-        "file": "backend/src/main/java/com/tanq/repository/PrecoRepository.java",
-        "hash": "9469299306716947554"
-      },
-      {
-        "file": "doc/casos-de-uso/casos-de-uso.md",
-        "hash": "12824586637792808366"
-      },
-      {
-        "file": "doc/diagramas/diagrama_de_classe.png",
-        "hash": "13625549721818262259"
-      },
-      {
-        "file": "backend/src/main/java/com/tanq/model/Posto.java",
-        "hash": "12098176824860932491"
-      },
-      {
-        "file": "backend/src/test/java/com/tanq/service/PostoServiceTest.java",
-        "hash": "17637236014279315126"
-      },
-      {
-        "file": "doc/diagramas/diagrama_de_classe.md",
-        "hash": "11998756568262369134"
-      },
-      {
-        "file": "doc/diagramas/diagrama_de_arquitetura.mdj",
-        "hash": "10741083316167764823"
-      },
-      {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-11.png",
-        "hash": "15648133849349117954"
+        "file": "doc/diagramas/diagrama-de-atividade-case-03.png",
+        "hash": "10785399640338530822"
       },
       {
         "file": "backend/gradlew.bat",
         "hash": "8232202015247706579"
       },
       {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-14.png",
-        "hash": "777216247307791414"
+        "file": "doc/diagramas/UseCaseDiagram.png",
+        "hash": "9796363373017998435"
       },
       {
-        "file": "doc/casos-de-uso/user-case-03-recuperar_senha.md",
-        "hash": "10842254475384582364"
+        "file": "backend/src/main/java/com/tanq/model/TipoUsuario.java",
+        "hash": "11376193973879986996"
       },
       {
-        "file": "doc/diagramas/diagrama-atividade-case5.png",
-        "hash": "12535691123991800438"
+        "file": "backend/src/main/java/com/tanq/service/UsuarioService.java",
+        "hash": "13089071919555097668"
       },
       {
-        "file": "IMPLEMENT_SIMPLE.md",
-        "hash": "5630936258133475551"
+        "file": "backend/src/main/java/com/tanq/config/CorsConfig.java",
+        "hash": "15486014602589166336"
       },
       {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-07.png",
-        "hash": "10496893363416291266"
+        "file": "IMPLEMENT.md",
+        "hash": "7181869218741428983"
       },
       {
-        "file": "doc/casos-de-uso/user-case-05-criar_conta_de_dono_de_posto.md",
-        "hash": "414160905775543544"
+        "file": "doc/casos-de-uso/casos-de-uso.md",
+        "hash": "12824586637792808366"
       },
       {
-        "file": "backend/src/main/java/com/tanq/controller/PrecoController.java",
-        "hash": "4100766513904298994"
+        "file": "doc/diagramas/diagrama-de-sequencia-case-16.mdj",
+        "hash": "17370190884460446893"
       },
       {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-10.png",
-        "hash": "12718879739882030356"
-      },
-      {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-11.mdj",
-        "hash": "14373263782887477044"
-      },
-      {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-16.png",
-        "hash": "3200765344875896721"
-      },
-      {
-        "file": "package.json",
-        "hash": "11150890701305353762"
-      },
-      {
-        "file": "README.md",
-        "hash": "4009594894852715287"
-      },
-      {
-        "file": "backend/src/main/java/com/tanq/repository/AvaliacaoRepository.java",
-        "hash": "9942686331701459558"
-      },
-      {
-        "file": "backend/src/main/java/com/tanq/repository/UsuarioRepository.java",
-        "hash": "5540766221705100935"
-      },
-      {
-        "file": "projeto-final-fase3.pdf",
-        "hash": "14692369422822563852"
+        "file": "projeto-final-fase4.pdf",
+        "hash": "4732733658530929835"
       },
       {
         "file": "doc/diagramas/diagrama_de_classe.mdj",
         "hash": "2206139232006433027"
       },
       {
-        "file": "ROADMAP_MIGRACAO.md",
-        "hash": "6395295411736653860"
+        "file": "backend/src/main/java/com/tanq/repository/PrecoRepository.java",
+        "hash": "9469299306716947554"
       },
       {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-08.png",
-        "hash": "3558374637314665173"
+        "file": "doc/diagramas/diagrama_de_arquitetura.mdj",
+        "hash": "10741083316167764823"
       },
       {
-        "file": "backend/src/main/java/com/tanq/model/Usuario.java",
-        "hash": "596725154574736876"
+        "file": "backend/src/main/resources/application.properties",
+        "hash": "14343456842512894544"
       },
       {
-        "file": "backend/src/test/java/com/tanq/TanqApplicationTests.java",
-        "hash": "492552882366251549"
+        "file": "backend/src/main/resources/application-h2.properties",
+        "hash": "14265807397550880000"
       },
       {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-12.mdj",
-        "hash": "4101765214644416778"
+        "file": "backend/src/main/java/com/tanq/controller/PrecoController.java",
+        "hash": "4100766513904298994"
       },
       {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-10.mdj",
-        "hash": "12577373642993529474"
-      },
-      {
-        "file": "backend/gradle/wrapper/gradle-wrapper.properties",
-        "hash": "3353094478346459509"
+        "file": "doc/casos-de-uso/user-case-13-moderar_conteudo.md",
+        "hash": "14212510940219854940"
       },
       {
         "file": "GRADING.md",
         "hash": "24400109357360732"
       },
       {
-        "file": "doc/diagramas/diagrama-de-sequencia-case-12.png",
-        "hash": "18108690120038034256"
+        "file": "projeto-final-fase2.pdf",
+        "hash": "7783809729310959173"
       },
       {
-        "file": "doc/requisitos.md",
-        "hash": "12336565703271278527"
+        "file": "doc/diagramas/diagrama-de-sequencia-case-09.mdj",
+        "hash": "12007581140970982144"
       },
       {
-        "file": "backend/src/main/java/com/tanq/controller/PostoController.java",
-        "hash": "8804044199310403726"
+        "file": "doc/diagramas/diagrama-de-sequencia-case-15.png",
+        "hash": "3366727227398424576"
       },
       {
         "file": "backend/src/main/java/com/tanq/TanqApplication.java",
         "hash": "17880560926692668156"
       },
       {
-        "file": "doc/diagramas/diagrama-de-atividade-case-03.png",
-        "hash": "10785399640338530822"
+        "file": "doc/casos-de-uso/user-case-08-consultar_detalhes_e_avaliacoes_de_um_posto.md",
+        "hash": "230980998297091856"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-10.mdj",
+        "hash": "12577373642993529474"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-atividade-case-06.png",
+        "hash": "14120315534058260516"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-14.mdj",
+        "hash": "7680980639082001613"
+      },
+      {
+        "file": "doc/casos-de-uso/user-case-05-criar_conta_de_dono_de_posto.md",
+        "hash": "414160905775543544"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-07.png",
+        "hash": "10496893363416291266"
+      },
+      {
+        "file": "backend/settings.gradle",
+        "hash": "9637719708156466409"
+      },
+      {
+        "file": "doc/diagramas/diagrama-atividade-case06.mdj",
+        "hash": "9795688943814020716"
+      },
+      {
+        "file": "doc/casos-de-uso/user-case-02-realizar_login.md",
+        "hash": "6127796543821152732"
+      },
+      {
+        "file": "backend/src/test/java/com/tanq/service/UsuarioServiceTest.java",
+        "hash": "3288812583444320308"
+      },
+      {
+        "file": "backend/src/main/java/com/tanq/controller/PostoController.java",
+        "hash": "8804044199310403726"
+      },
+      {
+        "file": "doc/diagramas/diagrama_de_classe.md",
+        "hash": "11998756568262369134"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-02.mdj",
+        "hash": "15373932364231453675"
+      },
+      {
+        "file": "backend/src/main/java/com/tanq/repository/UsuarioRepository.java",
+        "hash": "5540766221705100935"
+      },
+      {
+        "file": "backend/src/main/java/com/tanq/model/Usuario.java",
+        "hash": "596725154574736876"
+      },
+      {
+        "file": "doc/casos-de-uso/user-case-14-gerenciar_cupons_e_promocoes.md",
+        "hash": "5748060839751412852"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-13.png",
+        "hash": "17581767173834492504"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-13.mdj",
+        "hash": "4724665595470523280"
+      },
+      {
+        "file": "backend/src/main/java/com/tanq/model/Preco.java",
+        "hash": "18443849365789041141"
+      },
+      {
+        "file": "nx.json",
+        "hash": "13262451822676662121"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "10471787413440510551"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-10.png",
+        "hash": "12718879739882030356"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-04.mdj",
+        "hash": "14117140857436785241"
+      },
+      {
+        "file": "backend/src/main/java/com/tanq/service/PostoService.java",
+        "hash": "14289077615473591291"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-12.mdj",
+        "hash": "4101765214644416778"
+      },
+      {
+        "file": "backend/build.gradle",
+        "hash": "2024491671937769384"
+      },
+      {
+        "file": "backend/src/main/java/com/tanq/controller/HomeController.java",
+        "hash": "13471205284578682288"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-01.mdj",
+        "hash": "11729647355586885167"
+      },
+      {
+        "file": "doc/casos-de-uso/user-case-16-atualizar_preco_com_foto.md",
+        "hash": "11399196450146937705"
+      },
+      {
+        "file": "backend/gradle/wrapper/gradle-wrapper.properties",
+        "hash": "3353094478346459509"
+      },
+      {
+        "file": "doc/casos-de-uso/diagrama.mdj",
+        "hash": "4842671524081450656"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-14.png",
+        "hash": "777216247307791414"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-11.png",
+        "hash": "15648133849349117954"
+      },
+      {
+        "file": "backend/src/main/java/com/tanq/service/PrecoService.java",
+        "hash": "11966315161293083107"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-16.png",
+        "hash": "3200765344875896721"
+      },
+      {
+        "file": "backend/src/main/java/com/tanq/controller/AuthController.java",
+        "hash": "148799400815561920"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-08.png",
+        "hash": "3558374637314665173"
+      },
+      {
+        "file": "doc/casos-de-uso/user-case-12-gerenciar_contas_de_parceiros.md",
+        "hash": "5185850717288950810"
+      },
+      {
+        "file": "backend/src/main/java/com/tanq/controller/UsuarioController.java",
+        "hash": "12797915595933616838"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-07.mdj",
+        "hash": "9859032202693605228"
+      },
+      {
+        "file": "WALKTHROUGH_MIGRACAO.md",
+        "hash": "5015430050342116626"
+      },
+      {
+        "file": "APRESENTACAO.md",
+        "hash": "15103547532957318010"
+      },
+      {
+        "file": "package.json",
+        "hash": "11150890701305353762"
+      },
+      {
+        "file": "doc/casos-de-uso/user-case-09-visualizar_postos_no_mapa.md",
+        "hash": "2363279882053691331"
+      },
+      {
+        "file": "doc/casos-de-uso/user-case-07-acompanhar-avaliacoes.md",
+        "hash": "9941742244733830421"
+      },
+      {
+        "file": "backend/src/main/resources/data.sql",
+        "hash": "125225115520438813"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-15.mdj",
+        "hash": "3076578114524180695"
+      },
+      {
+        "file": "backend/src/test/resources/application-test.properties",
+        "hash": "3020849952239312361"
+      },
+      {
+        "file": "IMPLEMENT_SIMPLE.md",
+        "hash": "5630936258133475551"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "5038080265044912244"
+      },
+      {
+        "file": "backend/src/test/java/com/tanq/service/PostoServiceTest.java",
+        "hash": "17637236014279315126"
+      },
+      {
+        "file": "README.md",
+        "hash": "4009594894852715287"
+      },
+      {
+        "file": "doc/arquitetura.md",
+        "hash": "13505245762695660123"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-11.mdj",
+        "hash": "14373263782887477044"
+      },
+      {
+        "file": "doc/casos-de-uso/user-case-04-criar_conta_de_motorista.md",
+        "hash": "15074308073107152205"
+      },
+      {
+        "file": "backend/src/main/java/com/tanq/model/Avaliacao.java",
+        "hash": "6606377282274913758"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-08.mdj",
+        "hash": "10059912981768352397"
+      },
+      {
+        "file": "doc/casos-de-uso/user-case-06-consultar_ranking_de_precos.md",
+        "hash": "14682802515351398556"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-04.png",
+        "hash": "663651445574112269"
+      },
+      {
+        "file": "backend/src/main/java/com/tanq/model/TipoCombustivel.java",
+        "hash": "9108285616453461040"
+      },
+      {
+        "file": "doc/requisitos.md",
+        "hash": "12336565703271278527"
+      },
+      {
+        "file": "backend/src/main/java/com/tanq/service/AvaliacaoService.java",
+        "hash": "17762945593566519109"
+      },
+      {
+        "file": "doc/diagramas/diagrama-atividade-case5.png",
+        "hash": "12535691123991800438"
+      },
+      {
+        "file": "doc/casos-de-uso/user-case-10-resgatar_cupom_de_desconto.md",
+        "hash": "3574107796873141688"
+      },
+      {
+        "file": "backend/src/test/java/com/tanq/service/PrecoServiceTest.java",
+        "hash": "8305031125130223145"
+      },
+      {
+        "file": "projeto-final-fase3.pdf",
+        "hash": "14692369422822563852"
+      },
+      {
+        "file": "backend/src/main/java/com/tanq/controller/AvaliacaoController.java",
+        "hash": "11170978864287812927"
+      },
+      {
+        "file": "doc/casos-de-uso/user-case-01-realizar_logout.md",
+        "hash": "7600658278822287483"
+      },
+      {
+        "file": "backend/src/test/java/com/tanq/service/AvaliacaoServiceTest.java",
+        "hash": "16643509287764895012"
+      },
+      {
+        "file": "doc/diagramas/diagrama_de_classe.png",
+        "hash": "13625549721818262259"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-01.png",
+        "hash": "16984072372543937692"
+      },
+      {
+        "file": "backend/src/main/java/com/tanq/repository/PostoRepository.java",
+        "hash": "9893737818749768764"
+      },
+      {
+        "file": "doc/diagramas/diagrama-atividade-case05.mdj",
+        "hash": "2905733266013653368"
+      },
+      {
+        "file": "doc/diagramas/diagrama_arquitetura.png",
+        "hash": "15899171134690049511"
+      },
+      {
+        "file": ".github/workflows/ci.yml",
+        "hash": "2171530306563693259"
+      },
+      {
+        "file": "backend/src/test/java/com/tanq/TanqApplicationTests.java",
+        "hash": "492552882366251549"
+      },
+      {
+        "file": "projeto-final-fase1.pdf",
+        "hash": "13045915204917335610"
+      },
+      {
+        "file": "backend/src/main/java/com/tanq/model/Posto.java",
+        "hash": "12098176824860932491"
+      },
+      {
+        "file": "doc/diagramas/diagrama-atividade-case03.mdj",
+        "hash": "947335740795509643"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-12.png",
+        "hash": "18108690120038034256"
+      },
+      {
+        "file": "backend/src/main/java/com/tanq/repository/AvaliacaoRepository.java",
+        "hash": "9942686331701459558"
+      },
+      {
+        "file": "doc/casos-de-uso/user-case-15-obter_recomendacao_via_chatbo.md",
+        "hash": "7753639138665722296"
+      },
+      {
+        "file": "doc/casos-de-uso/user-case-03-recuperar_senha.md",
+        "hash": "10842254475384582364"
+      },
+      {
+        "file": "backend/.mvn/wrapper/maven-wrapper.properties",
+        "hash": "8323933083354530602"
       },
       {
         "file": "doc/diagramas/diagrama-de-sequencia-case-02.png",
         "hash": "9749768702963088344"
+      },
+      {
+        "file": "docker-compose.yml",
+        "hash": "13461250005819063211"
+      },
+      {
+        "file": "doc/diagramas/diagrama-de-sequencia-case-09.png",
+        "hash": "8495734023799178659"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "10621758773690326421"
+      },
+      {
+        "file": "backend/gradlew",
+        "hash": "7421580774012574051"
       }
     ],
     "projectFileMap": {
-      "@tanq/web-tanq": [
+      "@tanq/core-logic": [
         {
-          "file": "apps/web-tanq/index.html",
-          "hash": "3712749643585457887"
-        },
-        {
-          "file": "apps/web-tanq/package.json",
-          "hash": "11934564213550144155",
+          "file": "libs/core-logic/package.json",
+          "hash": "4552700027332214963",
           "deps": [
-            "npm:leaflet",
-            "npm:react-leaflet"
+            "npm:axios",
+            "npm:react"
           ]
         },
         {
-          "file": "apps/web-tanq/project.json",
-          "hash": "10121232426375946804"
+          "file": "libs/core-logic/project.json",
+          "hash": "13960976314835562138"
         },
         {
-          "file": "apps/web-tanq/src/App.css",
-          "hash": "11337939215602929719"
+          "file": "libs/core-logic/src/adapters/storage.native.ts",
+          "hash": "276582992937398000"
         },
         {
-          "file": "apps/web-tanq/src/App.jsx",
-          "hash": "4187628529380018153",
-          "deps": [
-            "npm:react-router-dom"
-          ]
+          "file": "libs/core-logic/src/adapters/storage.ts",
+          "hash": "10053857284792818168"
         },
         {
-          "file": "apps/web-tanq/src/components/AvaliacaoForm.jsx",
-          "hash": "3278479632297986257",
+          "file": "libs/core-logic/src/adapters/storage.web.ts",
+          "hash": "12023343021116982978"
+        },
+        {
+          "file": "libs/core-logic/src/context/AuthContext.tsx",
+          "hash": "1383937753443314363",
           "deps": [
             "npm:react"
           ]
         },
         {
-          "file": "apps/web-tanq/src/components/AvaliacaoForm.test.jsx",
-          "hash": "894853042762199468",
-          "deps": [
-            "npm:vitest",
-            "npm:@testing-library/react"
-          ]
+          "file": "libs/core-logic/src/index.native.ts",
+          "hash": "27832323378138417"
         },
         {
-          "file": "apps/web-tanq/src/components/AvaliacaoList.jsx",
-          "hash": "11394537618629891336",
-          "deps": [
-            "npm:react"
-          ]
+          "file": "libs/core-logic/src/index.ts",
+          "hash": "1366602517149591216"
         },
         {
-          "file": "apps/web-tanq/src/components/AvaliacaoList.test.jsx",
-          "hash": "229386948959473392",
-          "deps": [
-            "npm:vitest",
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "apps/web-tanq/src/components/MapaPostos.jsx",
-          "hash": "8020267758717390894",
-          "deps": [
-            "npm:react-leaflet",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/web-tanq/src/components/PostoCard.jsx",
-          "hash": "3481893224623999971",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/web-tanq/src/components/PostoCard.test.jsx",
-          "hash": "17400149735322751764",
-          "deps": [
-            "npm:vitest",
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "apps/web-tanq/src/components/PostoList.jsx",
-          "hash": "294342683087518668"
-        },
-        {
-          "file": "apps/web-tanq/src/components/PostoList.test.jsx",
-          "hash": "15005802605623222905",
-          "deps": [
-            "npm:vitest",
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "apps/web-tanq/src/components/SeletorLocalizacao.jsx",
-          "hash": "1909740153411430440",
-          "deps": [
-            "npm:react-leaflet",
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/web-tanq/src/contexts/AuthContext.jsx",
-          "hash": "13174492552515080589",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/web-tanq/src/index.css",
-          "hash": "4707044361716479821"
-        },
-        {
-          "file": "apps/web-tanq/src/main.jsx",
-          "hash": "2831836221795815508",
-          "deps": [
-            "npm:react",
-            "npm:react-dom",
-            "npm:react-router-dom"
-          ]
-        },
-        {
-          "file": "apps/web-tanq/src/pages/AuthPages.css",
-          "hash": "5811495606382842449"
-        },
-        {
-          "file": "apps/web-tanq/src/pages/CadastroPage.jsx",
-          "hash": "15639251839367160547",
-          "deps": [
-            "npm:react",
-            "npm:react-router-dom"
-          ]
-        },
-        {
-          "file": "apps/web-tanq/src/pages/HomePage.jsx",
-          "hash": "632697397492428979",
-          "deps": [
-            "npm:react",
-            "npm:react-router-dom"
-          ]
-        },
-        {
-          "file": "apps/web-tanq/src/pages/HomePage.test.jsx",
-          "hash": "4974833634175607549",
-          "deps": [
-            "npm:vitest",
-            "npm:@testing-library/react",
-            "npm:react-router-dom"
-          ]
-        },
-        {
-          "file": "apps/web-tanq/src/pages/LoginPage.jsx",
-          "hash": "11517193856764593907",
-          "deps": [
-            "npm:react",
-            "npm:react-router-dom"
-          ]
-        },
-        {
-          "file": "apps/web-tanq/src/pages/MapaPage.jsx",
-          "hash": "5000599997787092019"
-        },
-        {
-          "file": "apps/web-tanq/src/pages/RankingPage.jsx",
-          "hash": "1540179336010585821",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "apps/web-tanq/src/pages/RankingPage.test.jsx",
-          "hash": "11303276737580710023",
-          "deps": [
-            "npm:vitest",
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "apps/web-tanq/src/pages/RegisterPage.jsx",
-          "hash": "6627152408483990883",
-          "deps": [
-            "npm:react",
-            "npm:react-router-dom"
-          ]
-        },
-        {
-          "file": "apps/web-tanq/src/services/api.js",
-          "hash": "2533746183063859476",
+          "file": "libs/core-logic/src/services/api.ts",
+          "hash": "15691707804211802403",
           "deps": [
             "npm:axios"
           ]
         },
         {
-          "file": "apps/web-tanq/src/test/setup.js",
-          "hash": "11678417526531543973",
-          "deps": [
-            "npm:@testing-library/jest-dom"
-          ]
+          "file": "libs/core-logic/src/services/environment.ts",
+          "hash": "3207574221207193503"
         },
         {
-          "file": "apps/web-tanq/src/utils/leafletConfig.js",
-          "hash": "4104114444794151769",
-          "deps": [
-            "npm:leaflet"
-          ]
+          "file": "libs/core-logic/src/types/index.ts",
+          "hash": "17536016332874240256"
         },
         {
-          "file": "apps/web-tanq/tsconfig.json",
-          "hash": "2511186419881050048"
-        },
-        {
-          "file": "apps/web-tanq/vite.config.js",
-          "hash": "8353240592056026144",
-          "deps": [
-            "npm:vite",
-            "npm:@vitejs/plugin-react"
-          ]
+          "file": "libs/core-logic/tsconfig.json",
+          "hash": "10704766688270349347"
         }
       ],
       "@tanq/mobile-tanq": [
@@ -748,6 +593,227 @@
         {
           "file": "apps/mobile-tanq/tsconfig.json",
           "hash": "14384139235785913196"
+        }
+      ],
+      "@tanq/web-tanq": [
+        {
+          "file": "apps/web-tanq/index.html",
+          "hash": "3712749643585457887"
+        },
+        {
+          "file": "apps/web-tanq/package.json",
+          "hash": "11934564213550144155",
+          "deps": [
+            "npm:leaflet",
+            "npm:react-leaflet"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/project.json",
+          "hash": "10121232426375946804"
+        },
+        {
+          "file": "apps/web-tanq/src/App.css",
+          "hash": "11337939215602929719"
+        },
+        {
+          "file": "apps/web-tanq/src/App.jsx",
+          "hash": "4762445455076808962",
+          "deps": [
+            "npm:react-router-dom",
+            "@tanq/core-logic"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/src/components/AvaliacaoForm.jsx",
+          "hash": "14496534349045167005",
+          "deps": [
+            "npm:react",
+            "@tanq/core-logic"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/src/components/AvaliacaoForm.test.jsx",
+          "hash": "11185960030507531335",
+          "deps": [
+            "npm:vitest",
+            "npm:@testing-library/react",
+            "@tanq/core-logic"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/src/components/AvaliacaoList.jsx",
+          "hash": "16925793164562560066",
+          "deps": [
+            "npm:react",
+            "@tanq/core-logic"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/src/components/AvaliacaoList.test.jsx",
+          "hash": "10466201536812057235",
+          "deps": [
+            "npm:vitest",
+            "npm:@testing-library/react",
+            "@tanq/core-logic"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/src/components/MapaPostos.jsx",
+          "hash": "4547967092697724055",
+          "deps": [
+            "npm:react-leaflet",
+            "npm:react",
+            "@tanq/core-logic"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/src/components/PostoCard.jsx",
+          "hash": "14198614359672415545",
+          "deps": [
+            "npm:react",
+            "@tanq/core-logic"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/src/components/PostoCard.test.jsx",
+          "hash": "17900353440350874881",
+          "deps": [
+            "npm:vitest",
+            "npm:@testing-library/react",
+            "@tanq/core-logic"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/src/components/PostoList.jsx",
+          "hash": "294342683087518668"
+        },
+        {
+          "file": "apps/web-tanq/src/components/PostoList.test.jsx",
+          "hash": "15005802605623222905",
+          "deps": [
+            "npm:vitest",
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/src/components/SeletorLocalizacao.jsx",
+          "hash": "1909740153411430440",
+          "deps": [
+            "npm:react-leaflet",
+            "npm:react"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/src/index.css",
+          "hash": "4707044361716479821"
+        },
+        {
+          "file": "apps/web-tanq/src/main.jsx",
+          "hash": "8974969471182075957",
+          "deps": [
+            "npm:react",
+            "npm:react-dom",
+            "npm:react-router-dom",
+            "@tanq/core-logic"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/src/pages/AuthPages.css",
+          "hash": "5811495606382842449"
+        },
+        {
+          "file": "apps/web-tanq/src/pages/CadastroPage.jsx",
+          "hash": "10933466829607625302",
+          "deps": [
+            "npm:react",
+            "npm:react-router-dom",
+            "@tanq/core-logic"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/src/pages/HomePage.jsx",
+          "hash": "13512352291145653191",
+          "deps": [
+            "npm:react",
+            "npm:react-router-dom",
+            "@tanq/core-logic"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/src/pages/HomePage.test.jsx",
+          "hash": "865830142918410080",
+          "deps": [
+            "npm:vitest",
+            "npm:@testing-library/react",
+            "npm:react-router-dom",
+            "@tanq/core-logic"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/src/pages/LoginPage.jsx",
+          "hash": "866453364150657716",
+          "deps": [
+            "npm:react",
+            "npm:react-router-dom",
+            "@tanq/core-logic"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/src/pages/MapaPage.jsx",
+          "hash": "5000599997787092019"
+        },
+        {
+          "file": "apps/web-tanq/src/pages/RankingPage.jsx",
+          "hash": "2754815792179456976",
+          "deps": [
+            "npm:react",
+            "@tanq/core-logic"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/src/pages/RankingPage.test.jsx",
+          "hash": "10912298008231184372",
+          "deps": [
+            "npm:vitest",
+            "npm:@testing-library/react",
+            "@tanq/core-logic"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/src/pages/RegisterPage.jsx",
+          "hash": "1538585731218138971",
+          "deps": [
+            "npm:react",
+            "npm:react-router-dom",
+            "@tanq/core-logic"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/src/test/setup.js",
+          "hash": "11678417526531543973",
+          "deps": [
+            "npm:@testing-library/jest-dom"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/src/utils/leafletConfig.js",
+          "hash": "4104114444794151769",
+          "deps": [
+            "npm:leaflet"
+          ]
+        },
+        {
+          "file": "apps/web-tanq/tsconfig.json",
+          "hash": "2511186419881050048"
+        },
+        {
+          "file": "apps/web-tanq/vite.config.js",
+          "hash": "11085917643878357338",
+          "deps": [
+            "npm:vite",
+            "npm:@vitejs/plugin-react"
+          ]
         }
       ]
     }

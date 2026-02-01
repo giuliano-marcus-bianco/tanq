@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { avaliacaoService } from '../services/api';
-import { useAuth } from '../contexts/AuthContext';
+import { avaliacaoService } from '@tanq/core-logic';
+import { useAuth } from '@tanq/core-logic';
 import AvaliacaoForm from './AvaliacaoForm';
 import AvaliacaoList from './AvaliacaoList';
 

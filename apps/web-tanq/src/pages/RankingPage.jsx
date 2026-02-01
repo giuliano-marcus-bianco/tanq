@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { precoService, postoService } from '../services/api';
-import { useAuth } from '../contexts/AuthContext';
+import { precoService, postoService } from '@tanq/core-logic';
+import { useAuth } from '@tanq/core-logic';
 
 function RankingPage() {
   const [precos, setPrecos] = useState([]);

@@ -1,11 +1,11 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import AvaliacaoList from './AvaliacaoList';
-import { avaliacaoService, usuarioService } from '../services/api';
-import { useAuth } from '../contexts/AuthContext';
+import { avaliacaoService, usuarioService } from '@tanq/core-logic';
+import { useAuth } from '@tanq/core-logic';
 
 // Mock dos serviços
-vi.mock('../services/api', () => ({
+vi.mock('@tanq/core-logic', () => ({
   avaliacaoService: {
     listarPorPosto: vi.fn(),
     deletar: vi.fn(),
@@ -16,7 +16,7 @@ vi.mock('../services/api', () => ({
 }));
 
 // Mock do hook useAuth
-vi.mock('../contexts/AuthContext', () => ({
+vi.mock('@tanq/core-logic', () => ({
   useAuth: vi.fn(),
 }));
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { avaliacaoService } from '../services/api';
-import { useAuth } from '../contexts/AuthContext';
+import { avaliacaoService } from '@tanq/core-logic';
+import { useAuth } from '@tanq/core-logic';
 
 function AvaliacaoForm({ postoId, onAvaliacaoAdded }) {
   const [nota, setNota] = useState(0);

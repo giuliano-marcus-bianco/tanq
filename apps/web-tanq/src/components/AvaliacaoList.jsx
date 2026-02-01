@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { avaliacaoService, usuarioService } from '../services/api';
-import { useAuth } from '../contexts/AuthContext';
+import { avaliacaoService, usuarioService } from '@tanq/core-logic';
+import { useAuth } from '@tanq/core-logic';
 
 function AvaliacaoList({ postoId, refresh, onAvaliacaoDeleted }) {
   const [avaliacoes, setAvaliacoes] = useState([]);

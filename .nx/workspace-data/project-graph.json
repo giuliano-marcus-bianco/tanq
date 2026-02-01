@@ -70,6 +70,63 @@
         "implicitDependencies": []
       }
     },
+    "@tanq/core-logic": {
+      "name": "@tanq/core-logic",
+      "type": "lib",
+      "data": {
+        "root": "libs/core-logic",
+        "name": "@tanq/core-logic",
+        "tags": [
+          "npm:private",
+          "type:lib",
+          "scope:shared"
+        ],
+        "metadata": {
+          "targetGroups": {},
+          "js": {
+            "packageName": "@tanq/core-logic",
+            "packageMain": "./src/index.ts",
+            "isInPackageManagerWorkspaces": true
+          }
+        },
+        "targets": {
+          "build": {
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "npx tsc -p tsconfig.json",
+              "cwd": "libs/core-logic"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "production",
+              "^production"
+            ],
+            "cache": true
+          },
+          "lint": {
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "npx eslint src",
+              "cwd": "libs/core-logic"
+            },
+            "configurations": {},
+            "parallelism": true,
+            "inputs": [
+              "default"
+            ],
+            "cache": true
+          }
+        },
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
+        "projectType": "library",
+        "sourceRoot": "libs/core-logic/src",
+        "implicitDependencies": []
+      }
+    },
     "@tanq/web-tanq": {
       "name": "@tanq/web-tanq",
       "type": "app",
@@ -13069,6 +13126,18 @@
         "type": "static"
       }
     ],
+    "@tanq/core-logic": [
+      {
+        "source": "@tanq/core-logic",
+        "target": "npm:axios",
+        "type": "static"
+      },
+      {
+        "source": "@tanq/core-logic",
+        "target": "npm:react",
+        "type": "static"
+      }
+    ],
     "@tanq/web-tanq": [
       {
         "source": "@tanq/web-tanq",
@@ -13083,6 +13152,11 @@
       {
         "source": "@tanq/web-tanq",
         "target": "npm:react-router-dom",
+        "type": "static"
+      },
+      {
+        "source": "@tanq/web-tanq",
+        "target": "@tanq/core-logic",
         "type": "static"
       },
       {
@@ -13103,11 +13177,6 @@
       {
         "source": "@tanq/web-tanq",
         "target": "npm:react-dom",
-        "type": "static"
-      },
-      {
-        "source": "@tanq/web-tanq",
-        "target": "npm:axios",
         "type": "static"
       },
       {
@@ -31340,5 +31409,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1769902189369
+  "computedAt": 1769903811045
 }

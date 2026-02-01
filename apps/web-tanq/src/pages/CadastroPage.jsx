@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { postoService, precoService } from '../services/api';
-import { useAuth } from '../contexts/AuthContext';
+import { postoService, precoService } from '@tanq/core-logic';
+import { useAuth } from '@tanq/core-logic';
 import SeletorLocalizacao from '../components/SeletorLocalizacao';
 
 function CadastroPage() {

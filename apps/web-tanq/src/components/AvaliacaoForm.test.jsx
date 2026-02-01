@@ -1,18 +1,13 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import AvaliacaoForm from './AvaliacaoForm';
-import { avaliacaoService } from '../services/api';
-import { useAuth } from '../contexts/AuthContext';
+import { avaliacaoService, useAuth } from '@tanq/core-logic';
 
-// Mock do serviço
-vi.mock('../services/api', () => ({
+// Mock do módulo @tanq/core-logic
+vi.mock('@tanq/core-logic', () => ({
   avaliacaoService: {
     criar: vi.fn(),
   },
-}));
-
-// Mock do hook useAuth
-vi.mock('../contexts/AuthContext', () => ({
   useAuth: vi.fn(),
 }));
 

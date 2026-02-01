@@ -17,6 +17,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
+      '@tanq/core-logic': resolve(__dirname, '../../libs/core-logic/src'),
     },
   },
   test: {

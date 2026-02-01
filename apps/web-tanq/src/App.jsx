@@ -1,5 +1,5 @@
 import { Routes, Route, Link } from 'react-router-dom';
-import { useAuth } from './contexts/AuthContext';
+import { useAuth } from '@tanq/core-logic';
 import HomePage from './pages/HomePage';
 import RankingPage from './pages/RankingPage';
 import CadastroPage from './pages/CadastroPage';

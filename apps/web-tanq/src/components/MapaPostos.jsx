@@ -1,6 +1,6 @@
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import { useEffect, useState } from 'react';
-import { postoService, precoService } from '../services/api';
+import { postoService, precoService } from '@tanq/core-logic';
 import L, { defaultIcon } from '../utils/leafletConfig';
 
 // Botão para ir à localização do usuário

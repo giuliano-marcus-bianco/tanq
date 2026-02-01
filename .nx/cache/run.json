@@ -1,8 +1,8 @@
 {
   "run": {
     "command": "nx test @tanq/web-tanq",
-    "startTime": "2026-01-31T23:22:25.845Z",
-    "endTime": "2026-01-31T23:22:28.087Z",
+    "startTime": "2026-01-31T23:53:19.490Z",
+    "endTime": "2026-01-31T23:53:21.872Z",
     "inner": false
   },
   "tasks": [
@@ -10,12 +10,12 @@
       "taskId": "@tanq/web-tanq:test",
       "target": "test",
       "projectName": "@tanq/web-tanq",
-      "hash": "7861595766637821492",
-      "startTime": "2026-01-31T23:22:25.854Z",
-      "endTime": "2026-01-31T23:22:28.083Z",
+      "hash": "7282444022549102005",
+      "startTime": "2026-01-31T23:53:19.499Z",
+      "endTime": "2026-01-31T23:53:21.870Z",
       "params": "",
       "cacheStatus": "cache-miss",
-      "status": 0
+      "status": 1
     }
   ]
 }
