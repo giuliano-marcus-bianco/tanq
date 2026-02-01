@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { View, StyleSheet, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
-import { TextInput, Button, Text, Card, HelperText, Snackbar } from 'react-native-paper';
+import { TextInput, Button, Text, Card, HelperText } from 'react-native-paper';
 import { router } from 'expo-router';
-import { useAuth } from '@tanq/core-logic';
+import * as Haptics from 'expo-haptics';
+import { useAuth } from '../../../libs/core-logic/src/context/AuthContext';
 import { tanqColors } from '../theme';
 
 export default function LoginScreen() {
@@ -14,6 +15,9 @@ export default function LoginScreen() {
   const [senhaVisivel, setSenhaVisivel] = useState(false);
 
   const handleLogin = async () => {
+    // Feedback tátil ao pressionar
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    
     // Validação básica
     if (!email.trim()) {
       setErro('Por favor, informe seu e-mail');

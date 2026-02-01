@@ -1,9 +1,17 @@
 /**
  * Native Storage Adapter - Usa expo-secure-store
- * Este arquivo é carregado automaticamente pelo Metro (React Native bundler)
+ * 
+ * IMPORTANTE: Este adapter NÃO se auto-inicializa.
+ * Deve ser inicializado explicitamente no entry point da aplicação Mobile.
+ * 
+ * @example
+ * // Em _layout.tsx:
+ * import { setStorageAdapter } from '@tanq/core-logic';
+ * import { NativeStorageAdapter } from '@tanq/core-logic/adapters/storage.native';
+ * setStorageAdapter(new NativeStorageAdapter());
  */
 import * as SecureStore from 'expo-secure-store';
-import { StorageAdapter, setStorageAdapter } from './storage';
+import { StorageAdapter } from './storage';
 
 export class NativeStorageAdapter implements StorageAdapter {
   async getItem(key: string): Promise<string | null> {
@@ -18,9 +26,3 @@ export class NativeStorageAdapter implements StorageAdapter {
     await SecureStore.deleteItemAsync(key);
   }
 }
-
-// Auto-initialize para Native
-const nativeAdapter = new NativeStorageAdapter();
-setStorageAdapter(nativeAdapter);
-
-export { nativeAdapter };

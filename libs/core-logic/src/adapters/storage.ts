@@ -1,26 +1,30 @@
-/**
- * Storage Adapter Interface
- * Abstração para storage que funciona em Web (localStorage) e Mobile (SecureStore)
- */
+// Define a interface
 export interface StorageAdapter {
   getItem(key: string): Promise<string | null>;
   setItem(key: string, value: string): Promise<void>;
   removeItem(key: string): Promise<void>;
 }
 
-// Singleton para o adapter atual
-let currentAdapter: StorageAdapter | null = null;
+// --- IMPLEMENTAÇÃO DO SINGLETON ---
+// Variável para armazenar a instância
+let adapterInstance: StorageAdapter | null = null;
 
-export function setStorageAdapter(adapter: StorageAdapter): void {
-  currentAdapter = adapter;
-}
+// Função para injetar a dependência (chamada pelo App Mobile ou Web)
+export const setStorageAdapter = (adapter: StorageAdapter) => {
+  console.log('[CoreLogic] Storage Adapter configurado:', adapter);
+  adapterInstance = adapter;
+};
 
-export function getStorageAdapter(): StorageAdapter {
-  if (!currentAdapter) {
-    throw new Error('Storage adapter not initialized. Call setStorageAdapter first or import a platform-specific module.');
+// Função para recuperar a dependência (chamada pelos Services/Contexts)
+export const getStorageAdapter = (): StorageAdapter => {
+  if (!adapterInstance) {
+    console.warn('[CoreLogic] ALERTA: StorageAdapter não foi inicializado! Usando fallback em memória.');
+    // Fallback para evitar crash se chamado antes da init
+    return {
+      getItem: async () => null,
+      setItem: async () => {},
+      removeItem: async () => {},
+    };
   }
-  return currentAdapter;
-}
-
-// Re-export para facilitar imports
-export type { StorageAdapter as IStorageAdapter };
+  return adapterInstance;
+};

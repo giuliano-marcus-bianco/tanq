@@ -1,0 +1,37 @@
+[2m> [22mnpx vite
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m215[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+[2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+[2m20:50:30[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+Re-optimizing dependencies because vite config has changed
+[2m20:50:30[22m [36m[1m[vite][22m[39m server restarted.
+[2m20:51:18[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.jsx[22m
+[2m20:51:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+[2m20:51:39[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mC:/GitHub/Projetos/tanq/libs/core-logic/src/adapters/storage.ts[22m
+[2m20:52:03[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mC:/GitHub/Projetos/tanq/libs/core-logic/src/index.ts[22m
+[2m20:52:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/AvaliacaoForm.jsx[22m
+[2m20:52:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/AvaliacaoList.jsx[22m
+[2m20:52:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/MapaPostos.jsx[22m
+[2m20:52:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/PostoCard.jsx[22m
+[2m20:52:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/SeletorLocalizacao.jsx[22m
+[2m20:52:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/contexts/AuthContext.jsx[22m
+[2m20:52:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/CadastroPage.jsx[22m
+[2m20:52:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/HomePage.jsx[22m
+[2m20:52:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/LoginPage.jsx[22m
+[2m20:52:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/MapaPage.jsx[22m
+[2m20:52:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/RankingPage.jsx[22m
+[2m20:52:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/contexts/AuthContext.jsx, /src/pages/HomePage.jsx, /src/pages/RankingPage.jsx, /src/pages/CadastroPage.jsx[22m
+[2m20:52:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/MapaPostos.jsx, /src/components/SeletorLocalizacao.jsx[22m
+[2m20:52:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.jsx[22m
+[2m20:52:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/RegisterPage.jsx[22m
+[2m20:52:16[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.jsx[22m
+[2m20:52:16[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/contexts/AuthContext.jsx[22m Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m20:52:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/HomePage.jsx, /src/pages/RankingPage.jsx, /src/pages/RegisterPage.jsx, /src/pages/LoginPage.jsx, /src/pages/CadastroPage.jsx[22m
+[2m20:52:17[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/contexts/AuthContext.jsx[22m Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m20:52:17[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/contexts/AuthContext.jsx[22m
+[2m20:52:26[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/services/api.js[22m
+[2m20:52:26[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/contexts/AuthContext.jsx[22m
+^C

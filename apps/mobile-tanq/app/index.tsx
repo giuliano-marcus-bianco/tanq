@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import { Text, Button, ActivityIndicator } from 'react-native-paper';
 import { router } from 'expo-router';
-import { useAuth } from '@tanq/core-logic';
+import { useAuth } from '../../../libs/core-logic/src/context/AuthContext';
 import { tanqColors } from '../theme';
 
 export default function WelcomeScreen() {

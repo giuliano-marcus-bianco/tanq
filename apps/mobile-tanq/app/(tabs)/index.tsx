@@ -2,8 +2,9 @@ import { useState, useEffect, useCallback } from 'react';
 import { View, StyleSheet, FlatList, RefreshControl } from 'react-native';
 import { Card, Text, Chip, ActivityIndicator, Searchbar, FAB } from 'react-native-paper';
 import { router, useFocusEffect } from 'expo-router';
-import { postoService, precoService, useAuth } from '@tanq/core-logic';
-import type { Posto, Preco } from '@tanq/core-logic';
+import { postoService, precoService } from '../../../../libs/core-logic/src/services/api';
+import { useAuth } from '../../../../libs/core-logic/src/context/AuthContext';
+import type { Posto, Preco } from '../../../../libs/core-logic/src/types';
 import { tanqColors } from '../../theme';
 
 interface PostoComPrecos extends Posto {
@@ -32,7 +33,7 @@ export default function HomeScreen() {
         if (!precosPorPosto[preco.postoId]) {
           precosPorPosto[preco.postoId] = {};
         }
-        precosPorPosto[preco.postoId][preco.tipoCombustivel] = preco.valor;
+        precosPorPosto[preco.postoId][preco.tipo] = preco.valor;
       });
 
       // Combinar postos com preços

@@ -1,7 +1,7 @@
 import { View, StyleSheet } from 'react-native';
 import { Text, Card, Button, Avatar, List, Divider } from 'react-native-paper';
 import { router } from 'expo-router';
-import { useAuth } from '@tanq/core-logic';
+import { useAuth } from '../../../../libs/core-logic/src/context/AuthContext';
 import { tanqColors } from '../../theme';
 
 export default function ProfileScreen() {

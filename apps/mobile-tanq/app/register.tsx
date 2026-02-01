@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { View, StyleSheet, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { TextInput, Button, Text, Card, HelperText, SegmentedButtons } from 'react-native-paper';
 import { router } from 'expo-router';
-import { useAuth } from '@tanq/core-logic';
+import * as Haptics from 'expo-haptics';
+import { useAuth } from '../../../libs/core-logic/src/context/AuthContext';
 import { tanqColors } from '../theme';
 
 type TipoUsuario = 'MOTORISTA' | 'DONO_POSTO';
@@ -19,6 +20,9 @@ export default function RegisterScreen() {
   const [senhaVisivel, setSenhaVisivel] = useState(false);
 
   const handleRegister = async () => {
+    // Feedback tátil ao pressionar
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    
     // Validações
     if (!nome.trim()) {
       setErro('Por favor, informe seu nome');

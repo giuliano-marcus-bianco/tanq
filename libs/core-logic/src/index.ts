@@ -2,23 +2,30 @@
  * @tanq/core-logic
  * Biblioteca compartilhada de lógica de negócios para Web e Mobile
  * 
- * NOTA: Este é o ponto de entrada principal.
- * Os bundlers (Vite/Metro) irão automaticamente escolher os arquivos 
- * .web.ts ou .native.ts corretos para cada plataforma.
+ * IMPORTANTE: Este arquivo é PLATFORM-AGNOSTIC.
+ * NÃO importa nem exporta adapters específicos de plataforma (storage.web, storage.native).
+ * 
+ * Para inicializar o storage, use DEEP IMPORTS:
+ * 
+ * @example Mobile (_layout.tsx):
+ * import { setStorageAdapter } from '@tanq/core-logic';
+ * import { NativeStorageAdapter } from '@tanq/core-logic/src/adapters/storage.native';
+ * setStorageAdapter(new NativeStorageAdapter());
+ * 
+ * @example Web (main.jsx):
+ * import { setStorageAdapter } from '@tanq/core-logic';
+ * import { WebStorageAdapter } from '@tanq/core-logic/src/adapters/storage.web';
+ * setStorageAdapter(new WebStorageAdapter());
  */
 
 // Types
 export * from './types';
 
-// Adapters - Interface apenas (implementações são platform-specific)
+// Adapters - APENAS a interface e funções de configuração (SEM implementações platform-specific)
 export type { StorageAdapter } from './adapters/storage';
 export { setStorageAdapter, getStorageAdapter } from './adapters/storage';
 
-// Importar o adapter correto para a plataforma
-// Vite escolherá storage.web.ts, Metro escolherá storage.native.ts
-import './adapters/storage.web';
-
-// Services
+// Services - Environment
 export type { Platform } from './services/environment';
 export {
   configureEnvironment,
@@ -26,6 +33,7 @@ export {
   getApiBaseUrl,
 } from './services/environment';
 
+// Services - API
 export {
   postoService,
   precoService,

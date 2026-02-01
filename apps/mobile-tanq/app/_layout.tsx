@@ -2,21 +2,35 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { PaperProvider } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Platform } from 'react-native';
+import { useEffect, useState } from 'react';
 import { lightTheme, tanqColors } from '../theme';
 
-// Importar o adapter nativo para inicializar o storage
-import '@tanq/core-logic';
+// Deep imports de TODOS os módulos da core-logic para evitar problemas de resolução do Metro
+import { setStorageAdapter } from '../../../libs/core-logic/src/adapters/storage';
+import { NativeStorageAdapter } from '../../../libs/core-logic/src/adapters/adapter.native';
+import { AuthProvider } from '../../../libs/core-logic/src/context/AuthContext';
+import { configureEnvironment } from '../../../libs/core-logic/src/services/environment';
 
-// Importar o AuthProvider da core-logic
-import { AuthProvider, configureEnvironment } from '@tanq/core-logic';
-import { Platform } from 'react-native';
-
-// Configurar ambiente baseado na plataforma
+// Configurar ambiente baseado na plataforma (pode ficar no nível do módulo)
 configureEnvironment({
   platform: Platform.OS === 'ios' ? 'ios' : 'android',
 });
 
 export default function RootLayout() {
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    // Inicializar o storage adapter dentro do useEffect para garantir ordem correta
+    setStorageAdapter(new NativeStorageAdapter());
+    setIsReady(true);
+  }, []);
+
+  // Aguardar inicialização do storage antes de renderizar
+  if (!isReady) {
+    return null;
+  }
+
   return (
     <SafeAreaProvider>
       <PaperProvider theme={lightTheme}>

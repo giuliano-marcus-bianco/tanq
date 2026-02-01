@@ -1,8 +1,15 @@
 /**
  * Web Storage Adapter - Usa localStorage
- * Este arquivo é carregado automaticamente pelo Vite (Web bundler)
+ * 
+ * IMPORTANTE: Este adapter NÃO se auto-inicializa.
+ * Deve ser inicializado explicitamente no entry point da aplicação Web.
+ * 
+ * @example
+ * // Em main.jsx:
+ * import { setStorageAdapter, WebStorageAdapter } from '@tanq/core-logic';
+ * setStorageAdapter(new WebStorageAdapter());
  */
-import { StorageAdapter, setStorageAdapter } from './storage';
+import { StorageAdapter } from './storage';
 
 export class WebStorageAdapter implements StorageAdapter {
   async getItem(key: string): Promise<string | null> {
@@ -20,9 +27,3 @@ export class WebStorageAdapter implements StorageAdapter {
     window.localStorage.removeItem(key);
   }
 }
-
-// Auto-initialize para Web
-const webAdapter = new WebStorageAdapter();
-setStorageAdapter(webAdapter);
-
-export { webAdapter };
